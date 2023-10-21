@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarMaintenanceSystem
+namespace CarServiceSystem
 {
     abstract class User
     {
@@ -12,7 +12,7 @@ namespace CarMaintenanceSystem
         protected string LastName;
         protected string Email;
         protected string Password;
-        protected User(string FirstName, string LastName, string Email, string Password) 
+        protected User(string FirstName, string LastName, string Email, string Password)
         {
             this.FirstName = FirstName;
             this.LastName = LastName;
