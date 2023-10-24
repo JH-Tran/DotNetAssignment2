@@ -1,4 +1,6 @@
-﻿namespace CarServiceSystem
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+
+namespace CarServiceSystem
 {
     public class Car
     {
@@ -10,5 +12,10 @@
         protected Customer Owner;
         protected Customer[] SecondaryOwner;
         protected ServiceLog[] ServiceHistory;
+
+        public Car(String Make, String Model, int Year, String LicenceNumber, String VehicleIdentificationNumber, Customer Owner)
+        {
+
+        }
     }
 }
