@@ -17,5 +17,33 @@ namespace CarServiceSystem
             this.Email = Email;
             this.Password = Password;
         }
+        public Car[] GetCars()
+        {
+            return OwnCars;
+        }
+        
+        private void ShowCustomerDetails()
+        {
+            //Display customer information except password
+        }
+        private void ShowOwnCar()
+        {
+            foreach (Car car in OwnCars)
+            {
+                //Display Car information and button
+            }
+        }
+        private void ViewServiceScheduleTime()
+        {
+            //Show Booked time
+        }
+        private void AddCar()
+        {
+            //Add car to owncar
+        }
+        private void UpdateCar()
+        {
+            //Add owner to car
+        }
     }
 }
