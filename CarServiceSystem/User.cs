@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CarServiceSystem
+﻿namespace CarServiceSystem
 {
-    abstract class User
+    public abstract class User
     {
-        protected string FirstName;
-        protected string LastName;
-        protected string Email;
-        protected string Password;
+        protected string FirstName = "";
+        protected string LastName = "";
+        protected string Email = "";
+        protected string Password = "";
         protected User(string FirstName, string LastName, string Email, string Password)
         {
             this.FirstName = FirstName;

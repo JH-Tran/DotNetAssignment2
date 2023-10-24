@@ -28,12 +28,70 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            label1 = new Label();
+            textBox1 = new TextBox();
+            Login = new Button();
+            textBox2 = new TextBox();
+            SuspendLayout();
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(303, 110);
+            label1.Name = "label1";
+            label1.Size = new Size(171, 20);
+            label1.TabIndex = 0;
+            label1.Text = "Car Maintenance System";
+            // 
+            // textBox1
+            // 
+            textBox1.ForeColor = Color.Gray;
+            textBox1.Location = new Point(258, 167);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(258, 27);
+            textBox1.TabIndex = 1;
+            textBox1.Text = "Username";
+            // 
+            // Login
+            // 
+            Login.Location = new Point(334, 291);
+            Login.Name = "Login";
+            Login.Size = new Size(94, 29);
+            Login.TabIndex = 2;
+            Login.Text = "Login";
+            Login.UseVisualStyleBackColor = true;
+            Login.Click += button1_Click;
+            // 
+            // textBox2
+            // 
+            textBox2.ForeColor = Color.Gray;
+            textBox2.Location = new Point(258, 228);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(258, 27);
+            textBox2.TabIndex = 3;
+            textBox2.Text = "Password";
+            // 
+            // Form1
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(textBox2);
+            Controls.Add(Login);
+            Controls.Add(textBox1);
+            Controls.Add(label1);
+            Name = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Form1";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Label label1;
+        private TextBox textBox1;
+        private Button Login;
+        private TextBox textBox2;
     }
 }

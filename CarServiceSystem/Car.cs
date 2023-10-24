@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CarServiceSystem
+﻿namespace CarServiceSystem
 {
-    class Car
+    public class Car
     {
         protected String Make;
         protected String Model;
