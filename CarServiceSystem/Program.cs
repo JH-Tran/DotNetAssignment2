@@ -1,3 +1,5 @@
+using CarServiceSystem.Forms;
+
 namespace CarServiceSystem
 {
     internal static class Program
@@ -8,11 +10,9 @@ namespace CarServiceSystem
         [STAThread]
         static void Main()
         {
-            Console.WriteLine("Hello World!");
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            //Application.Run(new Form1());
+            Application.Run(new CustomerMainMenu());
         }
     }
 }
