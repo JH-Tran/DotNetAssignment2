@@ -28,28 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
             PersonalDetailsBtn = new Button();
             LookupCarBtn = new Button();
             AddServiceLogBtn = new Button();
             ViewScheduleBtn = new Button();
+            panel1 = new Panel();
+            label1 = new Label();
+            panel1.SuspendLayout();
             SuspendLayout();
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(239, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(294, 37);
-            label1.TabIndex = 0;
-            label1.Text = "Mechanic Home Page";
-            label1.TextAlign = ContentAlignment.TopCenter;
             // 
             // PersonalDetailsBtn
             // 
             PersonalDetailsBtn.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            PersonalDetailsBtn.Location = new Point(319, 94);
+            PersonalDetailsBtn.Location = new Point(42, 54);
             PersonalDetailsBtn.Name = "PersonalDetailsBtn";
             PersonalDetailsBtn.Size = new Size(130, 31);
             PersonalDetailsBtn.TabIndex = 1;
@@ -60,7 +51,7 @@
             // LookupCarBtn
             // 
             LookupCarBtn.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            LookupCarBtn.Location = new Point(319, 152);
+            LookupCarBtn.Location = new Point(42, 110);
             LookupCarBtn.Name = "LookupCarBtn";
             LookupCarBtn.Size = new Size(130, 31);
             LookupCarBtn.TabIndex = 2;
@@ -71,7 +62,7 @@
             // AddServiceLogBtn
             // 
             AddServiceLogBtn.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            AddServiceLogBtn.Location = new Point(319, 213);
+            AddServiceLogBtn.Location = new Point(42, 175);
             AddServiceLogBtn.Name = "AddServiceLogBtn";
             AddServiceLogBtn.Size = new Size(130, 31);
             AddServiceLogBtn.TabIndex = 3;
@@ -82,7 +73,7 @@
             // ViewScheduleBtn
             // 
             ViewScheduleBtn.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            ViewScheduleBtn.Location = new Point(319, 275);
+            ViewScheduleBtn.Location = new Point(42, 236);
             ViewScheduleBtn.Name = "ViewScheduleBtn";
             ViewScheduleBtn.Size = new Size(130, 31);
             ViewScheduleBtn.TabIndex = 4;
@@ -90,30 +81,50 @@
             ViewScheduleBtn.UseVisualStyleBackColor = true;
             ViewScheduleBtn.Click += ViewScheduleBtn_Click;
             // 
+            // panel1
+            // 
+            panel1.Controls.Add(PersonalDetailsBtn);
+            panel1.Controls.Add(ViewScheduleBtn);
+            panel1.Controls.Add(LookupCarBtn);
+            panel1.Controls.Add(AddServiceLogBtn);
+            panel1.Dock = DockStyle.Left;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(200, 458);
+            panel1.TabIndex = 5;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(395, 73);
+            label1.Name = "label1";
+            label1.Size = new Size(135, 37);
+            label1.TabIndex = 6;
+            label1.Text = "Welcome!";
+            // 
             // MechanicMainMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(ViewScheduleBtn);
-            Controls.Add(AddServiceLogBtn);
-            Controls.Add(LookupCarBtn);
-            Controls.Add(PersonalDetailsBtn);
+            ClientSize = new Size(788, 458);
             Controls.Add(label1);
+            Controls.Add(panel1);
             Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             Name = "MechanicMainMenu";
-            Text = "MechanicMainMenu";
+            Text = "Car Service System";
             Load += MechanicMainMenu_Load;
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private Label label1;
         private Button PersonalDetailsBtn;
         private Button LookupCarBtn;
         private Button AddServiceLogBtn;
         private Button ViewScheduleBtn;
+        private Panel panel1;
+        private Label label1;
     }
 }
