@@ -35,7 +35,9 @@
             label1 = new Label();
             panel1 = new Panel();
             panel2 = new Panel();
+            customerDetails1 = new CustomerDetails();
             panel1.SuspendLayout();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // button1
@@ -101,10 +103,18 @@
             // 
             // panel2
             // 
+            panel2.Controls.Add(customerDetails1);
             panel2.Location = new Point(-1, 77);
             panel2.Name = "panel2";
             panel2.Size = new Size(802, 373);
             panel2.TabIndex = 6;
+            // 
+            // customerDetails1
+            // 
+            customerDetails1.Location = new Point(0, 0);
+            customerDetails1.Name = "customerDetails1";
+            customerDetails1.Size = new Size(802, 373);
+            customerDetails1.TabIndex = 0;
             // 
             // CustomerMainMenu
             // 
@@ -117,6 +127,7 @@
             Text = "CustomerMainMenu";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            panel2.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -129,5 +140,6 @@
         private Label label1;
         private Panel panel1;
         private Panel panel2;
+        private CustomerDetails customerDetails1;
     }
 }

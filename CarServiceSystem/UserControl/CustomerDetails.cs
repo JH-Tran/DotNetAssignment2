@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CarServiceSystem.UserControl
+namespace CarServiceSystem.Forms
 {
-    public partial class Details : UserControl
+    public partial class CustomerDetails : UserControl
     {
-        public Details()
+        public CustomerDetails()
         {
             InitializeComponent();
+        }
+
+        private void ConfirmButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
