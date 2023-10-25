@@ -17,26 +17,28 @@ namespace CarServiceSystem.Forms
             InitializeComponent();
         }
 
-        private void ViewCustomerDetail_Click(object sender, EventArgs e)
+        private void ViewCustomerDetailClick(object sender, EventArgs e)
         {
             customerDetails1.Show();
             customerDetails1.BringToFront();
             viewAllCars1.Hide();
         }
-        private void ViewAllCars(object sender, EventArgs e)
+        private void ViewAllCarsClick(object sender, EventArgs e)
         {
             customerDetails1.Show();
             viewAllCars1.Show();
             viewAllCars1.BringToFront();
         }
-        private void ViewSchedule(object sender, EventArgs e)
+        private void ViewScheduleClick(object sender, EventArgs e)
         {
 
         }
 
-        private void AddCar(object sender, EventArgs e)
+        private void AddCarClick(object sender, EventArgs e)
         {
-
+            this.Hide();
+            AddCar AddCar = new AddCar();
+            AddCar.ShowDialog();
         }
     }
 }

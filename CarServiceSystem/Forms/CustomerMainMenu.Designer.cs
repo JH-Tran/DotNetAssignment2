@@ -49,7 +49,7 @@
             button1.TabIndex = 0;
             button1.Text = "Customer Details";
             button1.UseVisualStyleBackColor = true;
-            button1.Click += ViewCustomerDetail_Click;
+            button1.Click += ViewCustomerDetailClick;
             // 
             // ViewAllCar
             // 
@@ -59,7 +59,7 @@
             ViewAllCar.TabIndex = 1;
             ViewAllCar.Text = "View All Cars";
             ViewAllCar.UseVisualStyleBackColor = true;
-            ViewAllCar.Click += ViewAllCars;
+            ViewAllCar.Click += ViewAllCarsClick;
             // 
             // button3
             // 
@@ -69,7 +69,7 @@
             button3.TabIndex = 2;
             button3.Text = "View Scheduled Service";
             button3.UseVisualStyleBackColor = true;
-            button3.Click += ViewSchedule;
+            button3.Click += ViewScheduleClick;
             // 
             // button2
             // 
@@ -79,7 +79,7 @@
             button2.TabIndex = 3;
             button2.Text = "Add Car";
             button2.UseVisualStyleBackColor = true;
-            button2.Click += AddCar;
+            button2.Click += AddCarClick;
             // 
             // label1
             // 
