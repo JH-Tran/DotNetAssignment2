@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CarServiceSystem
 {
-    class Booking
+    public class Booking
     {
         protected int ID;
         protected Customer Customer;

@@ -2,9 +2,14 @@
 {
     public class Mechanic : User
     {
-        protected String WorkShopName;
+        protected string workShopName;
+        
+
+
         public Mechanic(string FirstName, string LastName, string Email, string Password) : base(FirstName, LastName, Email, Password)
         {
         }
+
+
     }
 }

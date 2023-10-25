@@ -8,13 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CarServiceSystem.UserControl
+namespace CarServiceSystem.Forms
 {
-    public partial class Details : UserControl
-    {
-        public Details()
-        {
-            InitializeComponent();
-        }
-    }
+    //public partial class Details : UserControl
+    //{
+    //    public Details()
+    //    {
+    //        InitializeComponent();
+    //    }
+    //}
 }
