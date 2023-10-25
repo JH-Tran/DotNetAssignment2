@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace CarServiceSystem.Forms
 {
-    //public partial class Details : UserControl
-    //{
-    //    public Details()
-    //    {
-    //        InitializeComponent();
-    //    }
-    //}
+    public partial class ViewAllCars : UserControl
+    {
+        public ViewAllCars()
+        {
+            InitializeComponent();
+        }
+    }
 }

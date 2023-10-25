@@ -10,15 +10,10 @@ namespace CarServiceSystem
         [STAThread]
         static void Main()
         {
-            using(var context = new MechanicServiceContext())
-            {
-                context.Database.EnsureCreated();
-                // To customize application configuration such as set high DPI settings or default font,
-                // see https://aka.ms/applicationconfiguration.
-                ApplicationConfiguration.Initialize();
-                Application.Run(new MechanicMainMenu());
-            }
-
+            ApplicationConfiguration.Initialize();
+            //Application.Run(new Form1());
+            Application.Run(new CustomerMainMenu());
+            Application.Run(new MechanicMainMenu());
         }
     }
 }

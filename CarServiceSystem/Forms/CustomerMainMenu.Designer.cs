@@ -35,7 +35,10 @@
             label1 = new Label();
             panel1 = new Panel();
             panel2 = new Panel();
+            viewAllCars1 = new ViewAllCars();
+            customerDetails1 = new CustomerDetails();
             panel1.SuspendLayout();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // button1
@@ -46,7 +49,7 @@
             button1.TabIndex = 0;
             button1.Text = "Customer Details";
             button1.UseVisualStyleBackColor = true;
-            button1.Click += ViewCustomerDetail;
+            button1.Click += ViewCustomerDetailClick;
             // 
             // ViewAllCar
             // 
@@ -56,7 +59,7 @@
             ViewAllCar.TabIndex = 1;
             ViewAllCar.Text = "View All Cars";
             ViewAllCar.UseVisualStyleBackColor = true;
-            ViewAllCar.Click += ViewAllCars;
+            ViewAllCar.Click += ViewAllCarsClick;
             // 
             // button3
             // 
@@ -66,7 +69,7 @@
             button3.TabIndex = 2;
             button3.Text = "View Scheduled Service";
             button3.UseVisualStyleBackColor = true;
-            button3.Click += ViewSchedule;
+            button3.Click += ViewScheduleClick;
             // 
             // button2
             // 
@@ -76,7 +79,7 @@
             button2.TabIndex = 3;
             button2.Text = "Add Car";
             button2.UseVisualStyleBackColor = true;
-            button2.Click += AddCar;
+            button2.Click += AddCarClick;
             // 
             // label1
             // 
@@ -94,17 +97,34 @@
             panel1.Controls.Add(button3);
             panel1.Controls.Add(ViewAllCar);
             panel1.Controls.Add(button1);
-            panel1.Location = new Point(-1, 0);
+            panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(802, 82);
+            panel1.Size = new Size(800, 450);
             panel1.TabIndex = 5;
             // 
             // panel2
             // 
+            panel2.Controls.Add(customerDetails1);
+            panel2.Controls.Add(viewAllCars1);
             panel2.Location = new Point(-1, 77);
             panel2.Name = "panel2";
             panel2.Size = new Size(802, 373);
             panel2.TabIndex = 6;
+            // 
+            // viewAllCars1
+            // 
+            viewAllCars1.BackColor = SystemColors.ActiveCaption;
+            viewAllCars1.Location = new Point(0, 0);
+            viewAllCars1.Name = "viewAllCars1";
+            viewAllCars1.Size = new Size(801, 373);
+            viewAllCars1.TabIndex = 1;
+            // 
+            // customerDetails2
+            // 
+            customerDetails1.Location = new Point(-1, -2);
+            customerDetails1.Name = "customerDetails2";
+            customerDetails1.Size = new Size(802, 375);
+            customerDetails1.TabIndex = 2;
             // 
             // CustomerMainMenu
             // 
@@ -117,6 +137,7 @@
             Text = "CustomerMainMenu";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            panel2.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -129,5 +150,7 @@
         private Label label1;
         private Panel panel1;
         private Panel panel2;
+        private ViewAllCars viewAllCars1;
+        private CustomerDetails customerDetails1;
     }
 }
