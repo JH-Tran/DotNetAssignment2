@@ -2,11 +2,11 @@
 {
     public abstract class User
     {
-        protected string FirstName = "";
-        protected string LastName = "";
-        protected string Email = "";
-        protected string Password = "";
-        protected User(string FirstName, string LastName, string Email, string Password)
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
+        public User(string FirstName, string LastName, string Email, string Password)
         {
             this.FirstName = FirstName;
             this.LastName = LastName;

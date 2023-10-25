@@ -28,28 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
+            MechanicWorkshopLbl = new Label();
             label2 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
+            FirstNameInput = new TextBox();
+            LastNameInput = new TextBox();
+            EmailInput = new TextBox();
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
             SaveChangesBtn = new Button();
-            CancelBtn = new Button();
             SuspendLayout();
             // 
-            // label1
+            // MechanicWorkshopLbl
             // 
-            label1.Anchor = AnchorStyles.Top;
-            label1.AutoSize = true;
-            label1.Location = new Point(342, 106);
-            label1.Name = "label1";
-            label1.Size = new Size(138, 15);
-            label1.TabIndex = 0;
-            label1.Text = "Workshop: MyWorkshop";
-            label1.TextAlign = ContentAlignment.TopCenter;
+            MechanicWorkshopLbl.Anchor = AnchorStyles.Top;
+            MechanicWorkshopLbl.AutoSize = true;
+            MechanicWorkshopLbl.Location = new Point(342, 106);
+            MechanicWorkshopLbl.Name = "MechanicWorkshopLbl";
+            MechanicWorkshopLbl.Size = new Size(67, 15);
+            MechanicWorkshopLbl.TabIndex = 0;
+            MechanicWorkshopLbl.Text = "Workshop: ";
+            MechanicWorkshopLbl.TextAlign = ContentAlignment.TopCenter;
             // 
             // label2
             // 
@@ -62,29 +61,29 @@
             label2.TabIndex = 1;
             label2.Text = "Personal Details";
             // 
-            // textBox1
+            // FirstNameInput
             // 
-            textBox1.Anchor = AnchorStyles.Top;
-            textBox1.Location = new Point(396, 161);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 2;
+            FirstNameInput.Anchor = AnchorStyles.Top;
+            FirstNameInput.Location = new Point(396, 161);
+            FirstNameInput.Name = "FirstNameInput";
+            FirstNameInput.Size = new Size(218, 23);
+            FirstNameInput.TabIndex = 2;
             // 
-            // textBox2
+            // LastNameInput
             // 
-            textBox2.Anchor = AnchorStyles.Top;
-            textBox2.Location = new Point(396, 209);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(100, 23);
-            textBox2.TabIndex = 3;
+            LastNameInput.Anchor = AnchorStyles.Top;
+            LastNameInput.Location = new Point(396, 209);
+            LastNameInput.Name = "LastNameInput";
+            LastNameInput.Size = new Size(218, 23);
+            LastNameInput.TabIndex = 3;
             // 
-            // textBox3
+            // EmailInput
             // 
-            textBox3.Anchor = AnchorStyles.Top;
-            textBox3.Location = new Point(396, 254);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(100, 23);
-            textBox3.TabIndex = 4;
+            EmailInput.Anchor = AnchorStyles.Top;
+            EmailInput.Location = new Point(396, 254);
+            EmailInput.Name = "EmailInput";
+            EmailInput.Size = new Size(218, 23);
+            EmailInput.TabIndex = 4;
             // 
             // label3
             // 
@@ -125,31 +124,21 @@
             SaveChangesBtn.TabIndex = 8;
             SaveChangesBtn.Text = "Save Changes";
             SaveChangesBtn.UseVisualStyleBackColor = true;
-            // 
-            // CancelBtn
-            // 
-            CancelBtn.Anchor = AnchorStyles.Top;
-            CancelBtn.Location = new Point(310, 303);
-            CancelBtn.Name = "CancelBtn";
-            CancelBtn.Size = new Size(92, 23);
-            CancelBtn.TabIndex = 9;
-            CancelBtn.Text = "Cancel";
-            CancelBtn.UseVisualStyleBackColor = true;
+            SaveChangesBtn.Click += SaveChangesBtn_Click;
             // 
             // MechanicDetails
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(CancelBtn);
             Controls.Add(SaveChangesBtn);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(EmailInput);
+            Controls.Add(LastNameInput);
+            Controls.Add(FirstNameInput);
             Controls.Add(label2);
-            Controls.Add(label1);
+            Controls.Add(MechanicWorkshopLbl);
             Name = "MechanicDetails";
             Size = new Size(838, 564);
             ResumeLayout(false);
@@ -158,15 +147,14 @@
 
         #endregion
 
-        private Label label1;
+        public Label MechanicWorkshopLbl;
         private Label label2;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
+        public TextBox FirstNameInput;
+        public TextBox LastNameInput;
+        public TextBox EmailInput;
         private Label label3;
         private Label label4;
         private Label label5;
         private Button SaveChangesBtn;
-        private Button CancelBtn;
     }
 }

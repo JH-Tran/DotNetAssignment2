@@ -16,5 +16,30 @@ namespace CarServiceSystem.Forms
         {
             InitializeComponent();
         }
+
+        private void SearchLicenceBtn_Click(object sender, EventArgs e)
+        {
+
+            var returnedCar = MechanicMainMenu.cars.FirstOrDefault(car => car.LicenceNumber == LicenceNumberInput.Text);
+
+            if (returnedCar != null)
+            {
+                CarNotFoundLbl.Hide();
+                MakeAndModelLbl.Text = "Make/Model: " + returnedCar.Make + " " + returnedCar.Model;
+                YearLbl.Text = "Year: " + returnedCar.Year;
+                OdometerLbl.Text = "Odometer: " + returnedCar.Odometer;
+                CarDetailsPnl.Show();
+                ServiceHistoryPnl.Show();
+            }
+            else
+            {
+                CarDetailsPnl.Hide();
+                ServiceHistoryPnl.Hide();
+                CarNotFoundLbl.Show();
+            }
+
+
+
+        }
     }
 }
