@@ -12,7 +12,7 @@ namespace CarServiceSystem
         {
             ApplicationConfiguration.Initialize();
             //Application.Run(new Form1());
-            Application.Run(new CustomerMainMenu());
+            //Application.Run(new CustomerMainMenu());
             Application.Run(new MechanicMainMenu());
         }
     }

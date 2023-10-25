@@ -24,22 +24,26 @@ namespace CarServiceSystem.Forms
 
         private void PersonalDetailsBtn_Click(object sender, EventArgs e)
         {
-
+            mechanicDetails1.Show();
+            mechanicDetails1.BringToFront();
         }
 
         private void LookupCarBtn_Click(object sender, EventArgs e)
         {
-
+            lookupCar1.Show();
+            lookupCar1.BringToFront();
         }
 
         private void AddServiceLogBtn_Click(object sender, EventArgs e)
         {
-
+            addServiceLog1.Show();
+            addServiceLog1.BringToFront();
         }
 
         private void ViewScheduleBtn_Click(object sender, EventArgs e)
         {
-
+            viewSchedule1.Show();
+            viewSchedule1.BringToFront();
         }
     }
 }

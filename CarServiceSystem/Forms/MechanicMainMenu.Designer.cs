@@ -34,6 +34,10 @@
             ViewScheduleBtn = new Button();
             panel1 = new Panel();
             label1 = new Label();
+            lookupCar1 = new LookupCar();
+            mechanicDetails1 = new MechanicDetails();
+            addServiceLog1 = new AddServiceLog();
+            viewSchedule1 = new ViewSchedule();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -103,11 +107,43 @@
             label1.TabIndex = 6;
             label1.Text = "Welcome!";
             // 
+            // lookupCar1
+            // 
+            lookupCar1.Location = new Point(197, 0);
+            lookupCar1.Name = "lookupCar1";
+            lookupCar1.Size = new Size(591, 458);
+            lookupCar1.TabIndex = 7;
+            // 
+            // mechanicDetails1
+            // 
+            mechanicDetails1.Location = new Point(197, 0);
+            mechanicDetails1.Name = "mechanicDetails1";
+            mechanicDetails1.Size = new Size(591, 458);
+            mechanicDetails1.TabIndex = 8;
+            // 
+            // addServiceLog1
+            // 
+            addServiceLog1.Location = new Point(197, 0);
+            addServiceLog1.Name = "addServiceLog1";
+            addServiceLog1.Size = new Size(591, 458);
+            addServiceLog1.TabIndex = 9;
+            // 
+            // viewSchedule1
+            // 
+            viewSchedule1.Location = new Point(197, 0);
+            viewSchedule1.Name = "viewSchedule1";
+            viewSchedule1.Size = new Size(591, 458);
+            viewSchedule1.TabIndex = 10;
+            // 
             // MechanicMainMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(788, 458);
+            Controls.Add(viewSchedule1);
+            Controls.Add(addServiceLog1);
+            Controls.Add(mechanicDetails1);
+            Controls.Add(lookupCar1);
             Controls.Add(label1);
             Controls.Add(panel1);
             Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -126,5 +162,9 @@
         private Button ViewScheduleBtn;
         private Panel panel1;
         private Label label1;
+        private LookupCar lookupCar1;
+        private MechanicDetails mechanicDetails1;
+        private AddServiceLog addServiceLog1;
+        private ViewSchedule viewSchedule1;
     }
 }
