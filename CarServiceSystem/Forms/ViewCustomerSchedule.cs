@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CarServiceSystem.Forms
 {
-    public partial class AddCar : UserControl
+    public partial class ViewCustomerSchedule : UserControl
     {
-        public AddCar()
+        public ViewCustomerSchedule()
         {
             InitializeComponent();
         }

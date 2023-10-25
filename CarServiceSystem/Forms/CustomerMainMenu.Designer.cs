@@ -34,9 +34,12 @@
             button2 = new Button();
             label1 = new Label();
             panel1 = new Panel();
+            viewAllCars2 = new ViewAllCars();
             panel2 = new Panel();
-            viewAllCars1 = new ViewAllCars();
+            addCar1 = new AddCar();
+            viewCustomerSchedule1 = new ViewCustomerSchedule();
             customerDetails1 = new CustomerDetails();
+            viewAllCars1 = new ViewAllCars();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -92,6 +95,7 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(viewAllCars2);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(button2);
             panel1.Controls.Add(button3);
@@ -102,14 +106,45 @@
             panel1.Size = new Size(800, 450);
             panel1.TabIndex = 5;
             // 
+            // viewAllCars2
+            // 
+            viewAllCars2.BackColor = SystemColors.ActiveCaption;
+            viewAllCars2.Location = new Point(-1, 75);
+            viewAllCars2.Name = "viewAllCars2";
+            viewAllCars2.Size = new Size(802, 375);
+            viewAllCars2.TabIndex = 5;
+            // 
             // panel2
             // 
+            panel2.Controls.Add(addCar1);
+            panel2.Controls.Add(viewCustomerSchedule1);
             panel2.Controls.Add(customerDetails1);
             panel2.Controls.Add(viewAllCars1);
             panel2.Location = new Point(-1, 77);
             panel2.Name = "panel2";
             panel2.Size = new Size(802, 373);
             panel2.TabIndex = 6;
+            // 
+            // addCar1
+            // 
+            addCar1.Location = new Point(-1, -2);
+            addCar1.Name = "addCar1";
+            addCar1.Size = new Size(805, 372);
+            addCar1.TabIndex = 4;
+            // 
+            // viewCustomerSchedule1
+            // 
+            viewCustomerSchedule1.Location = new Point(1, -2);
+            viewCustomerSchedule1.Name = "viewCustomerSchedule1";
+            viewCustomerSchedule1.Size = new Size(803, 372);
+            viewCustomerSchedule1.TabIndex = 3;
+            // 
+            // customerDetails1
+            // 
+            customerDetails1.Location = new Point(-1, -2);
+            customerDetails1.Name = "customerDetails1";
+            customerDetails1.Size = new Size(802, 375);
+            customerDetails1.TabIndex = 2;
             // 
             // viewAllCars1
             // 
@@ -118,13 +153,6 @@
             viewAllCars1.Name = "viewAllCars1";
             viewAllCars1.Size = new Size(801, 373);
             viewAllCars1.TabIndex = 1;
-            // 
-            // customerDetails2
-            // 
-            customerDetails1.Location = new Point(-1, -2);
-            customerDetails1.Name = "customerDetails2";
-            customerDetails1.Size = new Size(802, 375);
-            customerDetails1.TabIndex = 2;
             // 
             // CustomerMainMenu
             // 
@@ -152,5 +180,8 @@
         private Panel panel2;
         private ViewAllCars viewAllCars1;
         private CustomerDetails customerDetails1;
+        private ViewAllCars viewAllCars2;
+        private ViewCustomerSchedule viewCustomerSchedule1;
+        private AddCar addCar1;
     }
 }
