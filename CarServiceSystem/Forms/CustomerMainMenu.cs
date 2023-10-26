@@ -24,6 +24,10 @@ namespace CarServiceSystem.Forms
             HideAllUserControl();
             AutoFillCustomerDetailsMenu(Customer);
         }
+        public String PrintCustomerFullName()
+        {
+            return CustomerSignIn.GetFullName();
+        }
         public void AutoFillCustomerDetailsMenu(Customer Customer)
         {
             CustomerSignIn = Customer;
