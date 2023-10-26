@@ -142,7 +142,7 @@
             CarNotFoundLbl.Anchor = AnchorStyles.Top;
             CarNotFoundLbl.AutoSize = true;
             CarNotFoundLbl.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            CarNotFoundLbl.ForeColor = Color.Crimson;
+            CarNotFoundLbl.ForeColor = Color.Red;
             CarNotFoundLbl.Location = new Point(228, 145);
             CarNotFoundLbl.Name = "CarNotFoundLbl";
             CarNotFoundLbl.Size = new Size(109, 21);

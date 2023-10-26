@@ -13,7 +13,7 @@ namespace CarServiceSystem.Forms
     public partial class MechanicMainMenu : Form
     {
         public static Mechanic mechanic = new Mechanic("Michael", "Fish", "michael.k.fish@student.uts.edu.au", "123");
-        static Customer tempOwner = new Customer("Test", "Owner", "Test.owner@hotmail.com", "123");
+        static Customer tempOwner = new Customer("Test", "Owner", "mickey.fish@hotmail.com", "123");
         public static Car[] cars = new Car[]
         {
                 new Car("Ford", "Ranger", 2017, 153290, "evv18v", "1za341241d1d214124", tempOwner),
@@ -61,7 +61,7 @@ namespace CarServiceSystem.Forms
 
         private void mechanicDetails1_Load(object sender, EventArgs e)
         {
-            mechanicDetails1.MechanicWorkshopLbl.Text = mechanic.WorkShopName;
+            mechanicDetails1.MechanicWorkshopLbl.Text += mechanic.WorkShopName;
             mechanicDetails1.FirstNameInput.Text = mechanic.FirstName;
             mechanicDetails1.LastNameInput.Text = mechanic.LastName;
             mechanicDetails1.EmailInput.Text = mechanic.Email;

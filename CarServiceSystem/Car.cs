@@ -17,7 +17,7 @@ namespace CarServiceSystem
         public Customer Owner { get; set; }
         public int? SecondaryOwnerId { get; set; }
         public Customer? SecondaryOwner { get; set; }
-        public ServiceLog[]? ServiceHistory { get; set; }
+        public List<ServiceLog> ServiceHistory { get; set; }
 
 
         public Car()
@@ -34,12 +34,13 @@ namespace CarServiceSystem
             this.LicenceNumber = LicenceNumber;
             this.VehicleIdentificationNumber = VehicleIdentificationNumber;
             this.Owner = Owner;
-            this.ServiceHistory = getServiceHistory(LicenceNumber);
+            this.ServiceHistory = new List<ServiceLog>();
         }
 
-        private ServiceLog[]? getServiceHistory(String LicenceNumber)
+        public string GetName()
         {
-            return null;
+            return $"{Make} {Model}";
         }
+
     }
 }
