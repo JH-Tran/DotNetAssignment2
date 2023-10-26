@@ -25,7 +25,7 @@ namespace CarServiceSystem.UnitTesting
         public void CustomerMainMenuAssigned()
         {
             //Act
-            String CustomerName = TestCustomerMainMenu.PrintCustomerFullName();
+            String CustomerName = TestCustomerMainMenu.GetCustomerFullName();
             //Assert
             Assert.AreEqual("Tester Last", CustomerName, "Customer full name is obtainable.");
         }
