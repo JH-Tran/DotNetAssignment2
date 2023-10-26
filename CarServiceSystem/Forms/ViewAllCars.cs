@@ -16,5 +16,13 @@ namespace CarServiceSystem.Forms
         {
             InitializeComponent();
         }
+        public void AutoFillCustomerCars(Car[] CarList) 
+        {
+
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

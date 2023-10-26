@@ -125,35 +125,35 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(275, 4);
+            textBox1.Location = new Point(282, 4);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(264, 27);
             textBox1.TabIndex = 5;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(275, 60);
+            textBox2.Location = new Point(282, 60);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(264, 27);
             textBox2.TabIndex = 6;
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(275, 116);
+            textBox3.Location = new Point(282, 116);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(264, 27);
             textBox3.TabIndex = 7;
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(275, 172);
+            textBox4.Location = new Point(282, 172);
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(264, 27);
             textBox4.TabIndex = 8;
             // 
             // textBox5
             // 
-            textBox5.Location = new Point(275, 228);
+            textBox5.Location = new Point(282, 228);
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(264, 27);
             textBox5.TabIndex = 9;
@@ -169,7 +169,7 @@
             // 
             // textBox6
             // 
-            textBox6.Location = new Point(275, 284);
+            textBox6.Location = new Point(282, 284);
             textBox6.Name = "textBox6";
             textBox6.Size = new Size(264, 27);
             textBox6.TabIndex = 11;

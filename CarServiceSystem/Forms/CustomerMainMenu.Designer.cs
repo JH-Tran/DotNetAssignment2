@@ -6,7 +6,6 @@
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
-
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>
@@ -28,160 +27,149 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
-            ViewAllCar = new Button();
-            button3 = new Button();
-            button2 = new Button();
-            label1 = new Label();
-            panel1 = new Panel();
-            viewAllCars2 = new ViewAllCars();
-            panel2 = new Panel();
-            addCar1 = new AddCar();
-            viewCustomerSchedule1 = new ViewCustomerSchedule();
-            customerDetails1 = new CustomerDetails();
-            viewAllCars1 = new ViewAllCars();
-            panel1.SuspendLayout();
-            panel2.SuspendLayout();
+            CustomerDetailButton = new Button();
+            ViewAllCarButton = new Button();
+            ViewScheduleButton = new Button();
+            AddCarButton = new Button();
+            CompanyTitle = new Label();
+            HeaderPanel = new Panel();
+            InformationPanel = new Panel();
+            AddCar1 = new AddCar();
+            ViewCustomerSchedule1 = new ViewCustomerSchedule();
+            CustomerDetails1 = new CustomerDetails();
+            ViewAllCars1 = new ViewAllCars();
+            HeaderPanel.SuspendLayout();
+            InformationPanel.SuspendLayout();
             SuspendLayout();
             // 
             // button1
             // 
-            button1.Location = new Point(10, 37);
-            button1.Name = "button1";
-            button1.Size = new Size(176, 34);
-            button1.TabIndex = 0;
-            button1.Text = "Customer Details";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += ViewCustomerDetailClick;
+            CustomerDetailButton.Location = new Point(10, 37);
+            CustomerDetailButton.Name = "button1";
+            CustomerDetailButton.Size = new Size(176, 34);
+            CustomerDetailButton.TabIndex = 0;
+            CustomerDetailButton.Text = "Customer Details";
+            CustomerDetailButton.UseVisualStyleBackColor = true;
+            CustomerDetailButton.Click += ViewCustomerDetailClick;
             // 
             // ViewAllCar
             // 
-            ViewAllCar.Location = new Point(206, 37);
-            ViewAllCar.Name = "ViewAllCar";
-            ViewAllCar.Size = new Size(176, 34);
-            ViewAllCar.TabIndex = 1;
-            ViewAllCar.Text = "View All Cars";
-            ViewAllCar.UseVisualStyleBackColor = true;
-            ViewAllCar.Click += ViewAllCarsClick;
+            ViewAllCarButton.Location = new Point(206, 37);
+            ViewAllCarButton.Name = "ViewAllCar";
+            ViewAllCarButton.Size = new Size(176, 34);
+            ViewAllCarButton.TabIndex = 1;
+            ViewAllCarButton.Text = "View All Cars";
+            ViewAllCarButton.UseVisualStyleBackColor = true;
+            ViewAllCarButton.Click += ViewAllCarsClick;
             // 
             // button3
             // 
-            button3.Location = new Point(399, 37);
-            button3.Name = "button3";
-            button3.Size = new Size(176, 34);
-            button3.TabIndex = 2;
-            button3.Text = "View Scheduled Service";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += ViewScheduleClick;
+            ViewScheduleButton.Location = new Point(399, 37);
+            ViewScheduleButton.Name = "button3";
+            ViewScheduleButton.Size = new Size(176, 34);
+            ViewScheduleButton.TabIndex = 2;
+            ViewScheduleButton.Text = "View Scheduled Service";
+            ViewScheduleButton.UseVisualStyleBackColor = true;
+            ViewScheduleButton.Click += ViewScheduleClick;
             // 
             // button2
             // 
-            button2.Location = new Point(592, 39);
-            button2.Name = "button2";
-            button2.Size = new Size(176, 30);
-            button2.TabIndex = 3;
-            button2.Text = "Add Car";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += AddCarClick;
+            AddCarButton.Location = new Point(592, 39);
+            AddCarButton.Name = "button2";
+            AddCarButton.Size = new Size(176, 30);
+            AddCarButton.TabIndex = 3;
+            AddCarButton.Text = "Add Car";
+            AddCarButton.UseVisualStyleBackColor = true;
+            AddCarButton.Click += AddCarClick;
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(10, 5);
-            label1.Name = "label1";
-            label1.Size = new Size(98, 20);
-            label1.TabIndex = 4;
-            label1.Text = "Car Mechanic";
+            CompanyTitle.AutoSize = true;
+            CompanyTitle.Location = new Point(10, 5);
+            CompanyTitle.Name = "label1";
+            CompanyTitle.Size = new Size(98, 20);
+            CompanyTitle.TabIndex = 4;
+            CompanyTitle.Text = "Car Mechanic";
             // 
             // panel1
             // 
-            panel1.Controls.Add(viewAllCars2);
-            panel1.Controls.Add(label1);
-            panel1.Controls.Add(button2);
-            panel1.Controls.Add(button3);
-            panel1.Controls.Add(ViewAllCar);
-            panel1.Controls.Add(button1);
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(800, 450);
-            panel1.TabIndex = 5;
-            // 
-            // viewAllCars2
-            // 
-            viewAllCars2.BackColor = SystemColors.ActiveCaption;
-            viewAllCars2.Location = new Point(-1, 75);
-            viewAllCars2.Name = "viewAllCars2";
-            viewAllCars2.Size = new Size(802, 375);
-            viewAllCars2.TabIndex = 5;
+            HeaderPanel.Controls.Add(CompanyTitle);
+            HeaderPanel.Controls.Add(AddCarButton);
+            HeaderPanel.Controls.Add(ViewScheduleButton);
+            HeaderPanel.Controls.Add(ViewAllCarButton);
+            HeaderPanel.Controls.Add(CustomerDetailButton);
+            HeaderPanel.Location = new Point(0, 0);
+            HeaderPanel.Name = "panel1";
+            HeaderPanel.Size = new Size(800, 450);
+            HeaderPanel.TabIndex = 5;
             // 
             // panel2
             // 
-            panel2.Controls.Add(addCar1);
-            panel2.Controls.Add(viewCustomerSchedule1);
-            panel2.Controls.Add(customerDetails1);
-            panel2.Controls.Add(viewAllCars1);
-            panel2.Location = new Point(-1, 77);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(802, 373);
-            panel2.TabIndex = 6;
+            InformationPanel.Controls.Add(AddCar1);
+            InformationPanel.Controls.Add(ViewCustomerSchedule1);
+            InformationPanel.Controls.Add(CustomerDetails1);
+            InformationPanel.Controls.Add(ViewAllCars1);
+            InformationPanel.Location = new Point(-1, 77);
+            InformationPanel.Name = "panel2";
+            InformationPanel.Size = new Size(802, 373);
+            InformationPanel.TabIndex = 6;
             // 
             // addCar1
             // 
-            addCar1.Location = new Point(-1, -2);
-            addCar1.Name = "addCar1";
-            addCar1.Size = new Size(805, 372);
-            addCar1.TabIndex = 4;
+            AddCar1.Location = new Point(-1, -2);
+            AddCar1.Name = "addCar1";
+            AddCar1.Size = new Size(805, 372);
+            AddCar1.TabIndex = 4;
             // 
             // viewCustomerSchedule1
             // 
-            viewCustomerSchedule1.Location = new Point(1, -2);
-            viewCustomerSchedule1.Name = "viewCustomerSchedule1";
-            viewCustomerSchedule1.Size = new Size(803, 372);
-            viewCustomerSchedule1.TabIndex = 3;
+            ViewCustomerSchedule1.Location = new Point(1, -2);
+            ViewCustomerSchedule1.Name = "viewCustomerSchedule1";
+            ViewCustomerSchedule1.Size = new Size(803, 372);
+            ViewCustomerSchedule1.TabIndex = 3;
             // 
             // customerDetails1
             // 
-            customerDetails1.Location = new Point(-1, -2);
-            customerDetails1.Name = "customerDetails1";
-            customerDetails1.Size = new Size(802, 375);
-            customerDetails1.TabIndex = 2;
+            CustomerDetails1.Location = new Point(-1, -2);
+            CustomerDetails1.Name = "customerDetails1";
+            CustomerDetails1.Size = new Size(802, 375);
+            CustomerDetails1.TabIndex = 2;
             // 
             // viewAllCars1
             // 
-            viewAllCars1.BackColor = SystemColors.ActiveCaption;
-            viewAllCars1.Location = new Point(0, 0);
-            viewAllCars1.Name = "viewAllCars1";
-            viewAllCars1.Size = new Size(801, 373);
-            viewAllCars1.TabIndex = 1;
+            ViewAllCars1.BackColor = SystemColors.ActiveCaption;
+            ViewAllCars1.Location = new Point(0, 0);
+            ViewAllCars1.Name = "viewAllCars1";
+            ViewAllCars1.Size = new Size(801, 373);
+            ViewAllCars1.TabIndex = 1;
             // 
             // CustomerMainMenu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(panel2);
-            Controls.Add(panel1);
+            Controls.Add(InformationPanel);
+            Controls.Add(HeaderPanel);
             Name = "CustomerMainMenu";
             Text = "CustomerMainMenu";
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            panel2.ResumeLayout(false);
+            HeaderPanel.ResumeLayout(false);
+            HeaderPanel.PerformLayout();
+            InformationPanel.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Button button1;
-        private Button ViewAllCar;
-        private Button button3;
-        private Button button2;
-        private Label label1;
-        private Panel panel1;
-        private Panel panel2;
-        private ViewAllCars viewAllCars1;
-        private CustomerDetails customerDetails1;
-        private ViewAllCars viewAllCars2;
-        private ViewCustomerSchedule viewCustomerSchedule1;
-        private AddCar addCar1;
+        private Button CustomerDetailButton;
+        private Button ViewAllCarButton;
+        private Button ViewScheduleButton;
+        private Button AddCarButton;
+        private Label CompanyTitle;
+        private Panel HeaderPanel;
+        private Panel InformationPanel;
+        private ViewAllCars ViewAllCars1;
+        private CustomerDetails CustomerDetails1;
+        private ViewCustomerSchedule ViewCustomerSchedule1;
+        private AddCar AddCar1;
     }
 }
