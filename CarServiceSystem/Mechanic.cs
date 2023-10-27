@@ -2,18 +2,20 @@
 {
     public class Mechanic : User
     {
-        public string WorkShopName { get; set; }
+        private string workShopName;
+        public string WorkShopName
+        {
+            get { return workShopName; } set { workShopName = value; }
+        }
         
-
-
         public Mechanic(string FirstName, string LastName, string Email, string Password) : base(FirstName, LastName, Email, Password)
         {
-            this.FirstName = FirstName;
-            this.LastName = LastName;
-            this.Email = Email;
-            this.Password = Password;
+            this.firstName = FirstName;
+            this.lastName = LastName;
+            this.email = Email;
+            this.password = Password;
         }
-
+        public Mechanic() { }
 
     }
 }

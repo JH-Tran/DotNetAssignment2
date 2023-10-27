@@ -66,7 +66,7 @@
             tableLayoutPanel1.Controls.Add(textBox5, 1, 4);
             tableLayoutPanel1.Controls.Add(label6, 0, 5);
             tableLayoutPanel1.Controls.Add(textBox6, 1, 5);
-            tableLayoutPanel1.Location = new Point(112, 63);
+            tableLayoutPanel1.Location = new Point(86, 63);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 6;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 55F));
@@ -75,7 +75,7 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 55F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 55F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 55F));
-            tableLayoutPanel1.Size = new Size(564, 286);
+            tableLayoutPanel1.Size = new Size(590, 286);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // CarCompanyLabel
@@ -125,35 +125,35 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(282, 4);
+            textBox1.Location = new Point(295, 4);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(264, 27);
             textBox1.TabIndex = 5;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(282, 60);
+            textBox2.Location = new Point(295, 60);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(264, 27);
             textBox2.TabIndex = 6;
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(282, 116);
+            textBox3.Location = new Point(295, 116);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(264, 27);
             textBox3.TabIndex = 7;
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(282, 172);
+            textBox4.Location = new Point(295, 172);
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(264, 27);
             textBox4.TabIndex = 8;
             // 
             // textBox5
             // 
-            textBox5.Location = new Point(282, 228);
+            textBox5.Location = new Point(295, 228);
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(264, 27);
             textBox5.TabIndex = 9;
@@ -169,7 +169,7 @@
             // 
             // textBox6
             // 
-            textBox6.Location = new Point(282, 284);
+            textBox6.Location = new Point(295, 284);
             textBox6.Name = "textBox6";
             textBox6.Size = new Size(264, 27);
             textBox6.TabIndex = 11;
@@ -178,7 +178,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(112, 11);
+            label1.Location = new Point(86, 11);
             label1.Name = "label1";
             label1.Size = new Size(122, 38);
             label1.TabIndex = 0;
@@ -186,7 +186,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(682, 305);
+            button1.Location = new Point(682, 320);
             button1.Name = "button1";
             button1.Size = new Size(94, 29);
             button1.TabIndex = 1;

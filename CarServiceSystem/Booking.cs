@@ -8,10 +8,38 @@ namespace CarServiceSystem
 {
     public class Booking
     {
-        protected int ID;
-        protected Customer Customer;
-        protected Mechanic Mechanic;
-        protected Car Car;
-        protected DateTime DateTime;
+        private int bookingId;
+        public Customer customer;
+        public Mechanic mechanic;
+        public Car car;
+        protected bool bookingStatus = false;
+        public DateTime DateTime { get; protected set; }
+        public bool BookingStatus 
+        {
+            get { return BookingStatus; }
+            set { BookingStatus = value; }
+        }
+        public int BookingID 
+        { 
+            get { return bookingId; }  
+            set { bookingId = value; } 
+        }
+        //Create booking with the required information with customer and mechanic.
+        public Booking(Customer customer, Mechanic mechanic, Car car, DateTime dateTime)
+        {
+            this.customer = customer;
+            this.mechanic = mechanic;
+            this.car = car;
+            this.DateTime = dateTime;
+        }
+        public Booking()
+        {
+
+        }
+        public String GetBookingDetailsFormat()
+        {
+            //NOT FINISHED
+            return $"Date and Time:";
+        }
     }
 }

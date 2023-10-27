@@ -60,13 +60,16 @@ namespace CarServiceSystem.Forms
             AddCar1.Show();
             AddCar1.BringToFront();
         }
-
         private void HideAllUserControl()
         {
             CustomerDetails1.Hide();
             ViewAllCars1.Hide();
             ViewCustomerSchedule1.Hide();
             AddCar1.Hide();
+        }
+        public String GetCustomerTextBoxInfomation()
+        {
+            return CustomerDetails1.GetAllTextBoxString();
         }
     }
 }

@@ -14,8 +14,7 @@ namespace CarServiceSystem
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqlocaldb;Database=MechanicServiceDb;Trusted_Connection=True");
-
+            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=MechanicServiceDb;Trusted_Connection=True");
         }
     }
 }

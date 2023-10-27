@@ -11,5 +11,9 @@ namespace CarServiceSystem
         public ServiceAdmin(string FirstName, string LastName, string Email, string Password) : base(FirstName, LastName, Email, Password)
         {
         }
+        public ServiceAdmin()
+        {
+
+        }
     }
 }

@@ -4,25 +4,55 @@ namespace CarServiceSystem
 {
     public class Car
     {
-        public int CarId { get; }
-        public String Make { get; set; }
-        public String Model {  get; set; }
-        public int Year { get; set; }
-        public int Odometer { get; set; }
-        public String LicenceNumber { get; set; }
-        public String VehicleIdentificationNumber { get; set; }
-
-
-        public int OwnerId { get; set; }
-        public Customer Owner { get; set; }
-        public int? SecondaryOwnerId { get; set; }
-        public Customer? SecondaryOwner { get; set; }
-        public List<ServiceLog> ServiceHistory { get; set; }
-
-
-        public Car()
-        {
-
+        protected int carId;
+        protected String make;
+        protected String model;
+        protected int year;
+        protected int odometer;
+        protected String licenseNumber;
+        protected String vehicleIdentificationNumber;
+        protected Customer owner;
+        protected Customer? secondaryOwner;
+        protected List<ServiceLog> serviceHistory = new List<ServiceLog>();
+        public int CarId { 
+            get { return carId; } 
+            set{ carId = value; } 
+        }
+        public String Make {
+            get { return make; }
+            set { make = value; } 
+        }
+        public String Model {
+            get { return model; }
+            set {  model = value; }
+        }
+        public int Year {
+            get { return year; }
+            set { year = value; }
+        }
+        public int Odometer {
+            get { return odometer; } 
+            set { odometer = value; } 
+        }
+        public String LicenceNumber {
+            get { return licenseNumber; }
+            set { licenseNumber = value; } 
+        }
+        public String VehicleIdentificationNumber {
+            get { return vehicleIdentificationNumber; }
+            set { vehicleIdentificationNumber = value; } 
+        }
+        public Customer Owner {
+            get { return owner; }
+            set {  owner = value; }
+        }
+        public Customer? SecondaryOwner {
+            get { return SecondaryOwner; } 
+            set {  SecondaryOwner = value; }
+        }
+        public List<ServiceLog> ServiceHistory {
+            get { return serviceHistory; }
+            set {  serviceHistory = value; }
         }
 
         public Car(String Make, String Model, int Year, int Odometer, String LicenceNumber, String VehicleIdentificationNumber, Customer Owner)
@@ -36,6 +66,7 @@ namespace CarServiceSystem
             this.Owner = Owner;
             this.ServiceHistory = new List<ServiceLog>();
         }
+        public Car() { }
 
         public string GetName()
         {
