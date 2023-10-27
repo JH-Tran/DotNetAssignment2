@@ -16,7 +16,7 @@ namespace CarServiceSystem.Forms
         {
             InitializeComponent();
         }
-        public void AutoFillCustomerCars(Car[] CarList) 
+        public void AutoFillCustomerCars(Car[] CarList)
         {
 
         }
@@ -24,5 +24,11 @@ namespace CarServiceSystem.Forms
         {
 
         }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
     }
 }
