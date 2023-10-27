@@ -16,13 +16,15 @@ namespace CarServiceSystem
             var TestCusomter = new Customer() { FirstName = "Tester", LastName = "Last", Email = "test@gmail.com", Password = "abc" };
             var TestAdmin = new ServiceAdmin() { FirstName = "Admin", LastName = "LastName", Email = "adminlast@gmail.com", Password = "abc" };
             var TestCar = new Car() { Make = "Ford", Model = "Ranger", Year = 2017, Odometer = 153290, LicenceNumber = "evv18v", VehicleIdentificationNumber = "1za341241d1d214124", Owner = TestCusomter };
-            var TestMechanic = new Mechanic { FirstName = "Michael", LastName = "Fish", Email = "michael.k.fish@student.uts.edu.au", Password = "123", WorkShopName = "Good Will" };
+            var TestMechanic = new Mechanic { FirstName = "Michael", LastName = "Fish", Email = "michael.k.fish@student.uts.edu.au", Password = "123", WorkShopName = "Auto Repairs" };
+            var TestBooking = new Booking { Customer = TestCusomter, Mechanic = TestMechanic, Car = TestCar, dateTime = DateTime.Today};
 
             context.Customers.Add(TestCusomter);
             context.ServiceAdmins.Add(TestAdmin);
             context.Cars.Add(TestCar);
             context.Mechanics.Add(TestMechanic);
             context.Cars.Add(TestCar);
+            context.Bookings.Add(TestBooking);
 
             context.SaveChanges();
 
