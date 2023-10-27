@@ -10,17 +10,24 @@ using System.Windows.Forms;
 
 namespace CarServiceSystem.Forms
 {
-    public partial class ViewAllCars : UserControl
+    public partial class ServiceAdminMainMenu : Form
     {
-        public ViewAllCars()
+        public ServiceAdminMainMenu()
         {
             InitializeComponent();
         }
-        public void AutoFillCustomerCars(Car[] CarList) 
+
+        private void ServiceAdminMainMenu_Load(object sender, EventArgs e)
         {
 
         }
+
         private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
         {
 
         }

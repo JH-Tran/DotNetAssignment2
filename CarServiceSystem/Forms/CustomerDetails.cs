@@ -17,6 +17,13 @@ namespace CarServiceSystem.Forms
             InitializeComponent();
         }
 
+        public void AutoFillCustomerDetails(Customer CustomerSignIn)
+        {
+            FirstNameTextBox.Text = CustomerSignIn.FirstName;
+            LastNameTextBox.Text = CustomerSignIn.LastName;
+            EmailTextBox.Text = CustomerSignIn.Email;
+        }
+
         private void ConfirmButton_Click(object sender, EventArgs e)
         {
 

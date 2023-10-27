@@ -10,16 +10,12 @@ using System.Windows.Forms;
 
 namespace CarServiceSystem.Forms
 {
-    public partial class AddCar : Form
+    public partial class AddCar : UserControl
     {
         public AddCar()
         {
             InitializeComponent();
         }
 
-        private void AddCarFormClosing(object sender, FormClosingEventArgs e)
-        {
-            Application.Exit();
-        }
     }
 }

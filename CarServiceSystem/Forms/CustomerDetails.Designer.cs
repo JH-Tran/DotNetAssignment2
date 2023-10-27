@@ -28,62 +28,62 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
-            label2 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            label3 = new Label();
-            textBox3 = new TextBox();
+            FirstNameLabel = new Label();
+            LastNameLabel = new Label();
+            FirstNameTextBox = new TextBox();
+            LastNameTextBox = new TextBox();
+            EmailLabel = new Label();
+            EmailTextBox = new TextBox();
             ConfirmButton = new Button();
             SuspendLayout();
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(273, 99);
-            label1.Name = "label1";
-            label1.Size = new Size(83, 20);
-            label1.TabIndex = 0;
-            label1.Text = "First Name:";
+            FirstNameLabel.AutoSize = true;
+            FirstNameLabel.Location = new Point(273, 99);
+            FirstNameLabel.Name = "FirstNameLabel";
+            FirstNameLabel.Size = new Size(83, 20);
+            FirstNameLabel.TabIndex = 0;
+            FirstNameLabel.Text = "First Name:";
             // 
             // label2
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(273, 160);
-            label2.Name = "label2";
-            label2.Size = new Size(82, 20);
-            label2.TabIndex = 1;
-            label2.Text = "Last Name:";
+            LastNameLabel.AutoSize = true;
+            LastNameLabel.Location = new Point(273, 160);
+            LastNameLabel.Name = "LastNameLabel";
+            LastNameLabel.Size = new Size(82, 20);
+            LastNameLabel.TabIndex = 1;
+            LastNameLabel.Text = "Last Name:";
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(371, 96);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(125, 27);
-            textBox1.TabIndex = 2;
+            FirstNameTextBox.Location = new Point(371, 96);
+            FirstNameTextBox.Name = "FirstNameTextBox";
+            FirstNameTextBox.Size = new Size(125, 27);
+            FirstNameTextBox.TabIndex = 2;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(371, 157);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(125, 27);
-            textBox2.TabIndex = 3;
+            LastNameTextBox.Location = new Point(371, 157);
+            LastNameTextBox.Name = "LastNameTextbox";
+            LastNameTextBox.Size = new Size(125, 27);
+            LastNameTextBox.TabIndex = 3;
             // 
             // label3
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(273, 227);
-            label3.Name = "label3";
-            label3.Size = new Size(49, 20);
-            label3.TabIndex = 4;
-            label3.Text = "Email:";
+            EmailLabel.AutoSize = true;
+            EmailLabel.Location = new Point(273, 227);
+            EmailLabel.Name = "EmailLabel";
+            EmailLabel.Size = new Size(49, 20);
+            EmailLabel.TabIndex = 4;
+            EmailLabel.Text = "Email:";
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(371, 220);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(125, 27);
-            textBox3.TabIndex = 5;
+            EmailTextBox.Location = new Point(371, 220);
+            EmailTextBox.Name = "EmailTextBox";
+            EmailTextBox.Size = new Size(125, 27);
+            EmailTextBox.TabIndex = 5;
             // 
             // ConfirmButton
             // 
@@ -100,12 +100,12 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(ConfirmButton);
-            Controls.Add(textBox3);
-            Controls.Add(label3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
-            Controls.Add(label2);
-            Controls.Add(label1);
+            Controls.Add(EmailTextBox);
+            Controls.Add(EmailLabel);
+            Controls.Add(LastNameTextBox);
+            Controls.Add(FirstNameTextBox);
+            Controls.Add(LastNameLabel);
+            Controls.Add(FirstNameLabel);
             Name = "CustomerDetails";
             Size = new Size(802, 373);
             ResumeLayout(false);
@@ -114,12 +114,12 @@
 
         #endregion
 
-        private Label label1;
-        private Label label2;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private Label label3;
-        private TextBox textBox3;
+        private Label FirstNameLabel;
+        private Label LastNameLabel;
+        private Label EmailLabel;
+        private TextBox FirstNameTextBox;
+        private TextBox LastNameTextBox;
+        private TextBox EmailTextBox;
         private Button ConfirmButton;
     }
 }
