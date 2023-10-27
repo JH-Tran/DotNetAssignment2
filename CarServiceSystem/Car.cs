@@ -4,28 +4,43 @@ namespace CarServiceSystem
 {
     public class Car
     {
-        protected int CarId { get; }
-        protected String Make { get; set; }
-        protected String Model {  get; set; }
-        protected int Year { get; set; }
-        protected String LicenceNumber { get; set; }
-        protected String VehicleIdentificationNumber { get; set; }
-        protected Customer Owner { get; set; }
-        protected Customer[]? SecondaryOwner { get; set; }
-        protected ServiceLog[]? ServiceHistory { get; set; }
+        public int CarId { get; }
+        public String Make { get; set; }
+        public String Model {  get; set; }
+        public int Year { get; set; }
+        public int Odometer { get; set; }
+        public String LicenceNumber { get; set; }
+        public String VehicleIdentificationNumber { get; set; }
 
-        public Car(String Make, String Model, int Year, String LicenceNumber, String VehicleIdentificationNumber, Customer Owner)
+
+        public int OwnerId { get; set; }
+        public Customer Owner { get; set; }
+        public int? SecondaryOwnerId { get; set; }
+        public Customer? SecondaryOwner { get; set; }
+        public List<ServiceLog> ServiceHistory { get; set; }
+
+
+        public Car()
+        {
+
+        }
+
+        public Car(String Make, String Model, int Year, int Odometer, String LicenceNumber, String VehicleIdentificationNumber, Customer Owner)
         {
             this.Make = Make;
             this.Model = Model;
             this.Year = Year;
+            this.Odometer = Odometer;
             this.LicenceNumber = LicenceNumber;
             this.VehicleIdentificationNumber = VehicleIdentificationNumber;
             this.Owner = Owner;
+            this.ServiceHistory = new List<ServiceLog>();
         }
-        public ServiceLog[]? GetServiceHistory()
+
+        public string GetName()
         {
-            return ServiceHistory;
+            return $"{Make} {Model}";
         }
+
     }
 }
