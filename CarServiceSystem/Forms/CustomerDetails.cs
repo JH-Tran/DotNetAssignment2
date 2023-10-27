@@ -23,10 +23,13 @@ namespace CarServiceSystem.Forms
             LastNameTextBox.Text = CustomerSignIn.LastName;
             EmailTextBox.Text = CustomerSignIn.Email;
         }
-
         private void ConfirmButton_Click(object sender, EventArgs e)
         {
 
+        }
+        public String GetAllTextBoxString()
+        {
+            return $"{FirstNameTextBox.Text} {LastNameTextBox.Text} {EmailTextBox.Text}";
         }
     }
 }

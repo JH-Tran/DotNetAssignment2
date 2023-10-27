@@ -16,7 +16,7 @@ namespace CarServiceSystem.Forms
         {
             InitializeComponent();
         }
-        public void AutoFillCustomerCars(Car[] CarList) 
+        public void AutoFillCustomerCars(Car[] CarList)
         {
 
         }
