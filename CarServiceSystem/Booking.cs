@@ -27,5 +27,10 @@ namespace CarServiceSystem
             this.car = car;
             this.DateTime = dateTime;
         }
+        public String GetBookingDetailsFormat()
+        {
+            //NOT FINISHED
+            return $"Date and Time:";
+        }
     }
 }

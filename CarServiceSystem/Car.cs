@@ -5,25 +5,15 @@ namespace CarServiceSystem
     public class Car
     {
         public int CarId { get; }
-        public String Make { get; set; }
-        public String Model {  get; set; }
-        public int Year { get; set; }
+        public String Make { get; protected set; }
+        public String Model {  get; protected set; }
+        public int Year { get; protected set; }
         public int Odometer { get; set; }
-        public String LicenceNumber { get; set; }
-        public String VehicleIdentificationNumber { get; set; }
-
-
-        public int OwnerId { get; set; }
-        public Customer Owner { get; set; }
-        public int? SecondaryOwnerId { get; set; }
-        public Customer? SecondaryOwner { get; set; }
-        public List<ServiceLog> ServiceHistory { get; set; }
-
-
-        public Car()
-        {
-
-        }
+        public String LicenceNumber { get; protected set; }
+        public String VehicleIdentificationNumber { get; protected set; }
+        public Customer Owner { get; protected set; }
+        public Customer? SecondaryOwner { get; protected set; }
+        public List<ServiceLog> ServiceHistory { get; protected set; }
 
         public Car(String Make, String Model, int Year, int Odometer, String LicenceNumber, String VehicleIdentificationNumber, Customer Owner)
         {
