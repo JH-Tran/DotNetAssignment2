@@ -12,7 +12,7 @@ namespace CarServiceSystem
         public String LicenceNumber { get; protected set; }
         public String VehicleIdentificationNumber { get; protected set; }
         public Customer Owner { get; protected set; }
-        public Customer? SecondaryOwner { get; protected set; }
+        public Customer? SecondaryOwner { get; set; }
         public List<ServiceLog> ServiceHistory { get; protected set; }
 
         public Car(String Make, String Model, int Year, int Odometer, String LicenceNumber, String VehicleIdentificationNumber, Customer Owner)
@@ -26,6 +26,7 @@ namespace CarServiceSystem
             this.Owner = Owner;
             this.ServiceHistory = new List<ServiceLog>();
         }
+        public Car() { }
 
         public string GetName()
         {

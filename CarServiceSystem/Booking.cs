@@ -8,10 +8,10 @@ namespace CarServiceSystem
 {
     public class Booking
     {
-        protected int id;
-        protected Customer customer;
-        protected Mechanic mechanic;
-        protected Car car;
+        public int id;
+        public Customer customer;
+        public Mechanic mechanic;
+        public Car car;
         protected bool bookingStatus = false;
         public DateTime DateTime { get; protected set; }
         public bool BookingStatus 
@@ -26,6 +26,10 @@ namespace CarServiceSystem
             this.mechanic = mechanic;
             this.car = car;
             this.DateTime = dateTime;
+        }
+        public Booking()
+        {
+
         }
         public String GetBookingDetailsFormat()
         {

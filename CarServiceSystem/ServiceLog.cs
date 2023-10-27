@@ -24,5 +24,9 @@ namespace CarServiceSystem
             this.CarOdometer = CarOdometer;
             CompletionDateTime = DateTime.Now;
         }
+        public ServiceLog()
+        {
+
+        }
     }
 }

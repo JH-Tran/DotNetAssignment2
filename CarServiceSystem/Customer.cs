@@ -12,11 +12,16 @@ namespace CarServiceSystem
         protected Car[] OwnCars;
         public Customer(string FirstName, string LastName, string Email, string Password) : base(FirstName, LastName, Email, Password)
         {
-            this.FirstName = FirstName;
-            this.LastName = LastName;
-            this.Email = Email;
-            this.Password = Password;
+            this.firstName = FirstName;
+            this.lastName = LastName;
+            this.email = Email;
+            this.password = Password;
         }
+
+        public Customer()
+        {
+        }
+
         public Car[] GetCars()
         {
             return OwnCars;
