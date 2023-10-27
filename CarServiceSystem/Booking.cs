@@ -8,7 +8,7 @@ namespace CarServiceSystem
 {
     public class Booking
     {
-        public int id;
+        private int bookingId;
         public Customer customer;
         public Mechanic mechanic;
         public Car car;
@@ -18,6 +18,11 @@ namespace CarServiceSystem
         {
             get { return BookingStatus; }
             set { BookingStatus = value; }
+        }
+        public int BookingID 
+        { 
+            get { return bookingId; }  
+            set { bookingId = value; } 
         }
         //Create booking with the required information with customer and mechanic.
         public Booking(Customer customer, Mechanic mechanic, Car car, DateTime dateTime)

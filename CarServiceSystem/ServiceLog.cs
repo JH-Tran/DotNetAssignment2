@@ -4,7 +4,7 @@ namespace CarServiceSystem
 {
     public class ServiceLog
     {
-        protected int ID;
+        protected int serviceLogId;
         public Customer? Customer;
         public Mechanic? Mechanic;
         public Car? Car;
@@ -14,6 +14,10 @@ namespace CarServiceSystem
         public string GetDateTime()
         {
             return DateTime.Now.ToString("MM/dd/yyyy HH:mm");
+        }
+        public int ServiceLogId {
+            get {  return serviceLogId; }
+            set {  serviceLogId = value; } 
         }
         public ServiceLog(Customer Customer, Mechanic Mechanic, Car Car, string Task, int CarOdometer)
         {

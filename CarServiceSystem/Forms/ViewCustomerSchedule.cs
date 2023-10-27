@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -27,11 +28,18 @@ namespace CarServiceSystem.Forms
         Booking[] CustomerSchedule;
         private void CreateCustomerScheduleRows()
         {
-            foreach (Booking Schedule in CustomerSchedule)
+            try
             {
-                tableLayoutPanel1.RowCount = tableLayoutPanel1.RowCount + 1;
-                tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
-                tableLayoutPanel1.Controls.Add(new Label() { Text = "Information" }, 1, tableLayoutPanel1.RowCount - 1);
+                foreach (Booking Schedule in CustomerSchedule)
+                {
+                    tableLayoutPanel1.RowCount = tableLayoutPanel1.RowCount + 1;
+                    tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
+                    tableLayoutPanel1.Controls.Add(new Label() { Text = "Information" }, 1, tableLayoutPanel1.RowCount - 1);
+                }
+            }
+            catch
+            {
+                Console.WriteLine("Customer Schedule is empty");
             }
         }
     }

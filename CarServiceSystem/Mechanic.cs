@@ -8,8 +8,6 @@
             get { return workShopName; } set { workShopName = value; }
         }
         
-
-
         public Mechanic(string FirstName, string LastName, string Email, string Password) : base(FirstName, LastName, Email, Password)
         {
             this.firstName = FirstName;
