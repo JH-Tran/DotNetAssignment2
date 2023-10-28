@@ -30,11 +30,10 @@ namespace CarServiceSystem.Forms
                 currentlyDisplayedCar = context.Cars
                     .Include(c => c.Owner)
                     .Where(c => c.LicenceNumber == LicenceNumberInput.Text)
-                    .First();
+                    .FirstOrDefault() ?? null!;
             }
 
 
-            // NEEDED FUNCTION TO REPLACE SOME LOGIC BELOW get a list of owners (Customer) given a car (only needed if theres going to be more then 2 owners otherwise maybe swap the combobox to something else
             if (currentlyDisplayedCar != null)
             {
                 CarNotFoundLbl.Hide();
@@ -80,7 +79,17 @@ namespace CarServiceSystem.Forms
 
 
 
-                    currentLog = new ServiceLog(customer, loggedInMechanic, currentlyDisplayedCar, TaskInput.Text, newOdometer);
+                    ServiceLog newLog = new ServiceLog(customer, loggedInMechanic, currentlyDisplayedCar, TaskInput.Text, newOdometer);
+
+                    using(MechanicServiceContext context = new MechanicServiceContext())
+                    {
+                        var car = context.Cars.First(car => car.CarId == currentlyDisplayedCar.CarId);
+                        car.ServiceHistory.Add(newLog);
+                        car.Odometer = newOdometer;
+                        context.SaveChanges();
+                    }
+                    currentLog = newLog;
+
 
                     //call function to add log to cars service history
                     MechanicNameLbl.Text = "Mechanic: " + loggedInMechanic.GetFullName();

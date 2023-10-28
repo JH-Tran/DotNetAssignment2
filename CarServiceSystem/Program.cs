@@ -12,6 +12,7 @@ namespace CarServiceSystem
         static public void Main()
         {
             var context = new MechanicServiceContext();
+            //context.Database.EnsureDeleted();
             context.Database.EnsureCreated();
 
             //var TestCusomter = new Customer() { FirstName = "Tester", LastName = "Last", Email = "test@gmail.com", Password = "abc" };
@@ -29,18 +30,21 @@ namespace CarServiceSystem
 
             //context.SaveChanges();
 
-            var returnedCar = context.Cars
-                .Include(c => c.Owner)
-                .Where(c => c.LicenceNumber == "evv18v")
-                .FirstOrDefault();
+            //var returnedCar = context.Cars
+            //    .Include(c => c.Owner)
+            //    .Where(c => c.LicenceNumber == "evv18v")
+            //    .FirstOrDefault();
             //Console.WriteLine(returnedCar.Owner.FirstName);
 
+
+            //Need login function that retrieves the corresponding user and passes it to the right menu
+            Mechanic mechanic = context.Mechanics.FirstOrDefault(m => m.FirstName == "Michael") ?? null!;
 
 
             ApplicationConfiguration.Initialize();
             //Application.Run(new Form1());
             //Application.Run(new CustomerMainMenu());
-            Application.Run(new MechanicMainMenu());
+            Application.Run(new MechanicMainMenu(mechanic));
             //Application.Run(new ServiceAdminMainMenu());
         }
     }
