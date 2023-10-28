@@ -137,6 +137,7 @@
             // 
             // ViewAllCars1
             // 
+            ViewAllCars1.AutoScroll = true;
             ViewAllCars1.BackColor = SystemColors.ActiveCaption;
             ViewAllCars1.Location = new Point(0, 0);
             ViewAllCars1.Name = "ViewAllCars1";

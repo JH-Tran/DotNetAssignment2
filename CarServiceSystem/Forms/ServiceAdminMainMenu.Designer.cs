@@ -28,50 +28,52 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
+            showCustomersButton = new Button();
+            showMechanicsButton = new Button();
+            showMechTTButton = new Button();
+            viewCarHistButton = new Button();
             label1 = new Label();
             SuspendLayout();
             // 
-            // button1
+            // showCustomersButton
             // 
-            button1.Location = new Point(12, 82);
-            button1.Name = "button1";
-            button1.Size = new Size(122, 42);
-            button1.TabIndex = 0;
-            button1.Text = "Show all Customers";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            showCustomersButton.Location = new Point(12, 91);
+            showCustomersButton.Name = "showCustomersButton";
+            showCustomersButton.Size = new Size(142, 56);
+            showCustomersButton.TabIndex = 0;
+            showCustomersButton.Text = "Show all Customers";
+            showCustomersButton.UseVisualStyleBackColor = true;
+            showCustomersButton.Click += showCustomersButton_Click;
             // 
-            // button2
+            // showMechanicsButton
             // 
-            button2.Location = new Point(12, 130);
-            button2.Name = "button2";
-            button2.Size = new Size(122, 42);
-            button2.TabIndex = 1;
-            button2.Text = "Show all Mechanics";
-            button2.UseVisualStyleBackColor = true;
+            showMechanicsButton.Location = new Point(12, 153);
+            showMechanicsButton.Name = "showMechanicsButton";
+            showMechanicsButton.Size = new Size(142, 56);
+            showMechanicsButton.TabIndex = 1;
+            showMechanicsButton.Text = "Show all Mechanics";
+            showMechanicsButton.UseVisualStyleBackColor = true;
+            showMechanicsButton.Click += showMechanicsButton_Click;
             // 
-            // button3
+            // showMechTTButton
             // 
-            button3.Location = new Point(12, 178);
-            button3.Name = "button3";
-            button3.Size = new Size(122, 42);
-            button3.TabIndex = 2;
-            button3.Text = "Show Mechanic Timetable";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
+            showMechTTButton.Location = new Point(12, 215);
+            showMechTTButton.Name = "showMechTT";
+            showMechTTButton.Size = new Size(142, 56);
+            showMechTTButton.TabIndex = 2;
+            showMechTTButton.Text = "Show Mechanic Timetable";
+            showMechTTButton.UseVisualStyleBackColor = true;
+            showMechTTButton.Click += showMechTTButton_Click;
             // 
-            // button4
+            // viewCarHistButton
             // 
-            button4.Location = new Point(12, 226);
-            button4.Name = "button4";
-            button4.Size = new Size(122, 42);
-            button4.TabIndex = 3;
-            button4.Text = "View Car History";
-            button4.UseVisualStyleBackColor = true;
+            viewCarHistButton.Location = new Point(12, 277);
+            viewCarHistButton.Name = "button4";
+            viewCarHistButton.Size = new Size(142, 56);
+            viewCarHistButton.TabIndex = 3;
+            viewCarHistButton.Text = "View Car History";
+            viewCarHistButton.UseVisualStyleBackColor = true;
+            viewCarHistButton.Click += viewCarHistButton_Click;
             // 
             // label1
             // 
@@ -79,18 +81,18 @@
             label1.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
             label1.Location = new Point(12, 9);
             label1.Name = "label1";
-            label1.Size = new Size(170, 37);
+            label1.Size = new Size(214, 46);
             label1.TabIndex = 4;
             label1.Text = "Admin Menu";
             // 
             // ServiceAdminMainMenu
             // 
-            ClientSize = new Size(433, 420);
+            ClientSize = new Size(531, 459);
             Controls.Add(label1);
-            Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(viewCarHistButton);
+            Controls.Add(showMechTTButton);
+            Controls.Add(showMechanicsButton);
+            Controls.Add(showCustomersButton);
             Name = "ServiceAdminMainMenu";
             Text = "ServiceAdminMainMenu";
             Load += ServiceAdminMainMenu_Load;
@@ -99,10 +101,10 @@
         }
 
         #endregion
-        private Button button1;
-        private Button button2;
-        private Button button3;
-        private Button button4;
+        private Button showCustomersButton;
+        private Button showMechanicsButton;
+        private Button showMechTTButton;
+        private Button viewCarHistButton;
         private Label label1;
     }
 }
