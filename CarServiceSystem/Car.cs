@@ -4,7 +4,6 @@ namespace CarServiceSystem
 {
     public class Car
     {
-        protected int carId;
         protected String make;
         protected String model;
         protected int year;
@@ -14,10 +13,8 @@ namespace CarServiceSystem
         protected Customer owner;
         protected Customer? secondaryOwner;
         protected List<ServiceLog> serviceHistory = new List<ServiceLog>();
-        public int CarId { 
-            get { return carId; } 
-            set{ carId = value; } 
-        }
+        public int CarId { get; set;} 
+        
         public String Make {
             get { return make; }
             set { make = value; } 
@@ -47,8 +44,8 @@ namespace CarServiceSystem
             set {  owner = value; }
         }
         public Customer? SecondaryOwner {
-            get { return SecondaryOwner; } 
-            set {  SecondaryOwner = value; }
+            get { return secondaryOwner; } 
+            set {  secondaryOwner = value; }
         }
         public List<ServiceLog> ServiceHistory {
             get { return serviceHistory; }

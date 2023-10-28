@@ -35,10 +35,10 @@
             MenuPnl = new Panel();
             WelcomeLbl = new Label();
             DisplayPnl = new Panel();
-            mechanicDetails1 = new MechanicDetails();
-            lookupCar1 = new LookupCar();
             addServiceLog1 = new AddServiceLog();
             viewSchedule1 = new ViewSchedule();
+            mechanicDetails1 = new MechanicDetails();
+            lookupCar1 = new LookupCar();
             MenuPnl.SuspendLayout();
             DisplayPnl.SuspendLayout();
             SuspendLayout();
@@ -121,6 +121,24 @@
             DisplayPnl.Size = new Size(713, 529);
             DisplayPnl.TabIndex = 7;
             // 
+            // addServiceLog1
+            // 
+            addServiceLog1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            addServiceLog1.AutoScroll = true;
+            addServiceLog1.Location = new Point(3, 3);
+            addServiceLog1.Name = "addServiceLog1";
+            addServiceLog1.Size = new Size(707, 523);
+            addServiceLog1.TabIndex = 0;
+            addServiceLog1.Load += addServiceLog1_Load;
+            // 
+            // viewSchedule1
+            // 
+            viewSchedule1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            viewSchedule1.Location = new Point(3, 3);
+            viewSchedule1.Name = "viewSchedule1";
+            viewSchedule1.Size = new Size(710, 526);
+            viewSchedule1.TabIndex = 3;
+            // 
             // mechanicDetails1
             // 
             mechanicDetails1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -137,23 +155,6 @@
             lookupCar1.Name = "lookupCar1";
             lookupCar1.Size = new Size(707, 523);
             lookupCar1.TabIndex = 1;
-            // 
-            // addServiceLog1
-            // 
-            addServiceLog1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            addServiceLog1.AutoScroll = true;
-            addServiceLog1.Location = new Point(3, 3);
-            addServiceLog1.Name = "addServiceLog1";
-            addServiceLog1.Size = new Size(707, 523);
-            addServiceLog1.TabIndex = 0;
-            // 
-            // viewSchedule1
-            // 
-            viewSchedule1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            viewSchedule1.Location = new Point(3, 3);
-            viewSchedule1.Name = "viewSchedule1";
-            viewSchedule1.Size = new Size(710, 526);
-            viewSchedule1.TabIndex = 3;
             // 
             // MechanicMainMenu
             // 

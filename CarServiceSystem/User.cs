@@ -2,12 +2,10 @@
 {
     public abstract class User
     {
-        protected int id;
         protected string firstName = "";
         protected string lastName = "";
         protected string email = "";
         protected string password = "";
-        public int ID { get { return id; } set { id = value; } }
         public string FirstName { get { return firstName; } set{ firstName = value; } }
         public string LastName { get { return lastName; } set { lastName = value; } }
         public string Email { get { return email; } set { email = value; } }

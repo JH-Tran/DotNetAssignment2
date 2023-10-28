@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualBasic.Logging;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,10 @@ namespace CarServiceSystem.Forms
 {
     public partial class AddServiceLog : UserControl
     {
-        Car? currentCar;
-        Mechanic mechanic = MechanicMainMenu.mechanic;
-        ServiceLog log;
+        public Mechanic loggedInMechanic = null!;
+        private Car currentlyDisplayedCar = null!;
+        private ServiceLog currentLog = null!;
+
         public AddServiceLog()
         {
             InitializeComponent();
@@ -22,32 +25,38 @@ namespace CarServiceSystem.Forms
 
         private void SearchLicenceBtn_Click(object sender, EventArgs e)
         {
-            currentCar = MechanicMainMenu.cars.FirstOrDefault(car => car.LicenceNumber == LicenceNumberInput.Text); //replace with proper call to db
-            Customer customer = new("Secondary", "Test", "...", "123");
-            currentCar.SecondaryOwner = customer;
+            using(MechanicServiceContext context = new MechanicServiceContext())
+            {
+                currentlyDisplayedCar = context.Cars
+                    .Include(c => c.Owner)
+                    .Where(c => c.LicenceNumber == LicenceNumberInput.Text)
+                    .First();
+            }
+
+
             // NEEDED FUNCTION TO REPLACE SOME LOGIC BELOW get a list of owners (Customer) given a car (only needed if theres going to be more then 2 owners otherwise maybe swap the combobox to something else
-            if (currentCar != null)
+            if (currentlyDisplayedCar != null)
             {
                 CarNotFoundLbl.Hide();
-                MakeAndModelLbl.Text = "Make/Model: " + currentCar.Make + " " + currentCar.Model;
-                YearLbl.Text = "Year: " + currentCar.Year;
-                OdometerLbl.Text = "Odometer: " + currentCar.Odometer;
+                MakeAndModelLbl.Text = "Make/Model: " + currentlyDisplayedCar.Make + " " + currentlyDisplayedCar.Model;
+                YearLbl.Text = "Year: " + currentlyDisplayedCar.Year;
+                OdometerLbl.Text = "Odometer: " + currentlyDisplayedCar.Odometer;
                 CarDetails.Show();
 
                 CustomerComboBox.Items.Clear();
-                CustomerComboBox.Items.Add(currentCar.Owner);
+                CustomerComboBox.Items.Add(currentlyDisplayedCar.Owner);
                 CustomerComboBox.DisplayMember = "FirstName";
                 CustomerComboBox.ValueMember = "FirstName";
-                if (currentCar.SecondaryOwner != null)
+                if (currentlyDisplayedCar.SecondaryOwner != null)
                 {
-                    CustomerComboBox.Items.Add(currentCar.SecondaryOwner);
+                    CustomerComboBox.Items.Add(currentlyDisplayedCar.SecondaryOwner);
                 }
 
                 AddServiceLogPnl.Show();
             }
             else
             {
-                currentCar = null;
+                currentlyDisplayedCar = null!;
                 CarDetails.Hide();
                 AddServiceLogPnl.Hide();
                 CarNotFoundLbl.Show();
@@ -57,7 +66,7 @@ namespace CarServiceSystem.Forms
         private void AddLogBtn_Click(object sender, EventArgs e)
         {
 
-            if (currentCar != null)
+            if (currentlyDisplayedCar != null)
             {
                 if (int.TryParse(OdometerInput.Text, out int newOdometer) && CustomerComboBox.SelectedItem is Customer customer)
                 {
@@ -71,11 +80,11 @@ namespace CarServiceSystem.Forms
 
 
 
-                    log = new ServiceLog(customer, mechanic, currentCar, TaskInput.Text, newOdometer);
+                    currentLog = new ServiceLog(customer, loggedInMechanic, currentlyDisplayedCar, TaskInput.Text, newOdometer);
 
                     //call function to add log to cars service history
-                    MechanicNameLbl.Text = "Mechanic: " + mechanic.GetFullName();
-                    ServiceDescriptionTxtBox.Text = "The following has been completed on " + customer.GetFullName() + "'s " + currentCar.GetName() + ": " + Environment.NewLine + Environment.NewLine + TaskInput.Text;
+                    MechanicNameLbl.Text = "Mechanic: " + loggedInMechanic.GetFullName();
+                    ServiceDescriptionTxtBox.Text = "The following has been completed on " + customer.GetFullName() + "'s " + currentlyDisplayedCar.GetName() + ": " + Environment.NewLine + Environment.NewLine + TaskInput.Text;
                     InvoicePnl.Show();
                 }
                 else
@@ -89,7 +98,7 @@ namespace CarServiceSystem.Forms
         {
             if (int.TryParse(InputCost.Text, out int cost))
             {
-                EmailManager.SendInvoice(log, cost);
+                EmailManager.SendInvoice(currentLog, cost);
                 InvoicePnl.Hide();
                 CarDetails.Hide();
                 ResetAddLogFields();

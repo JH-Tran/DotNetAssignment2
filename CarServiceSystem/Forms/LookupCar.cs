@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.EntityFrameworkCore;
 
 namespace CarServiceSystem.Forms
 {
@@ -19,24 +20,30 @@ namespace CarServiceSystem.Forms
 
         private void SearchLicenceBtn_Click(object sender, EventArgs e)
         {
-
-            var returnedCar = MechanicMainMenu.cars.FirstOrDefault(car => car.LicenceNumber == LicenceNumberInput.Text); //replace with proper method call
-
-            if (returnedCar != null)
+            using(MechanicServiceContext context = new MechanicServiceContext())
             {
-                CarNotFoundLbl.Hide();
-                MakeAndModelLbl.Text = "Make/Model: " + returnedCar.Make + " " + returnedCar.Model;
-                YearLbl.Text = "Year: " + returnedCar.Year;
-                OdometerLbl.Text = "Odometer: " + returnedCar.Odometer;
-                CarDetailsPnl.Show();
-                ServiceHistoryPnl.Show();
+                var returnedCar = context.Cars
+                    .Include(c => c.Owner)
+                    .Where(c => c.LicenceNumber == LicenceNumberInput.Text)
+                    .FirstOrDefault();
+                if (returnedCar != null)
+                {
+                    CarNotFoundLbl.Hide();
+                    MakeAndModelLbl.Text = "Make/Model: " + returnedCar.Make + " " + returnedCar.Model;
+                    YearLbl.Text = "Year: " + returnedCar.Year;
+                    OdometerLbl.Text = "Odometer: " + returnedCar.Odometer;
+                    CarDetailsPnl.Show();
+                    ServiceHistoryPnl.Show();
+                }
+                else
+                {
+                    CarDetailsPnl.Hide();
+                    ServiceHistoryPnl.Hide();
+                    CarNotFoundLbl.Show();
+                }
+
             }
-            else
-            {
-                CarDetailsPnl.Hide();
-                ServiceHistoryPnl.Hide();
-                CarNotFoundLbl.Show();
-            }
+
 
 
 
