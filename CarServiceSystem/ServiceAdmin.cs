@@ -8,6 +8,8 @@ namespace CarServiceSystem
 {
     public class ServiceAdmin : User
     {
+        public int ServiceAdminId { get; set; }
+
         public ServiceAdmin(string FirstName, string LastName, string Email, string Password) : base(FirstName, LastName, Email, Password)
         {
         }

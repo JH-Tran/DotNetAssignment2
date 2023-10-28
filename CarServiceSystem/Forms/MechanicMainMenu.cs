@@ -66,5 +66,10 @@ namespace CarServiceSystem.Forms
             mechanicDetails1.LastNameInput.Text = mechanic.LastName;
             mechanicDetails1.EmailInput.Text = mechanic.Email;
         }
+
+        private void addServiceLog1_Load(object sender, EventArgs e)
+        {
+            addServiceLog1.loggedInMechanic = mechanic;
+        }
     }
 }

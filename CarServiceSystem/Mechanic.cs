@@ -3,6 +3,7 @@
     public class Mechanic : User
     {
         private string workShopName;
+        public int MechanicId { get; set; }
         public string WorkShopName
         {
             get { return workShopName; } set { workShopName = value; }

@@ -9,6 +9,7 @@ namespace CarServiceSystem
 {
     public class Customer : User
     {
+        public int CustomerId { get; set; }
         protected Car[] OwnCars;
         public Customer(string FirstName, string LastName, string Email, string Password) : base(FirstName, LastName, Email, Password)
         {
