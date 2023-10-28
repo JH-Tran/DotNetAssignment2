@@ -38,14 +38,14 @@ namespace CarServiceSystem
 
 
             //Need login function that retrieves the corresponding user and passes it to the right menu
-            Mechanic mechanic = context.Mechanics.FirstOrDefault(m => m.FirstName == "Michael") ?? null!;
+            //Mechanic mechanic = context.Mechanics.FirstOrDefault(m => m.Email == "michael.k.fish@student.uts.edu.au") ?? null!;
 
 
             ApplicationConfiguration.Initialize();
             //Application.Run(new Form1());
-            //Application.Run(new CustomerMainMenu());
+            Application.Run(new CustomerMainMenu());
             //Application.Run(new MechanicMainMenu(mechanic));
-            Application.Run(new ServiceAdminMainMenu());
+            //Application.Run(new ServiceAdminMainMenu());
         }
     }
 }

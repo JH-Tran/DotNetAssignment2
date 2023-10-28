@@ -28,97 +28,98 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
-            tableLayoutPanel1 = new TableLayoutPanel();
-            label3 = new Label();
-            label4 = new Label();
-            label2 = new Label();
-            panel1 = new Panel();
-            flowLayoutPanel1 = new FlowLayoutPanel();
+            myCarListLabel = new Label();
+            carHistoryTableLayout = new TableLayoutPanel();
+            carServiceHistoryLabel = new Label();
+            carNameLabel = new Label();
+            bookServiceLabel = new Label();
+            bookServicePanel = new Panel();
+            carListFlowLayout = new FlowLayoutPanel();
             button1 = new Button();
             button2 = new Button();
             button3 = new Button();
             button4 = new Button();
             button5 = new Button();
-            label5 = new Label();
-            panel2 = new Panel();
-            flowLayoutPanel1.SuspendLayout();
+            secondaryOwnersLabel = new Label();
+            secondaryOwnersPanel = new Panel();
+            carListFlowLayout.SuspendLayout();
             SuspendLayout();
             // 
-            // label1
+            // myCarListLabel
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
-            label1.Location = new Point(14, 28);
-            label1.Name = "label1";
-            label1.Size = new Size(163, 38);
-            label1.TabIndex = 2;
-            label1.Text = "My Car List";
+            myCarListLabel.AutoSize = true;
+            myCarListLabel.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
+            myCarListLabel.Location = new Point(14, 28);
+            myCarListLabel.Name = "myCarListLabel";
+            myCarListLabel.Size = new Size(163, 38);
+            myCarListLabel.TabIndex = 2;
+            myCarListLabel.Text = "My Car List";
             // 
-            // tableLayoutPanel1
+            // carHistoryTableLayout
             // 
-            tableLayoutPanel1.ColumnCount = 2;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Location = new Point(17, 710);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 2;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Size = new Size(735, 191);
-            tableLayoutPanel1.TabIndex = 3;
+            carHistoryTableLayout.AutoScroll = true;
+            carHistoryTableLayout.ColumnCount = 2;
+            carHistoryTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            carHistoryTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            carHistoryTableLayout.Location = new Point(17, 710);
+            carHistoryTableLayout.Name = "carHistoryTableLayout";
+            carHistoryTableLayout.RowCount = 2;
+            carHistoryTableLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            carHistoryTableLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            carHistoryTableLayout.Size = new Size(735, 191);
+            carHistoryTableLayout.TabIndex = 3;
             // 
-            // label3
+            // carServiceHistoryLabel
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(17, 679);
-            label3.Name = "label3";
-            label3.Size = new Size(234, 28);
-            label3.TabIndex = 6;
-            label3.Text = "Car Service Log History";
+            carServiceHistoryLabel.AutoSize = true;
+            carServiceHistoryLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            carServiceHistoryLabel.Location = new Point(17, 679);
+            carServiceHistoryLabel.Name = "carServiceHistoryLabel";
+            carServiceHistoryLabel.Size = new Size(234, 28);
+            carServiceHistoryLabel.TabIndex = 6;
+            carServiceHistoryLabel.Text = "Car Service Log History";
             // 
-            // label4
+            // carNameLabel
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
-            label4.Location = new Point(14, 233);
-            label4.Name = "label4";
-            label4.Size = new Size(146, 38);
-            label4.TabIndex = 12;
-            label4.Text = "Car Name";
+            carNameLabel.AutoSize = true;
+            carNameLabel.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
+            carNameLabel.Location = new Point(14, 233);
+            carNameLabel.Name = "carNameLabel";
+            carNameLabel.Size = new Size(146, 38);
+            carNameLabel.TabIndex = 12;
+            carNameLabel.Text = "Car Name";
             // 
-            // label2
+            // bookServiceLabel
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(14, 282);
-            label2.Name = "label2";
-            label2.Size = new Size(141, 28);
-            label2.TabIndex = 11;
-            label2.Text = " Book Service";
+            bookServiceLabel.AutoSize = true;
+            bookServiceLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            bookServiceLabel.Location = new Point(14, 282);
+            bookServiceLabel.Name = "bookServiceLabel";
+            bookServiceLabel.Size = new Size(141, 28);
+            bookServiceLabel.TabIndex = 11;
+            bookServiceLabel.Text = " Book Service";
             // 
-            // panel1
+            // bookServicePanel
             // 
-            panel1.Location = new Point(14, 313);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(738, 206);
-            panel1.TabIndex = 10;
+            bookServicePanel.Location = new Point(14, 313);
+            bookServicePanel.Name = "bookServicePanel";
+            bookServicePanel.Size = new Size(738, 206);
+            bookServicePanel.TabIndex = 10;
             // 
-            // flowLayoutPanel1
+            // carListFlowLayout
             // 
-            flowLayoutPanel1.Anchor = AnchorStyles.Top;
-            flowLayoutPanel1.AutoScroll = true;
-            flowLayoutPanel1.Controls.Add(button1);
-            flowLayoutPanel1.Controls.Add(button2);
-            flowLayoutPanel1.Controls.Add(button3);
-            flowLayoutPanel1.Controls.Add(button4);
-            flowLayoutPanel1.Controls.Add(button5);
-            flowLayoutPanel1.Location = new Point(14, 69);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(738, 161);
-            flowLayoutPanel1.TabIndex = 13;
-            flowLayoutPanel1.WrapContents = false;
+            carListFlowLayout.Anchor = AnchorStyles.Top;
+            carListFlowLayout.AutoScroll = true;
+            carListFlowLayout.Controls.Add(button1);
+            carListFlowLayout.Controls.Add(button2);
+            carListFlowLayout.Controls.Add(button3);
+            carListFlowLayout.Controls.Add(button4);
+            carListFlowLayout.Controls.Add(button5);
+            carListFlowLayout.Location = new Point(3, 69);
+            carListFlowLayout.Name = "carListFlowLayout";
+            carListFlowLayout.Size = new Size(738, 161);
+            carListFlowLayout.TabIndex = 13;
+            carListFlowLayout.WrapContents = false;
             // 
             // button1
             // 
@@ -165,22 +166,22 @@
             button5.Text = "Car Model\r\nColour\r\nLicense Plate";
             button5.UseVisualStyleBackColor = true;
             // 
-            // label5
+            // secondaryOwnersLabel
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(14, 536);
-            label5.Name = "label5";
-            label5.Size = new Size(188, 28);
-            label5.TabIndex = 14;
-            label5.Text = "Secondary Owners";
+            secondaryOwnersLabel.AutoSize = true;
+            secondaryOwnersLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            secondaryOwnersLabel.Location = new Point(14, 536);
+            secondaryOwnersLabel.Name = "secondaryOwnersLabel";
+            secondaryOwnersLabel.Size = new Size(188, 28);
+            secondaryOwnersLabel.TabIndex = 14;
+            secondaryOwnersLabel.Text = "Secondary Owners";
             // 
-            // panel2
+            // secondaryOwnersPanel
             // 
-            panel2.Location = new Point(14, 567);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(738, 92);
-            panel2.TabIndex = 15;
+            secondaryOwnersPanel.Location = new Point(14, 567);
+            secondaryOwnersPanel.Name = "secondaryOwnersPanel";
+            secondaryOwnersPanel.Size = new Size(738, 92);
+            secondaryOwnersPanel.TabIndex = 15;
             // 
             // ViewAllCars
             // 
@@ -188,33 +189,33 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = SystemColors.ActiveCaption;
-            Controls.Add(panel2);
-            Controls.Add(label5);
-            Controls.Add(flowLayoutPanel1);
-            Controls.Add(label4);
-            Controls.Add(label2);
-            Controls.Add(panel1);
-            Controls.Add(label3);
-            Controls.Add(tableLayoutPanel1);
-            Controls.Add(label1);
+            Controls.Add(secondaryOwnersPanel);
+            Controls.Add(secondaryOwnersLabel);
+            Controls.Add(carListFlowLayout);
+            Controls.Add(carNameLabel);
+            Controls.Add(bookServiceLabel);
+            Controls.Add(bookServicePanel);
+            Controls.Add(carServiceHistoryLabel);
+            Controls.Add(carHistoryTableLayout);
+            Controls.Add(myCarListLabel);
             Name = "ViewAllCars";
-            Size = new Size(802, 373);
-            flowLayoutPanel1.ResumeLayout(false);
+            Size = new Size(781, 373);
+            carListFlowLayout.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-        private Label label1;
-        private TableLayoutPanel tableLayoutPanel1;
-        private Label label3;
-        private Label label4;
-        private Label label2;
-        private Panel panel1;
-        private FlowLayoutPanel flowLayoutPanel1;
+        private Label myCarListLabel;
+        private TableLayoutPanel carHistoryTableLayout;
+        private Label carServiceHistoryLabel;
+        private Label carNameLabel;
+        private Label bookServiceLabel;
+        private Panel bookServicePanel;
+        private FlowLayoutPanel carListFlowLayout;
         private Button button1;
-        private Label label5;
-        private Panel panel2;
+        private Label secondaryOwnersLabel;
+        private Panel secondaryOwnersPanel;
         private Button button2;
         private Button button3;
         private Button button4;

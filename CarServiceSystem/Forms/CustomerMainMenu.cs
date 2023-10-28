@@ -59,6 +59,7 @@ namespace CarServiceSystem.Forms
             HideAllUserControl();
             AddCar1.Show();
             AddCar1.BringToFront();
+            AddCar1.ResetTextBox();
         }
         private void HideAllUserControl()
         {

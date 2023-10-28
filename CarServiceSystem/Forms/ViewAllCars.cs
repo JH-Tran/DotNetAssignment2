@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace CarServiceSystem.Forms
+﻿namespace CarServiceSystem.Forms
 {
     public partial class ViewAllCars : UserControl
     {
@@ -16,8 +6,31 @@ namespace CarServiceSystem.Forms
         {
             InitializeComponent();
         }
-        public void AutoFillCustomerCars(Car[] CarList)
+        public void AutoFillCustomerCars(Customer cusomter)
         {
+            using (var context = new MechanicServiceContext())
+            {
+                var ownCarsList = context.Cars
+                    .Where(carOwn => carOwn.Owner == cusomter)
+                    .ToList();
+                if (ownCarsList != null)
+                {
+                    foreach (var element in ownCarsList)
+                    {
+
+                    }
+                }
+                var ownSecondaryCarsList = context.Cars
+                     .Where(carOwn => carOwn.SecondaryOwner == cusomter)
+                     .ToList();
+                if (ownCarsList != null)
+                {
+                    foreach (var element in ownCarsList)
+                    {
+
+                    }
+                }
+            }
 
         }
         private void button1_Click(object sender, EventArgs e)

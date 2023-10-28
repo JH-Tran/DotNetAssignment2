@@ -25,7 +25,6 @@ namespace CarServiceSystem.Forms
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
             tableLayoutPanel1.Controls.Add(new Label() { Text = "Information" }, 1, tableLayoutPanel1.RowCount - 1);
         }
-        Booking[] CustomerSchedule;
         private void CreateCustomerScheduleRows()
         {
             try

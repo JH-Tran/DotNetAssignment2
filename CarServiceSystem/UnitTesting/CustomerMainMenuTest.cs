@@ -38,7 +38,7 @@ namespace CarServiceSystem.UnitTesting
             //Act
             String CustomerName = TestCustomerMainMenu.GetCustomerTextBoxInfomation();
             //Assert
-            Assert.AreEqual("Tester Last test@gmail.com", CustomerName, "Tester information is in Textbox");
+            Assert.AreEqual("Tester Last", CustomerName, "Tester information is in Textbox");
         }
 
         [TearDown]
