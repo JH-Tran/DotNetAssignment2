@@ -39,10 +39,16 @@
             label3 = new Label();
             CarNotFoundLbl = new Label();
             ServiceHistoryPnl = new Panel();
-            tableLayoutPanel1 = new TableLayoutPanel();
             label4 = new Label();
+            CompletionDate = new DataGridViewTextBoxColumn();
+            Odometer = new DataGridViewTextBoxColumn();
+            Task = new DataGridViewTextBoxColumn();
+            MechanicName = new DataGridViewTextBoxColumn();
+            CustomerName = new DataGridViewTextBoxColumn();
+            ServiceHistoryGridView = new DataGridView();
             CarDetailsPnl.SuspendLayout();
             ServiceHistoryPnl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)ServiceHistoryGridView).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -153,31 +159,13 @@
             // ServiceHistoryPnl
             // 
             ServiceHistoryPnl.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            ServiceHistoryPnl.Controls.Add(tableLayoutPanel1);
+            ServiceHistoryPnl.Controls.Add(ServiceHistoryGridView);
             ServiceHistoryPnl.Controls.Add(label4);
             ServiceHistoryPnl.Location = new Point(3, 278);
             ServiceHistoryPnl.Name = "ServiceHistoryPnl";
             ServiceHistoryPnl.Size = new Size(566, 222);
             ServiceHistoryPnl.TabIndex = 6;
             ServiceHistoryPnl.Visible = false;
-            // 
-            // tableLayoutPanel1
-            // 
-            tableLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            tableLayoutPanel1.ColumnCount = 4;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 103F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 208F));
-            tableLayoutPanel1.Location = new Point(3, 31);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 4;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 51.42857F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 48.57143F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 43F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 56F));
-            tableLayoutPanel1.Size = new Size(560, 188);
-            tableLayoutPanel1.TabIndex = 3;
             // 
             // label4
             // 
@@ -188,6 +176,53 @@
             label4.Size = new Size(142, 28);
             label4.TabIndex = 1;
             label4.Text = "Service History";
+            // 
+            // CompletionDate
+            // 
+            CompletionDate.HeaderText = "Date";
+            CompletionDate.Name = "CompletionDate";
+            CompletionDate.ReadOnly = true;
+            // 
+            // Odometer
+            // 
+            Odometer.HeaderText = "Odometer";
+            Odometer.Name = "Odometer";
+            Odometer.ReadOnly = true;
+            // 
+            // Task
+            // 
+            Task.HeaderText = "Description";
+            Task.Name = "Task";
+            Task.ReadOnly = true;
+            // 
+            // MechanicName
+            // 
+            MechanicName.HeaderText = "Mechanic";
+            MechanicName.Name = "MechanicName";
+            MechanicName.ReadOnly = true;
+            // 
+            // CustomerName
+            // 
+            CustomerName.HeaderText = "Customer";
+            CustomerName.Name = "CustomerName";
+            CustomerName.ReadOnly = true;
+            // 
+            // ServiceHistoryGridView
+            // 
+            ServiceHistoryGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            ServiceHistoryGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            ServiceHistoryGridView.BackgroundColor = SystemColors.Window;
+            ServiceHistoryGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            ServiceHistoryGridView.Columns.AddRange(new DataGridViewColumn[] { CustomerName, MechanicName, Task, Odometer, CompletionDate });
+            ServiceHistoryGridView.Dock = DockStyle.Bottom;
+            ServiceHistoryGridView.GridColor = SystemColors.WindowText;
+            ServiceHistoryGridView.Location = new Point(0, 34);
+            ServiceHistoryGridView.Name = "ServiceHistoryGridView";
+            ServiceHistoryGridView.ReadOnly = true;
+            ServiceHistoryGridView.RowHeadersVisible = false;
+            ServiceHistoryGridView.RowTemplate.Height = 25;
+            ServiceHistoryGridView.Size = new Size(566, 188);
+            ServiceHistoryGridView.TabIndex = 2;
             // 
             // LookupCar
             // 
@@ -206,6 +241,7 @@
             CarDetailsPnl.PerformLayout();
             ServiceHistoryPnl.ResumeLayout(false);
             ServiceHistoryPnl.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)ServiceHistoryGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -223,7 +259,12 @@
         private Label YearLbl;
         private Label MakeAndModelLbl;
         private Panel ServiceHistoryPnl;
-        private TableLayoutPanel tableLayoutPanel1;
         private Label label4;
+        private DataGridView ServiceHistoryGridView;
+        private DataGridViewTextBoxColumn CustomerName;
+        private DataGridViewTextBoxColumn MechanicName;
+        private DataGridViewTextBoxColumn Task;
+        private DataGridViewTextBoxColumn Odometer;
+        private DataGridViewTextBoxColumn CompletionDate;
     }
 }

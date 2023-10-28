@@ -12,6 +12,7 @@ namespace CarServiceSystem.Forms
 {
     public partial class MechanicDetails : UserControl
     {
+        public Mechanic loggedInMechanic = null!;
         public MechanicDetails()
         {
             InitializeComponent();
@@ -23,11 +24,23 @@ namespace CarServiceSystem.Forms
             string lastName = LastNameInput.Text;
             string email = EmailInput.Text;
 
-            //update db
-
-            MechanicMainMenu.mechanic.FirstName = firstName;
-            MechanicMainMenu.mechanic.LastName = lastName;
-            MechanicMainMenu.mechanic.Email = email;
+            try
+            {
+                using (MechanicServiceContext context = new MechanicServiceContext())
+                {
+                    var mechanic = context.Mechanics.First(m => m.MechanicId == loggedInMechanic.MechanicId);
+                    mechanic.FirstName = firstName;
+                    mechanic.LastName = lastName;
+                    mechanic.Email = email;
+                    context.SaveChanges();
+                    this.loggedInMechanic = mechanic;
+                    MessageBox.Show("Details Updated");
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Error updating mechanic" + ex);
+            }
         }
     }
 }
