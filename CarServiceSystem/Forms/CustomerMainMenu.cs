@@ -12,7 +12,7 @@ namespace CarServiceSystem.Forms
 {
     public partial class CustomerMainMenu : Form
     {
-        private Customer CustomerSignIn;
+        private Customer loggedInCustomer;
         public CustomerMainMenu()
         {
             InitializeComponent();
@@ -22,36 +22,32 @@ namespace CarServiceSystem.Forms
         {
             InitializeComponent();
             HideAllUserControl();
-            AutoFillCustomerDetailsMenu(Customer);
+            loggedInCustomer = Customer;
         }
         public String GetCustomerFullName()
         {
-            return CustomerSignIn.GetFullName();
-        }
-        public void AutoFillCustomerDetailsMenu(Customer Customer)
-        {
-            CustomerSignIn = Customer;
-            CustomerDetails1.AutoFillCustomerDetails(CustomerSignIn);
-            ViewAllCars1.AutoFillCustomerCars(CustomerSignIn.GetCars());
-            //ViewScheduleClick1.AutoFillCustomerSchedule();
+            return loggedInCustomer.GetFullName();
         }
         private void ViewCustomerDetailClick(object sender, EventArgs e)
         {
             HideAllUserControl();
             CustomerDetails1.Show();
             CustomerDetails1.BringToFront();
+            CustomerDetails1.AutoFillCustomerDetails(loggedInCustomer);
         }
         private void ViewAllCarsClick(object sender, EventArgs e)
         {
             HideAllUserControl();
             ViewAllCars1.Show();
             ViewAllCars1.BringToFront();
+            ViewAllCars1.UpdateCustomerCars(loggedInCustomer);
         }
         private void ViewScheduleClick(object sender, EventArgs e)
         {
             HideAllUserControl();
             ViewCustomerSchedule1.Show();
             ViewCustomerSchedule1.BringToFront();
+            ViewCustomerSchedule1.UpdateCustomerSchedule(loggedInCustomer);
         }
 
         private void AddCarClick(object sender, EventArgs e)
@@ -59,6 +55,8 @@ namespace CarServiceSystem.Forms
             HideAllUserControl();
             AddCar1.Show();
             AddCar1.BringToFront();
+            AddCar1.ResetTextBox();
+            AddCar1.AssignLoginCustomer(loggedInCustomer);
         }
         private void HideAllUserControl()
         {
@@ -70,6 +68,11 @@ namespace CarServiceSystem.Forms
         public String GetCustomerTextBoxInfomation()
         {
             return CustomerDetails1.GetAllTextBoxString();
+        }
+
+        private void CustomerMainMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

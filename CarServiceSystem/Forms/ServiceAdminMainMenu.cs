@@ -42,5 +42,10 @@ namespace CarServiceSystem.Forms
             showCarsForm.Show();
             this.Hide();
         }
+
+        private void ServiceAdminMainMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

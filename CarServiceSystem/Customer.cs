@@ -22,34 +22,21 @@ namespace CarServiceSystem
         public Customer()
         {
         }
-
         public Car[] GetCars()
         {
             return OwnCars;
         }
-        
-        private void ShowCustomerDetails()
+        public void UpdateCustomerDetails()
         {
-            //Display customer information except password
-        }
-        private void ShowOwnCar()
-        {
-            foreach (Car car in OwnCars)
+            using (MechanicServiceContext context = new MechanicServiceContext())
             {
-                //Display Car information and button
+                var result = context.Customers.SingleOrDefault(customerContext => customerContext.Email == Email);
+                if (result != null)
+                {
+                    firstName = result.FirstName;
+                    lastName = result.LastName;
+                }
             }
-        }
-        private void ViewServiceScheduleTime()
-        {
-            //Show Booked time
-        }
-        private void AddCar()
-        {
-            //Add car to owncar
-        }
-        private void UpdateCar()
-        {
-            //Add owner to car
         }
     }
 }

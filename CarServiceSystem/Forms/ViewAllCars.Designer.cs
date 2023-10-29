@@ -28,159 +28,230 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
-            tableLayoutPanel1 = new TableLayoutPanel();
-            label3 = new Label();
-            label4 = new Label();
-            label2 = new Label();
-            panel1 = new Panel();
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
-            button5 = new Button();
-            label5 = new Label();
-            panel2 = new Panel();
-            flowLayoutPanel1.SuspendLayout();
+            myCarListLabel = new Label();
+            carHistoryTableLayout = new TableLayoutPanel();
+            carodometer = new Label();
+            servicePerformedLabel = new Label();
+            startDateTimeLabel = new Label();
+            endDateTimeLogLabel = new Label();
+            mechanicNameLogLabel = new Label();
+            carServiceHistoryLabel = new Label();
+            carNameLabel = new Label();
+            bookServiceLabel = new Label();
+            bookServicePanel = new Panel();
+            timeComboBox = new ComboBox();
+            confirmBooking = new Button();
+            bookingAndTimeLabel = new Label();
+            mechanicNameBookingLabel = new Label();
+            mechanicComboBox = new ComboBox();
+            dateTimePicker1 = new DateTimePicker();
+            carListFlowLayout = new FlowLayoutPanel();
+            secondaryOwnersLabel = new Label();
+            secondaryOwnersPanel = new Panel();
+            carHistoryTableLayout.SuspendLayout();
+            bookServicePanel.SuspendLayout();
             SuspendLayout();
             // 
-            // label1
+            // myCarListLabel
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
-            label1.Location = new Point(14, 28);
-            label1.Name = "label1";
-            label1.Size = new Size(163, 38);
-            label1.TabIndex = 2;
-            label1.Text = "My Car List";
+            myCarListLabel.AutoSize = true;
+            myCarListLabel.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
+            myCarListLabel.Location = new Point(14, 28);
+            myCarListLabel.Name = "myCarListLabel";
+            myCarListLabel.Size = new Size(163, 38);
+            myCarListLabel.TabIndex = 2;
+            myCarListLabel.Text = "My Car List";
             // 
-            // tableLayoutPanel1
+            // carHistoryTableLayout
             // 
-            tableLayoutPanel1.ColumnCount = 2;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Location = new Point(17, 710);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 2;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Size = new Size(735, 191);
-            tableLayoutPanel1.TabIndex = 3;
+            carHistoryTableLayout.AutoScroll = true;
+            carHistoryTableLayout.CellBorderStyle = TableLayoutPanelCellBorderStyle.InsetDouble;
+            carHistoryTableLayout.ColumnCount = 5;
+            carHistoryTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            carHistoryTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            carHistoryTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            carHistoryTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            carHistoryTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            carHistoryTableLayout.Controls.Add(carodometer, 3, 0);
+            carHistoryTableLayout.Controls.Add(servicePerformedLabel, 4, 0);
+            carHistoryTableLayout.Controls.Add(startDateTimeLabel, 0, 0);
+            carHistoryTableLayout.Controls.Add(endDateTimeLogLabel, 1, 0);
+            carHistoryTableLayout.Controls.Add(mechanicNameLogLabel, 2, 0);
+            carHistoryTableLayout.Location = new Point(14, 671);
+            carHistoryTableLayout.Name = "carHistoryTableLayout";
+            carHistoryTableLayout.RowCount = 1;
+            carHistoryTableLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            carHistoryTableLayout.Size = new Size(735, 191);
+            carHistoryTableLayout.TabIndex = 3;
             // 
-            // label3
+            // carodometer
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(17, 679);
-            label3.Name = "label3";
-            label3.Size = new Size(234, 28);
-            label3.TabIndex = 6;
-            label3.Text = "Car Service Log History";
+            carodometer.AutoSize = true;
+            carodometer.Location = new Point(444, 3);
+            carodometer.Name = "carodometer";
+            carodometer.Size = new Size(103, 20);
+            carodometer.TabIndex = 3;
+            carodometer.Text = "Car Odometer";
             // 
-            // label4
+            // servicePerformedLabel
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
-            label4.Location = new Point(14, 233);
-            label4.Name = "label4";
-            label4.Size = new Size(146, 38);
-            label4.TabIndex = 12;
-            label4.Text = "Car Name";
+            servicePerformedLabel.AutoSize = true;
+            servicePerformedLabel.Location = new Point(590, 3);
+            servicePerformedLabel.Name = "servicePerformedLabel";
+            servicePerformedLabel.Size = new Size(129, 20);
+            servicePerformedLabel.TabIndex = 4;
+            servicePerformedLabel.Text = "Service Performed";
             // 
-            // label2
+            // startDateTimeLabel
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(14, 282);
-            label2.Name = "label2";
-            label2.Size = new Size(141, 28);
-            label2.TabIndex = 11;
-            label2.Text = " Book Service";
+            startDateTimeLabel.AutoSize = true;
+            startDateTimeLabel.Location = new Point(6, 3);
+            startDateTimeLabel.Name = "startDateTimeLabel";
+            startDateTimeLabel.Size = new Size(113, 20);
+            startDateTimeLabel.TabIndex = 0;
+            startDateTimeLabel.Text = "Start Date Time";
             // 
-            // panel1
+            // endDateTimeLogLabel
             // 
-            panel1.Location = new Point(14, 313);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(738, 206);
-            panel1.TabIndex = 10;
+            endDateTimeLogLabel.AutoSize = true;
+            endDateTimeLogLabel.Location = new Point(152, 3);
+            endDateTimeLogLabel.Name = "endDateTimeLogLabel";
+            endDateTimeLogLabel.Size = new Size(107, 20);
+            endDateTimeLogLabel.TabIndex = 1;
+            endDateTimeLogLabel.Text = "End Date Time";
             // 
-            // flowLayoutPanel1
+            // mechanicNameLogLabel
             // 
-            flowLayoutPanel1.Anchor = AnchorStyles.Top;
-            flowLayoutPanel1.AutoScroll = true;
-            flowLayoutPanel1.Controls.Add(button1);
-            flowLayoutPanel1.Controls.Add(button2);
-            flowLayoutPanel1.Controls.Add(button3);
-            flowLayoutPanel1.Controls.Add(button4);
-            flowLayoutPanel1.Controls.Add(button5);
-            flowLayoutPanel1.Location = new Point(14, 69);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(738, 161);
-            flowLayoutPanel1.TabIndex = 13;
-            flowLayoutPanel1.WrapContents = false;
+            mechanicNameLogLabel.AutoSize = true;
+            mechanicNameLogLabel.Location = new Point(298, 3);
+            mechanicNameLogLabel.Name = "mechanicNameLogLabel";
+            mechanicNameLogLabel.Size = new Size(116, 20);
+            mechanicNameLogLabel.TabIndex = 2;
+            mechanicNameLogLabel.Text = "Mechanic Name";
             // 
-            // button1
+            // carServiceHistoryLabel
             // 
-            button1.Location = new Point(3, 3);
-            button1.Name = "button1";
-            button1.Size = new Size(165, 122);
-            button1.TabIndex = 14;
-            button1.Text = "Car Model\r\nColour\r\nLicense Plate";
-            button1.UseVisualStyleBackColor = true;
+            carServiceHistoryLabel.AutoSize = true;
+            carServiceHistoryLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            carServiceHistoryLabel.Location = new Point(14, 640);
+            carServiceHistoryLabel.Name = "carServiceHistoryLabel";
+            carServiceHistoryLabel.Size = new Size(234, 28);
+            carServiceHistoryLabel.TabIndex = 6;
+            carServiceHistoryLabel.Text = "Car Service Log History";
             // 
-            // button2
+            // carNameLabel
             // 
-            button2.Location = new Point(174, 3);
-            button2.Name = "button2";
-            button2.Size = new Size(165, 122);
-            button2.TabIndex = 15;
-            button2.Text = "Car Model\r\nColour\r\nLicense Plate";
-            button2.UseVisualStyleBackColor = true;
+            carNameLabel.AutoSize = true;
+            carNameLabel.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
+            carNameLabel.Location = new Point(14, 233);
+            carNameLabel.Name = "carNameLabel";
+            carNameLabel.Size = new Size(256, 38);
+            carNameLabel.TabIndex = 12;
+            carNameLabel.Text = "[Car Not Selected]";
             // 
-            // button3
+            // bookServiceLabel
             // 
-            button3.Location = new Point(345, 3);
-            button3.Name = "button3";
-            button3.Size = new Size(165, 122);
-            button3.TabIndex = 16;
-            button3.Text = "Car Model\r\nColour\r\nLicense Plate";
-            button3.UseVisualStyleBackColor = true;
+            bookServiceLabel.AutoSize = true;
+            bookServiceLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            bookServiceLabel.Location = new Point(14, 282);
+            bookServiceLabel.Name = "bookServiceLabel";
+            bookServiceLabel.Size = new Size(141, 28);
+            bookServiceLabel.TabIndex = 11;
+            bookServiceLabel.Text = " Book Service";
             // 
-            // button4
+            // bookServicePanel
             // 
-            button4.Location = new Point(516, 3);
-            button4.Name = "button4";
-            button4.Size = new Size(165, 122);
-            button4.TabIndex = 17;
-            button4.Text = "Car Model\r\nColour\r\nLicense Plate";
-            button4.UseVisualStyleBackColor = true;
+            bookServicePanel.Controls.Add(timeComboBox);
+            bookServicePanel.Controls.Add(confirmBooking);
+            bookServicePanel.Controls.Add(bookingAndTimeLabel);
+            bookServicePanel.Controls.Add(mechanicNameBookingLabel);
+            bookServicePanel.Controls.Add(mechanicComboBox);
+            bookServicePanel.Controls.Add(dateTimePicker1);
+            bookServicePanel.Location = new Point(14, 313);
+            bookServicePanel.Name = "bookServicePanel";
+            bookServicePanel.Size = new Size(738, 174);
+            bookServicePanel.TabIndex = 10;
             // 
-            // button5
+            // timeComboBox
             // 
-            button5.Location = new Point(687, 3);
-            button5.Name = "button5";
-            button5.Size = new Size(165, 122);
-            button5.TabIndex = 18;
-            button5.Text = "Car Model\r\nColour\r\nLicense Plate";
-            button5.UseVisualStyleBackColor = true;
+            timeComboBox.FormattingEnabled = true;
+            timeComboBox.Location = new Point(212, 83);
+            timeComboBox.Name = "timeComboBox";
+            timeComboBox.Size = new Size(151, 28);
+            timeComboBox.TabIndex = 7;
+            timeComboBox.SelectedIndexChanged += TimePickerSelectedIndexChanged;
             // 
-            // label5
+            // confirmBooking
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(14, 536);
-            label5.Name = "label5";
-            label5.Size = new Size(188, 28);
-            label5.TabIndex = 14;
-            label5.Text = "Secondary Owners";
+            confirmBooking.Location = new Point(212, 126);
+            confirmBooking.Name = "confirmBooking";
+            confirmBooking.Size = new Size(136, 29);
+            confirmBooking.TabIndex = 5;
+            confirmBooking.Text = "Confirm Booking";
+            confirmBooking.UseVisualStyleBackColor = true;
+            confirmBooking.Click += confirmBooking_Click;
             // 
-            // panel2
+            // bookingAndTimeLabel
             // 
-            panel2.Location = new Point(14, 567);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(738, 92);
-            panel2.TabIndex = 15;
+            bookingAndTimeLabel.AutoSize = true;
+            bookingAndTimeLabel.Location = new Point(10, 55);
+            bookingAndTimeLabel.Name = "bookingAndTimeLabel";
+            bookingAndTimeLabel.Size = new Size(169, 20);
+            bookingAndTimeLabel.TabIndex = 4;
+            bookingAndTimeLabel.Text = "Booking Date and Time:";
+            // 
+            // mechanicNameBookingLabel
+            // 
+            mechanicNameBookingLabel.AutoSize = true;
+            mechanicNameBookingLabel.Location = new Point(10, 19);
+            mechanicNameBookingLabel.Name = "mechanicNameBookingLabel";
+            mechanicNameBookingLabel.Size = new Size(119, 20);
+            mechanicNameBookingLabel.TabIndex = 3;
+            mechanicNameBookingLabel.Text = "Mechanic Name:";
+            // 
+            // mechanicComboBox
+            // 
+            mechanicComboBox.FormattingEnabled = true;
+            mechanicComboBox.Location = new Point(212, 16);
+            mechanicComboBox.Name = "mechanicComboBox";
+            mechanicComboBox.Size = new Size(250, 28);
+            mechanicComboBox.TabIndex = 2;
+            mechanicComboBox.SelectedIndexChanged += mechanicComboBox_SelectedIndexChanged;
+            // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Location = new Point(212, 50);
+            dateTimePicker1.MinDate = new DateTime(2023, 10, 29, 0, 0, 0, 0);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(250, 27);
+            dateTimePicker1.TabIndex = 0;
+            // 
+            // carListFlowLayout
+            // 
+            carListFlowLayout.Anchor = AnchorStyles.Top;
+            carListFlowLayout.AutoScroll = true;
+            carListFlowLayout.Location = new Point(39, 69);
+            carListFlowLayout.Name = "carListFlowLayout";
+            carListFlowLayout.Size = new Size(728, 161);
+            carListFlowLayout.TabIndex = 13;
+            carListFlowLayout.WrapContents = false;
+            // 
+            // secondaryOwnersLabel
+            // 
+            secondaryOwnersLabel.AutoSize = true;
+            secondaryOwnersLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            secondaryOwnersLabel.Location = new Point(14, 490);
+            secondaryOwnersLabel.Name = "secondaryOwnersLabel";
+            secondaryOwnersLabel.Size = new Size(188, 28);
+            secondaryOwnersLabel.TabIndex = 14;
+            secondaryOwnersLabel.Text = "Secondary Owners";
+            // 
+            // secondaryOwnersPanel
+            // 
+            secondaryOwnersPanel.Location = new Point(14, 521);
+            secondaryOwnersPanel.Name = "secondaryOwnersPanel";
+            secondaryOwnersPanel.Size = new Size(738, 92);
+            secondaryOwnersPanel.TabIndex = 15;
             // 
             // ViewAllCars
             // 
@@ -188,36 +259,46 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = SystemColors.ActiveCaption;
-            Controls.Add(panel2);
-            Controls.Add(label5);
-            Controls.Add(flowLayoutPanel1);
-            Controls.Add(label4);
-            Controls.Add(label2);
-            Controls.Add(panel1);
-            Controls.Add(label3);
-            Controls.Add(tableLayoutPanel1);
-            Controls.Add(label1);
+            Controls.Add(secondaryOwnersPanel);
+            Controls.Add(secondaryOwnersLabel);
+            Controls.Add(carListFlowLayout);
+            Controls.Add(carNameLabel);
+            Controls.Add(bookServiceLabel);
+            Controls.Add(bookServicePanel);
+            Controls.Add(carServiceHistoryLabel);
+            Controls.Add(carHistoryTableLayout);
+            Controls.Add(myCarListLabel);
             Name = "ViewAllCars";
-            Size = new Size(802, 373);
-            flowLayoutPanel1.ResumeLayout(false);
+            Size = new Size(771, 570);
+            Load += ViewAllCarsInterfaceLoad;
+            carHistoryTableLayout.ResumeLayout(false);
+            carHistoryTableLayout.PerformLayout();
+            bookServicePanel.ResumeLayout(false);
+            bookServicePanel.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-        private Label label1;
-        private TableLayoutPanel tableLayoutPanel1;
-        private Label label3;
-        private Label label4;
-        private Label label2;
-        private Panel panel1;
-        private FlowLayoutPanel flowLayoutPanel1;
-        private Button button1;
-        private Label label5;
-        private Panel panel2;
-        private Button button2;
-        private Button button3;
-        private Button button4;
-        private Button button5;
+        private Label myCarListLabel;
+        private TableLayoutPanel carHistoryTableLayout;
+        private Label carServiceHistoryLabel;
+        private Label carNameLabel;
+        private Label bookServiceLabel;
+        private Panel bookServicePanel;
+        private FlowLayoutPanel carListFlowLayout;
+        private Label secondaryOwnersLabel;
+        private Panel secondaryOwnersPanel;
+        private Label startDateTimeLabel;
+        private Label endDateTimeLogLabel;
+        private Label mechanicNameLogLabel;
+        private Label carodometer;
+        private Label servicePerformedLabel;
+        private DateTimePicker dateTimePicker1;
+        private Label bookingAndTimeLabel;
+        private Label mechanicNameBookingLabel;
+        private ComboBox mechanicComboBox;
+        private Button confirmBooking;
+        private ComboBox timeComboBox;
     }
 }

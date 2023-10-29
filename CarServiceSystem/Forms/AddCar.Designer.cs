@@ -30,19 +30,19 @@
         {
             tableLayoutPanel1 = new TableLayoutPanel();
             CarCompanyLabel = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            label2 = new Label();
-            label5 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
-            textBox5 = new TextBox();
-            label6 = new Label();
-            textBox6 = new TextBox();
-            label1 = new Label();
-            button1 = new Button();
+            carModelLabel = new Label();
+            yearModelLabel = new Label();
+            licenseNumberLabel = new Label();
+            vehicleIdentificationNumberLabel = new Label();
+            carCompanyTextBox = new TextBox();
+            carModelTextBox = new TextBox();
+            yearModelTextBox = new TextBox();
+            licenceNumberTextBox = new TextBox();
+            vehicleIdentificationNumberTextBox = new TextBox();
+            odometerLabel = new Label();
+            odometerTextBox = new TextBox();
+            TitleAddCar = new Label();
+            ConfirmAddCarButton = new Button();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -55,18 +55,18 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.Controls.Add(CarCompanyLabel, 0, 0);
-            tableLayoutPanel1.Controls.Add(label3, 0, 1);
-            tableLayoutPanel1.Controls.Add(label4, 0, 2);
-            tableLayoutPanel1.Controls.Add(label2, 0, 3);
-            tableLayoutPanel1.Controls.Add(label5, 0, 4);
-            tableLayoutPanel1.Controls.Add(textBox1, 1, 0);
-            tableLayoutPanel1.Controls.Add(textBox2, 1, 1);
-            tableLayoutPanel1.Controls.Add(textBox3, 1, 2);
-            tableLayoutPanel1.Controls.Add(textBox4, 1, 3);
-            tableLayoutPanel1.Controls.Add(textBox5, 1, 4);
-            tableLayoutPanel1.Controls.Add(label6, 0, 5);
-            tableLayoutPanel1.Controls.Add(textBox6, 1, 5);
-            tableLayoutPanel1.Location = new Point(86, 63);
+            tableLayoutPanel1.Controls.Add(carModelLabel, 0, 1);
+            tableLayoutPanel1.Controls.Add(yearModelLabel, 0, 2);
+            tableLayoutPanel1.Controls.Add(licenseNumberLabel, 0, 3);
+            tableLayoutPanel1.Controls.Add(vehicleIdentificationNumberLabel, 0, 4);
+            tableLayoutPanel1.Controls.Add(carCompanyTextBox, 1, 0);
+            tableLayoutPanel1.Controls.Add(carModelTextBox, 1, 1);
+            tableLayoutPanel1.Controls.Add(yearModelTextBox, 1, 2);
+            tableLayoutPanel1.Controls.Add(licenceNumberTextBox, 1, 3);
+            tableLayoutPanel1.Controls.Add(vehicleIdentificationNumberTextBox, 1, 4);
+            tableLayoutPanel1.Controls.Add(odometerLabel, 0, 5);
+            tableLayoutPanel1.Controls.Add(odometerTextBox, 1, 5);
+            tableLayoutPanel1.Location = new Point(72, 63);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 6;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 55F));
@@ -75,7 +75,7 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 55F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 55F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 55F));
-            tableLayoutPanel1.Size = new Size(590, 286);
+            tableLayoutPanel1.Size = new Size(604, 339);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // CarCompanyLabel
@@ -83,125 +83,127 @@
             CarCompanyLabel.AutoSize = true;
             CarCompanyLabel.Location = new Point(4, 1);
             CarCompanyLabel.Name = "CarCompanyLabel";
-            CarCompanyLabel.Size = new Size(98, 20);
+            CarCompanyLabel.Size = new Size(48, 20);
             CarCompanyLabel.TabIndex = 0;
-            CarCompanyLabel.Text = "Car Company";
+            CarCompanyLabel.Text = "Brand";
             // 
-            // label3
+            // carModelLabel
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(4, 57);
-            label3.Name = "label3";
-            label3.Size = new Size(78, 20);
-            label3.TabIndex = 1;
-            label3.Text = "Car Model";
+            carModelLabel.AutoSize = true;
+            carModelLabel.Location = new Point(4, 57);
+            carModelLabel.Name = "carModelLabel";
+            carModelLabel.Size = new Size(78, 20);
+            carModelLabel.TabIndex = 1;
+            carModelLabel.Text = "Car Model";
             // 
-            // label4
+            // yearModelLabel
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(4, 113);
-            label4.Name = "label4";
-            label4.Size = new Size(157, 20);
-            label4.TabIndex = 2;
-            label4.Text = "Release Year of Model";
+            yearModelLabel.AutoSize = true;
+            yearModelLabel.Location = new Point(4, 113);
+            yearModelLabel.Name = "yearModelLabel";
+            yearModelLabel.Size = new Size(84, 20);
+            yearModelLabel.TabIndex = 2;
+            yearModelLabel.Text = "Model Year";
             // 
-            // label2
+            // licenseNumberLabel
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(4, 169);
-            label2.Name = "label2";
-            label2.Size = new Size(116, 20);
-            label2.TabIndex = 3;
-            label2.Text = "Licence Number";
+            licenseNumberLabel.AutoSize = true;
+            licenseNumberLabel.Location = new Point(4, 169);
+            licenseNumberLabel.Name = "licenseNumberLabel";
+            licenseNumberLabel.Size = new Size(116, 20);
+            licenseNumberLabel.TabIndex = 3;
+            licenseNumberLabel.Text = "Licence Number";
             // 
-            // label5
+            // vehicleIdentificationNumberLabel
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(4, 225);
-            label5.Name = "label5";
-            label5.Size = new Size(206, 20);
-            label5.TabIndex = 4;
-            label5.Text = "Vehicle Identification Number";
+            vehicleIdentificationNumberLabel.AutoSize = true;
+            vehicleIdentificationNumberLabel.Location = new Point(4, 225);
+            vehicleIdentificationNumberLabel.Name = "vehicleIdentificationNumberLabel";
+            vehicleIdentificationNumberLabel.Size = new Size(206, 20);
+            vehicleIdentificationNumberLabel.TabIndex = 4;
+            vehicleIdentificationNumberLabel.Text = "Vehicle Identification Number";
             // 
-            // textBox1
+            // carCompanyTextBox
             // 
-            textBox1.Location = new Point(295, 4);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(264, 27);
-            textBox1.TabIndex = 5;
+            carCompanyTextBox.Location = new Point(305, 4);
+            carCompanyTextBox.Name = "carCompanyTextBox";
+            carCompanyTextBox.Size = new Size(264, 27);
+            carCompanyTextBox.TabIndex = 5;
             // 
-            // textBox2
+            // carModelTextBox
             // 
-            textBox2.Location = new Point(295, 60);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(264, 27);
-            textBox2.TabIndex = 6;
+            carModelTextBox.Location = new Point(305, 60);
+            carModelTextBox.Name = "carModelTextBox";
+            carModelTextBox.Size = new Size(264, 27);
+            carModelTextBox.TabIndex = 6;
             // 
-            // textBox3
+            // yearModelTextBox
             // 
-            textBox3.Location = new Point(295, 116);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(264, 27);
-            textBox3.TabIndex = 7;
+            yearModelTextBox.Location = new Point(305, 116);
+            yearModelTextBox.Name = "yearModelTextBox";
+            yearModelTextBox.Size = new Size(264, 27);
+            yearModelTextBox.TabIndex = 7;
             // 
-            // textBox4
+            // licenceNumberTextBox
             // 
-            textBox4.Location = new Point(295, 172);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(264, 27);
-            textBox4.TabIndex = 8;
+            licenceNumberTextBox.Location = new Point(305, 172);
+            licenceNumberTextBox.Name = "licenceNumberTextBox";
+            licenceNumberTextBox.Size = new Size(264, 27);
+            licenceNumberTextBox.TabIndex = 8;
             // 
-            // textBox5
+            // vehicleIdentificationNumberTextBox
             // 
-            textBox5.Location = new Point(295, 228);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(264, 27);
-            textBox5.TabIndex = 9;
+            vehicleIdentificationNumberTextBox.Location = new Point(305, 228);
+            vehicleIdentificationNumberTextBox.Name = "vehicleIdentificationNumberTextBox";
+            vehicleIdentificationNumberTextBox.Size = new Size(264, 27);
+            vehicleIdentificationNumberTextBox.TabIndex = 9;
             // 
-            // label6
+            // odometerLabel
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(4, 281);
-            label6.Name = "label6";
-            label6.Size = new Size(79, 20);
-            label6.TabIndex = 10;
-            label6.Text = "Car Colour";
+            odometerLabel.AutoSize = true;
+            odometerLabel.Location = new Point(4, 281);
+            odometerLabel.Name = "odometerLabel";
+            odometerLabel.Size = new Size(77, 20);
+            odometerLabel.TabIndex = 10;
+            odometerLabel.Text = "Odometer";
             // 
-            // textBox6
+            // odometerTextBox
             // 
-            textBox6.Location = new Point(295, 284);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(264, 27);
-            textBox6.TabIndex = 11;
+            odometerTextBox.Location = new Point(305, 284);
+            odometerTextBox.Name = "odometerTextBox";
+            odometerTextBox.Size = new Size(264, 27);
+            odometerTextBox.TabIndex = 11;
             // 
-            // label1
+            // TitleAddCar
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(86, 11);
-            label1.Name = "label1";
-            label1.Size = new Size(122, 38);
-            label1.TabIndex = 0;
-            label1.Text = "Add Car";
+            TitleAddCar.AutoSize = true;
+            TitleAddCar.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+            TitleAddCar.Location = new Point(76, 11);
+            TitleAddCar.Name = "TitleAddCar";
+            TitleAddCar.Size = new Size(122, 38);
+            TitleAddCar.TabIndex = 0;
+            TitleAddCar.Text = "Add Car";
             // 
-            // button1
+            // ConfirmAddCarButton
             // 
-            button1.Location = new Point(682, 320);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 1;
-            button1.Text = "Confirm";
-            button1.UseVisualStyleBackColor = true;
+            ConfirmAddCarButton.Location = new Point(682, 373);
+            ConfirmAddCarButton.Name = "ConfirmAddCarButton";
+            ConfirmAddCarButton.Size = new Size(94, 29);
+            ConfirmAddCarButton.TabIndex = 1;
+            ConfirmAddCarButton.Text = "Confirm";
+            ConfirmAddCarButton.UseVisualStyleBackColor = true;
+            ConfirmAddCarButton.Click += ConfirmAddingCar;
             // 
             // AddCar
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(button1);
-            Controls.Add(label1);
+            AutoScroll = true;
+            Controls.Add(ConfirmAddCarButton);
+            Controls.Add(TitleAddCar);
             Controls.Add(tableLayoutPanel1);
             Name = "AddCar";
-            Size = new Size(803, 372);
+            Size = new Size(803, 483);
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             ResumeLayout(false);
@@ -211,19 +213,19 @@
         #endregion
 
         private TableLayoutPanel tableLayoutPanel1;
-        private Label label1;
+        private Label TitleAddCar;
         private Label CarCompanyLabel;
-        private Label label3;
-        private Label label4;
-        private Button button1;
-        private Label label2;
-        private Label label5;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private TextBox textBox4;
-        private TextBox textBox5;
-        private Label label6;
-        private TextBox textBox6;
+        private Label carModelLabel;
+        private Label yearModelLabel;
+        private Button ConfirmAddCarButton;
+        private Label licenseNumberLabel;
+        private Label vehicleIdentificationNumberLabel;
+        private TextBox carCompanyTextBox;
+        private TextBox carModelTextBox;
+        private TextBox yearModelTextBox;
+        private TextBox licenceNumberTextBox;
+        private TextBox vehicleIdentificationNumberTextBox;
+        private Label odometerLabel;
+        private TextBox odometerTextBox;
     }
 }

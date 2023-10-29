@@ -30,7 +30,6 @@
         {
             tableLayoutPanel1 = new TableLayoutPanel();
             label2 = new Label();
-            label1 = new Label();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -44,12 +43,10 @@
             tableLayoutPanel1.ColumnCount = 1;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanel1.Controls.Add(label2, 0, 0);
-            tableLayoutPanel1.Controls.Add(label1, 0, 1);
             tableLayoutPanel1.Location = new Point(20, 27);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 2;
+            tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 90F));
             tableLayoutPanel1.Size = new Size(761, 324);
             tableLayoutPanel1.TabIndex = 0;
             // 
@@ -63,15 +60,6 @@
             label2.TabIndex = 1;
             label2.Text = "Car Service Schedules";
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(6, 56);
-            label1.Name = "label1";
-            label1.Size = new Size(229, 80);
-            label1.TabIndex = 2;
-            label1.Text = "Date and Time: 00:00 26/10/2023\r\nCar Model: \r\nCar Colour: \r\nLicence Plate: ";
-            // 
             // ViewCustomerSchedule
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -79,7 +67,6 @@
             Controls.Add(tableLayoutPanel1);
             Name = "ViewCustomerSchedule";
             Size = new Size(802, 373);
-            Load += ViewCustomerSchedule_Load;
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             ResumeLayout(false);
@@ -89,6 +76,5 @@
 
         private TableLayoutPanel tableLayoutPanel1;
         private Label label2;
-        private Label label1;
     }
 }
