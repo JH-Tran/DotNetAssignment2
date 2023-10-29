@@ -22,12 +22,24 @@ namespace CarServiceSystem.Forms
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void showCustomersButton_Click(object sender, EventArgs e)
+        {
+            var showCustForm = new showCustomers();
+            showCustForm.Show();
+        }
+
+        private void showMechTTButton_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void showMechanicsButton_Click(object sender, EventArgs e)
+        {
+            var showMechForm = new showMechanics();
+            showMechForm.Show();
+        }
+
+        private void viewCarHistButton_Click(object sender, EventArgs e)
         {
 
         }
