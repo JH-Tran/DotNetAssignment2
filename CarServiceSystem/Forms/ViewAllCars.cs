@@ -202,7 +202,7 @@ namespace CarServiceSystem.Forms
                         carChosen.SecondaryOwner = secondaryOwner;
                         context.SaveChanges();
                         SecondaryOwnerError.Visible = false;
-                        SCurrentSecondaryOwnerLabel.Text = $"Current Secondary Owner: {secondaryOwner.Email}";
+                        CurrentSecondaryOwnerLabel.Text = $"Current Secondary Owner: {secondaryOwner.Email}";
                     }
                     else
                     {
