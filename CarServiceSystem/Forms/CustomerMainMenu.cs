@@ -33,7 +33,7 @@ namespace CarServiceSystem.Forms
             loggedInCustomer = Customer;
             CustomerDetails1.AutoFillCustomerDetails(loggedInCustomer);
             ViewAllCars1.AutoFillCustomerCars(loggedInCustomer);
-            //ViewScheduleClick1.AutoFillCustomerSchedule();
+            ViewCustomerSchedule1.LoadCustomerSchedule(Customer);
         }
         private void ViewCustomerDetailClick(object sender, EventArgs e)
         {

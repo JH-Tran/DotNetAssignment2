@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,6 +24,7 @@ namespace CarServiceSystem.Forms
             using (MechanicServiceContext context = new MechanicServiceContext())
             {
                 var bookingList = context.Bookings
+                    .Include(carOwn => carOwn.Car)
                     .Where(carOwn => carOwn.Customer == customer && !carOwn.BookingStatus)
                     .ToList();
                 if (bookingList != null)
@@ -30,9 +32,11 @@ namespace CarServiceSystem.Forms
                     foreach (var booking in bookingList)
                     {
                         tableLayoutPanel1.RowCount = tableLayoutPanel1.RowCount + 1;
-                        tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
-                        string label = $"Date and Time: {booking.dateTime}\r\nCar Model: {booking.Car.GetName()} \r\nLicence Plate: {booking.Car.LicenceNumber}\r\n";
-                        tableLayoutPanel1.Controls.Add(new Label() { Text = "Information" }, 1, tableLayoutPanel1.RowCount - 1);
+                        string aboutSchedule = $"Date and Time: {booking.dateTime}\r\nCar Model: {booking.Car.Make} {booking.Car.Model} {booking.Car.Year} \r\nLicence Plate: {booking.Car.LicenceNumber}\r\n";
+                        Label scheduleLabel = new Label();
+                        scheduleLabel.Text = aboutSchedule;
+                        scheduleLabel.AutoSize = true;
+                        tableLayoutPanel1.Controls.Add(scheduleLabel, 1, tableLayoutPanel1.RowCount - 1);
                     }
                 }
             }
