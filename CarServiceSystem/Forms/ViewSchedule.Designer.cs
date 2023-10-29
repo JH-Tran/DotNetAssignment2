@@ -30,11 +30,11 @@
         {
             label1 = new Label();
             panel1 = new Panel();
+            NoAppointmentsLbl = new Label();
             ScheduleGridView = new DataGridView();
             CustomerName = new DataGridViewTextBoxColumn();
             CarName = new DataGridViewTextBoxColumn();
             DateAndTime = new DataGridViewTextBoxColumn();
-            NoAppointmentsLbl = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ScheduleGridView).BeginInit();
             SuspendLayout();
@@ -59,8 +59,23 @@
             panel1.Size = new Size(578, 359);
             panel1.TabIndex = 1;
             // 
+            // NoAppointmentsLbl
+            // 
+            NoAppointmentsLbl.Anchor = AnchorStyles.Top;
+            NoAppointmentsLbl.AutoSize = true;
+            NoAppointmentsLbl.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            NoAppointmentsLbl.ForeColor = Color.Red;
+            NoAppointmentsLbl.Location = new Point(172, 77);
+            NoAppointmentsLbl.Name = "NoAppointmentsLbl";
+            NoAppointmentsLbl.Size = new Size(224, 21);
+            NoAppointmentsLbl.TabIndex = 2;
+            NoAppointmentsLbl.Text = "No Upcoming Services Booked";
+            NoAppointmentsLbl.Visible = false;
+            // 
             // ScheduleGridView
             // 
+            ScheduleGridView.AllowUserToAddRows = false;
+            ScheduleGridView.AllowUserToDeleteRows = false;
             ScheduleGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             ScheduleGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             ScheduleGridView.BackgroundColor = SystemColors.Window;
@@ -94,19 +109,6 @@
             DateAndTime.HeaderText = "Date/Time";
             DateAndTime.Name = "DateAndTime";
             DateAndTime.ReadOnly = true;
-            // 
-            // NoAppointmentsLbl
-            // 
-            NoAppointmentsLbl.Anchor = AnchorStyles.Top;
-            NoAppointmentsLbl.AutoSize = true;
-            NoAppointmentsLbl.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            NoAppointmentsLbl.ForeColor = Color.Red;
-            NoAppointmentsLbl.Location = new Point(172, 77);
-            NoAppointmentsLbl.Name = "NoAppointmentsLbl";
-            NoAppointmentsLbl.Size = new Size(224, 21);
-            NoAppointmentsLbl.TabIndex = 2;
-            NoAppointmentsLbl.Text = "No Upcoming Services Booked";
-            NoAppointmentsLbl.Visible = false;
             // 
             // ViewSchedule
             // 

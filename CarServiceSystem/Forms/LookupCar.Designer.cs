@@ -34,10 +34,10 @@
             SearchLicenceBtn = new Button();
             CarDetailsPnl = new Panel();
             OdometerLbl = new Label();
+            CarNotFoundLbl = new Label();
             YearLbl = new Label();
             MakeAndModelLbl = new Label();
             label3 = new Label();
-            CarNotFoundLbl = new Label();
             ServiceHistoryPnl = new Panel();
             NoServiceHistoryLbl = new Label();
             ServiceHistoryGridView = new DataGridView();
@@ -54,12 +54,11 @@
             // 
             // label1
             // 
-            label1.Anchor = AnchorStyles.Top;
-            label1.AutoSize = true;
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label1.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(212, 57);
+            label1.Location = new Point(0, 24);
             label1.Name = "label1";
-            label1.Size = new Size(153, 37);
+            label1.Size = new Size(635, 40);
             label1.TabIndex = 0;
             label1.Text = "Car Lookup";
             label1.TextAlign = ContentAlignment.TopCenter;
@@ -68,7 +67,7 @@
             // 
             label2.Anchor = AnchorStyles.Top;
             label2.AutoSize = true;
-            label2.Location = new Point(131, 119);
+            label2.Location = new Point(160, 78);
             label2.Name = "label2";
             label2.Size = new Size(100, 15);
             label2.TabIndex = 1;
@@ -77,7 +76,7 @@
             // LicenceNumberInput
             // 
             LicenceNumberInput.Anchor = AnchorStyles.Top;
-            LicenceNumberInput.Location = new Point(237, 116);
+            LicenceNumberInput.Location = new Point(260, 75);
             LicenceNumberInput.Name = "LicenceNumberInput";
             LicenceNumberInput.Size = new Size(100, 23);
             LicenceNumberInput.TabIndex = 2;
@@ -85,7 +84,7 @@
             // SearchLicenceBtn
             // 
             SearchLicenceBtn.Anchor = AnchorStyles.Top;
-            SearchLicenceBtn.Location = new Point(343, 116);
+            SearchLicenceBtn.Location = new Point(370, 75);
             SearchLicenceBtn.Name = "SearchLicenceBtn";
             SearchLicenceBtn.Size = new Size(75, 23);
             SearchLicenceBtn.TabIndex = 3;
@@ -98,12 +97,13 @@
             CarDetailsPnl.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             CarDetailsPnl.AutoSize = true;
             CarDetailsPnl.Controls.Add(OdometerLbl);
+            CarDetailsPnl.Controls.Add(CarNotFoundLbl);
             CarDetailsPnl.Controls.Add(YearLbl);
             CarDetailsPnl.Controls.Add(MakeAndModelLbl);
             CarDetailsPnl.Controls.Add(label3);
-            CarDetailsPnl.Location = new Point(3, 145);
+            CarDetailsPnl.Location = new Point(0, 115);
             CarDetailsPnl.Name = "CarDetailsPnl";
-            CarDetailsPnl.Size = new Size(566, 127);
+            CarDetailsPnl.Size = new Size(635, 118);
             CarDetailsPnl.TabIndex = 4;
             CarDetailsPnl.Visible = false;
             // 
@@ -115,6 +115,19 @@
             OdometerLbl.Size = new Size(64, 15);
             OdometerLbl.TabIndex = 4;
             OdometerLbl.Text = "Odometer:";
+            // 
+            // CarNotFoundLbl
+            // 
+            CarNotFoundLbl.Anchor = AnchorStyles.Top;
+            CarNotFoundLbl.AutoSize = true;
+            CarNotFoundLbl.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            CarNotFoundLbl.ForeColor = Color.Red;
+            CarNotFoundLbl.Location = new Point(264, 37);
+            CarNotFoundLbl.Name = "CarNotFoundLbl";
+            CarNotFoundLbl.Size = new Size(109, 21);
+            CarNotFoundLbl.TabIndex = 5;
+            CarNotFoundLbl.Text = "Car not Found";
+            CarNotFoundLbl.Visible = false;
             // 
             // YearLbl
             // 
@@ -144,28 +157,15 @@
             label3.TabIndex = 0;
             label3.Text = "Car Details";
             // 
-            // CarNotFoundLbl
-            // 
-            CarNotFoundLbl.Anchor = AnchorStyles.Top;
-            CarNotFoundLbl.AutoSize = true;
-            CarNotFoundLbl.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            CarNotFoundLbl.ForeColor = Color.Red;
-            CarNotFoundLbl.Location = new Point(228, 145);
-            CarNotFoundLbl.Name = "CarNotFoundLbl";
-            CarNotFoundLbl.Size = new Size(109, 21);
-            CarNotFoundLbl.TabIndex = 5;
-            CarNotFoundLbl.Text = "Car not Found";
-            CarNotFoundLbl.Visible = false;
-            // 
             // ServiceHistoryPnl
             // 
             ServiceHistoryPnl.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             ServiceHistoryPnl.Controls.Add(NoServiceHistoryLbl);
             ServiceHistoryPnl.Controls.Add(ServiceHistoryGridView);
             ServiceHistoryPnl.Controls.Add(label4);
-            ServiceHistoryPnl.Location = new Point(3, 278);
+            ServiceHistoryPnl.Location = new Point(0, 245);
             ServiceHistoryPnl.Name = "ServiceHistoryPnl";
-            ServiceHistoryPnl.Size = new Size(566, 222);
+            ServiceHistoryPnl.Size = new Size(629, 284);
             ServiceHistoryPnl.TabIndex = 6;
             ServiceHistoryPnl.Visible = false;
             // 
@@ -174,15 +174,17 @@
             NoServiceHistoryLbl.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             NoServiceHistoryLbl.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             NoServiceHistoryLbl.ForeColor = Color.Red;
-            NoServiceHistoryLbl.Location = new Point(0, 82);
+            NoServiceHistoryLbl.Location = new Point(0, 113);
             NoServiceHistoryLbl.Name = "NoServiceHistoryLbl";
-            NoServiceHistoryLbl.Size = new Size(566, 23);
+            NoServiceHistoryLbl.Size = new Size(629, 23);
             NoServiceHistoryLbl.TabIndex = 3;
             NoServiceHistoryLbl.TextAlign = ContentAlignment.MiddleCenter;
             NoServiceHistoryLbl.Visible = false;
             // 
             // ServiceHistoryGridView
             // 
+            ServiceHistoryGridView.AllowUserToAddRows = false;
+            ServiceHistoryGridView.AllowUserToDeleteRows = false;
             ServiceHistoryGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             ServiceHistoryGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             ServiceHistoryGridView.BackgroundColor = SystemColors.Window;
@@ -190,12 +192,12 @@
             ServiceHistoryGridView.Columns.AddRange(new DataGridViewColumn[] { CustomerName, MechanicName, Task, Odometer, CompletionDate });
             ServiceHistoryGridView.Dock = DockStyle.Bottom;
             ServiceHistoryGridView.GridColor = SystemColors.WindowText;
-            ServiceHistoryGridView.Location = new Point(0, 34);
+            ServiceHistoryGridView.Location = new Point(0, 42);
             ServiceHistoryGridView.Name = "ServiceHistoryGridView";
             ServiceHistoryGridView.ReadOnly = true;
             ServiceHistoryGridView.RowHeadersVisible = false;
             ServiceHistoryGridView.RowTemplate.Height = 25;
-            ServiceHistoryGridView.Size = new Size(566, 188);
+            ServiceHistoryGridView.Size = new Size(629, 242);
             ServiceHistoryGridView.TabIndex = 2;
             ServiceHistoryGridView.Visible = false;
             // 
@@ -244,14 +246,13 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(ServiceHistoryPnl);
-            Controls.Add(CarNotFoundLbl);
             Controls.Add(CarDetailsPnl);
             Controls.Add(SearchLicenceBtn);
             Controls.Add(LicenceNumberInput);
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "LookupCar";
-            Size = new Size(572, 503);
+            Size = new Size(635, 565);
             CarDetailsPnl.ResumeLayout(false);
             CarDetailsPnl.PerformLayout();
             ServiceHistoryPnl.ResumeLayout(false);

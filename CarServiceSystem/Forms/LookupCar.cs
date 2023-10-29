@@ -51,6 +51,7 @@ namespace CarServiceSystem.Forms
                     }
                     else
                     {
+                        ServiceHistoryGridView.Rows.Clear();
                         foreach (ServiceLog log in serviceHistory)
                         {
                             ServiceHistoryGridView.Rows.Add(log.Car.Owner.GetFullName(), log.Mechanic.GetFullName(),

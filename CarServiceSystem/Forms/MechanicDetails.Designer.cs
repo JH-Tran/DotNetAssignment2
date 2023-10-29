@@ -34,7 +34,6 @@
             LastNameInput = new TextBox();
             label3 = new Label();
             label4 = new Label();
-            label5 = new Label();
             SaveChangesBtn = new Button();
             MechanicEmailLbl = new Label();
             SuspendLayout();
@@ -43,11 +42,11 @@
             // 
             MechanicWorkshopLbl.Anchor = AnchorStyles.Top;
             MechanicWorkshopLbl.AutoSize = true;
-            MechanicWorkshopLbl.Location = new Point(342, 106);
+            MechanicWorkshopLbl.Location = new Point(323, 114);
             MechanicWorkshopLbl.Name = "MechanicWorkshopLbl";
-            MechanicWorkshopLbl.Size = new Size(67, 15);
+            MechanicWorkshopLbl.Size = new Size(79, 15);
             MechanicWorkshopLbl.TabIndex = 0;
-            MechanicWorkshopLbl.Text = "Workshop: ";
+            MechanicWorkshopLbl.Text = "Workshop:     ";
             MechanicWorkshopLbl.TextAlign = ContentAlignment.TopCenter;
             // 
             // label2
@@ -64,7 +63,7 @@
             // FirstNameInput
             // 
             FirstNameInput.Anchor = AnchorStyles.Top;
-            FirstNameInput.Location = new Point(396, 198);
+            FirstNameInput.Location = new Point(396, 181);
             FirstNameInput.Name = "FirstNameInput";
             FirstNameInput.Size = new Size(218, 23);
             FirstNameInput.TabIndex = 2;
@@ -72,7 +71,7 @@
             // LastNameInput
             // 
             LastNameInput.Anchor = AnchorStyles.Top;
-            LastNameInput.Location = new Point(396, 246);
+            LastNameInput.Location = new Point(396, 229);
             LastNameInput.Name = "LastNameInput";
             LastNameInput.Size = new Size(218, 23);
             LastNameInput.TabIndex = 3;
@@ -81,7 +80,7 @@
             // 
             label3.Anchor = AnchorStyles.Top;
             label3.AutoSize = true;
-            label3.Location = new Point(325, 198);
+            label3.Location = new Point(325, 181);
             label3.Name = "label3";
             label3.Size = new Size(65, 15);
             label3.TabIndex = 5;
@@ -91,26 +90,16 @@
             // 
             label4.Anchor = AnchorStyles.Top;
             label4.AutoSize = true;
-            label4.Location = new Point(326, 246);
+            label4.Location = new Point(326, 229);
             label4.Name = "label4";
             label4.Size = new Size(64, 15);
             label4.TabIndex = 6;
             label4.Text = "Last name:";
             // 
-            // label5
-            // 
-            label5.Anchor = AnchorStyles.Top;
-            label5.AutoSize = true;
-            label5.Location = new Point(351, 151);
-            label5.Name = "label5";
-            label5.Size = new Size(39, 15);
-            label5.TabIndex = 7;
-            label5.Text = "Email:";
-            // 
             // SaveChangesBtn
             // 
             SaveChangesBtn.Anchor = AnchorStyles.Top;
-            SaveChangesBtn.Location = new Point(423, 303);
+            SaveChangesBtn.Location = new Point(421, 274);
             SaveChangesBtn.Name = "SaveChangesBtn";
             SaveChangesBtn.Size = new Size(92, 23);
             SaveChangesBtn.TabIndex = 8;
@@ -122,10 +111,11 @@
             // 
             MechanicEmailLbl.Anchor = AnchorStyles.Top;
             MechanicEmailLbl.AutoSize = true;
-            MechanicEmailLbl.Location = new Point(405, 151);
+            MechanicEmailLbl.Location = new Point(348, 146);
             MechanicEmailLbl.Name = "MechanicEmailLbl";
-            MechanicEmailLbl.Size = new Size(0, 15);
+            MechanicEmailLbl.Size = new Size(54, 15);
             MechanicEmailLbl.TabIndex = 9;
+            MechanicEmailLbl.Text = "Email:     ";
             MechanicEmailLbl.TextAlign = ContentAlignment.TopCenter;
             // 
             // MechanicDetails
@@ -134,7 +124,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(MechanicEmailLbl);
             Controls.Add(SaveChangesBtn);
-            Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(LastNameInput);
@@ -155,7 +144,6 @@
         public TextBox LastNameInput;
         private Label label3;
         private Label label4;
-        private Label label5;
         private Button SaveChangesBtn;
         public Label MechanicEmailLbl;
     }

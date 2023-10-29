@@ -32,6 +32,7 @@
             panel1 = new Panel();
             AddServiceLogPnl = new Panel();
             InvoicePnl = new Panel();
+            InvalidCostLbl = new Label();
             ServiceDescriptionTxtBox = new TextBox();
             InputCost = new TextBox();
             SendInvoiceBtn = new Button();
@@ -48,9 +49,9 @@
             label5 = new Label();
             CustomerComboBox = new ComboBox();
             label4 = new Label();
-            CarNotFoundLbl = new Label();
             CarDetails = new Panel();
             OdometerLbl = new Label();
+            CarNotFoundLbl = new Label();
             YearLbl = new Label();
             MakeAndModelLbl = new Label();
             label3 = new Label();
@@ -59,7 +60,6 @@
             label2 = new Label();
             label1 = new Label();
             customerBindingSource = new BindingSource(components);
-            InvalidCostLbl = new Label();
             panel1.SuspendLayout();
             AddServiceLogPnl.SuspendLayout();
             InvoicePnl.SuspendLayout();
@@ -71,7 +71,6 @@
             // 
             panel1.AutoScroll = true;
             panel1.Controls.Add(AddServiceLogPnl);
-            panel1.Controls.Add(CarNotFoundLbl);
             panel1.Controls.Add(CarDetails);
             panel1.Controls.Add(SearchLicenceBtn);
             panel1.Controls.Add(LicenceNumberInput);
@@ -117,6 +116,18 @@
             InvoicePnl.Size = new Size(632, 321);
             InvoicePnl.TabIndex = 10;
             InvoicePnl.Visible = false;
+            // 
+            // InvalidCostLbl
+            // 
+            InvalidCostLbl.Anchor = AnchorStyles.Top;
+            InvalidCostLbl.AutoSize = true;
+            InvalidCostLbl.ForeColor = Color.Red;
+            InvalidCostLbl.Location = new Point(72, 195);
+            InvalidCostLbl.Name = "InvalidCostLbl";
+            InvalidCostLbl.Size = new Size(162, 15);
+            InvalidCostLbl.TabIndex = 10;
+            InvalidCostLbl.Text = "Dollar value must be numeric";
+            InvalidCostLbl.Visible = false;
             // 
             // ServiceDescriptionTxtBox
             // 
@@ -269,30 +280,18 @@
             label4.TabIndex = 1;
             label4.Text = "Add Log";
             // 
-            // CarNotFoundLbl
-            // 
-            CarNotFoundLbl.Anchor = AnchorStyles.Top;
-            CarNotFoundLbl.AutoSize = true;
-            CarNotFoundLbl.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            CarNotFoundLbl.ForeColor = Color.Red;
-            CarNotFoundLbl.Location = new Point(267, 114);
-            CarNotFoundLbl.Name = "CarNotFoundLbl";
-            CarNotFoundLbl.Size = new Size(109, 21);
-            CarNotFoundLbl.TabIndex = 13;
-            CarNotFoundLbl.Text = "Car not Found";
-            CarNotFoundLbl.Visible = false;
-            // 
             // CarDetails
             // 
             CarDetails.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             CarDetails.AutoSize = true;
             CarDetails.Controls.Add(OdometerLbl);
+            CarDetails.Controls.Add(CarNotFoundLbl);
             CarDetails.Controls.Add(YearLbl);
             CarDetails.Controls.Add(MakeAndModelLbl);
             CarDetails.Controls.Add(label3);
-            CarDetails.Location = new Point(3, 117);
+            CarDetails.Location = new Point(0, 115);
             CarDetails.Name = "CarDetails";
-            CarDetails.Size = new Size(629, 118);
+            CarDetails.Size = new Size(635, 118);
             CarDetails.TabIndex = 12;
             CarDetails.Visible = false;
             // 
@@ -304,6 +303,19 @@
             OdometerLbl.Size = new Size(64, 15);
             OdometerLbl.TabIndex = 4;
             OdometerLbl.Text = "Odometer:";
+            // 
+            // CarNotFoundLbl
+            // 
+            CarNotFoundLbl.Anchor = AnchorStyles.Top;
+            CarNotFoundLbl.AutoSize = true;
+            CarNotFoundLbl.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            CarNotFoundLbl.ForeColor = Color.Red;
+            CarNotFoundLbl.Location = new Point(264, 37);
+            CarNotFoundLbl.Name = "CarNotFoundLbl";
+            CarNotFoundLbl.Size = new Size(109, 21);
+            CarNotFoundLbl.TabIndex = 13;
+            CarNotFoundLbl.Text = "Car not Found";
+            CarNotFoundLbl.Visible = false;
             // 
             // YearLbl
             // 
@@ -336,7 +348,7 @@
             // SearchLicenceBtn
             // 
             SearchLicenceBtn.Anchor = AnchorStyles.Top;
-            SearchLicenceBtn.Location = new Point(373, 88);
+            SearchLicenceBtn.Location = new Point(370, 75);
             SearchLicenceBtn.Name = "SearchLicenceBtn";
             SearchLicenceBtn.Size = new Size(75, 23);
             SearchLicenceBtn.TabIndex = 11;
@@ -347,7 +359,7 @@
             // LicenceNumberInput
             // 
             LicenceNumberInput.Anchor = AnchorStyles.Top;
-            LicenceNumberInput.Location = new Point(267, 88);
+            LicenceNumberInput.Location = new Point(260, 75);
             LicenceNumberInput.Name = "LicenceNumberInput";
             LicenceNumberInput.Size = new Size(100, 23);
             LicenceNumberInput.TabIndex = 10;
@@ -356,7 +368,7 @@
             // 
             label2.Anchor = AnchorStyles.Top;
             label2.AutoSize = true;
-            label2.Location = new Point(170, 91);
+            label2.Location = new Point(160, 78);
             label2.Name = "label2";
             label2.Size = new Size(100, 15);
             label2.TabIndex = 9;
@@ -364,30 +376,18 @@
             // 
             // label1
             // 
-            label1.Anchor = AnchorStyles.Top;
-            label1.AutoSize = true;
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label1.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(216, 25);
+            label1.Location = new Point(0, 24);
             label1.Name = "label1";
-            label1.Size = new Size(208, 37);
+            label1.Size = new Size(635, 40);
             label1.TabIndex = 8;
             label1.Text = "Add Service Log";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // customerBindingSource
             // 
             customerBindingSource.DataSource = typeof(Customer);
-            // 
-            // InvalidCostLbl
-            // 
-            InvalidCostLbl.Anchor = AnchorStyles.Top;
-            InvalidCostLbl.AutoSize = true;
-            InvalidCostLbl.ForeColor = Color.Red;
-            InvalidCostLbl.Location = new Point(72, 195);
-            InvalidCostLbl.Name = "InvalidCostLbl";
-            InvalidCostLbl.Size = new Size(162, 15);
-            InvalidCostLbl.TabIndex = 10;
-            InvalidCostLbl.Text = "Dollar value must be numeric";
-            InvalidCostLbl.Visible = false;
             // 
             // AddServiceLog
             // 

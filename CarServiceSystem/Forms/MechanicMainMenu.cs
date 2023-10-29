@@ -90,7 +90,7 @@ namespace CarServiceSystem.Forms
             mechanicDetails1.MechanicWorkshopLbl.Text += loggedInMechanic.WorkShopName;
             mechanicDetails1.FirstNameInput.Text = loggedInMechanic.FirstName;
             mechanicDetails1.LastNameInput.Text = loggedInMechanic.LastName;
-            mechanicDetails1.MechanicEmailLbl.Text = loggedInMechanic.Email;
+            mechanicDetails1.MechanicEmailLbl.Text += loggedInMechanic.Email;
         }
 
         private void addServiceLog1_Load(object sender, EventArgs e)
