@@ -34,7 +34,7 @@ namespace CarServiceSystem.Forms
                     .Where(c => c.LicenceNumber == LicenceNumberInput.Text)
                     .FirstOrDefault() ?? null!;
             }
-            //If a car was successfuly retrieved display its information aswell as the add service log panel
+            //If a car was successfuly retrieved display its basic information as well as the add service log panel
             if (currentlyDisplayedCar != null)
             {
                 CarNotFoundLbl.Hide();
@@ -100,6 +100,8 @@ namespace CarServiceSystem.Forms
 
         private void SendInvoiceBtn_Click(object sender, EventArgs e)
         {
+
+            //first checks for valid decimal input for cost then uses email manager to send the invoice
             if (decimal.TryParse(InputCost.Text, out decimal cost))
             {
 
