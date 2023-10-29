@@ -25,15 +25,15 @@ namespace CarServiceSystem.Forms
 
         private void SearchLicenceBtn_Click(object sender, EventArgs e)
         {
-            using(MechanicServiceContext context = new MechanicServiceContext())
+            //Try retrieve the car from database using input license number
+            using (MechanicServiceContext context = new MechanicServiceContext())
             {
                 currentlyDisplayedCar = context.Cars
                     .Include(c => c.Owner)
                     .Where(c => c.LicenceNumber == LicenceNumberInput.Text)
                     .FirstOrDefault() ?? null!;
             }
-
-
+            //If a car was successfuly retrieved display its information aswell as the add service log panel
             if (currentlyDisplayedCar != null)
             {
                 CarNotFoundLbl.Hide();
@@ -64,7 +64,6 @@ namespace CarServiceSystem.Forms
 
         private void AddLogBtn_Click(object sender, EventArgs e)
         {
-
             if (currentlyDisplayedCar != null)
             {
                 if (int.TryParse(OdometerInput.Text, out int newOdometer) && CustomerComboBox.SelectedItem is Customer customer)
@@ -76,22 +75,17 @@ namespace CarServiceSystem.Forms
                     parts[1] = OdometerInput.Text;
                     OdometerLbl.Text = string.Join(":", parts);
 
-
-
-
+                    //create new log based on given input
                     ServiceLog newLog = new ServiceLog(customer, loggedInMechanic, currentlyDisplayedCar, TaskInput.Text, newOdometer);
-
-                    using(MechanicServiceContext context = new MechanicServiceContext())
+                    //add new log to db and update cars odometer
+                    using (MechanicServiceContext context = new MechanicServiceContext())
                     {
                         var car = context.Cars.First(car => car.CarId == currentlyDisplayedCar.CarId);
                         car.ServiceHistory.Add(newLog);
                         car.Odometer = newOdometer;
                         context.SaveChanges();
+                        currentLog = newLog;
                     }
-                    currentLog = newLog;
-
-
-                    //call function to add log to cars service history
                     MechanicNameLbl.Text = "Mechanic: " + loggedInMechanic.GetFullName();
                     ServiceDescriptionTxtBox.Text = "The following has been completed on " + customer.GetFullName() + "'s " + currentlyDisplayedCar.GetName() + ": " + Environment.NewLine + Environment.NewLine + TaskInput.Text;
                     InvoicePnl.Show();
@@ -105,18 +99,21 @@ namespace CarServiceSystem.Forms
 
         private void SendInvoiceBtn_Click(object sender, EventArgs e)
         {
-            if (int.TryParse(InputCost.Text, out int cost))
+            if (decimal.TryParse(InputCost.Text, out decimal cost))
             {
-                EmailManager.SendInvoice(currentLog, cost);
+
+                InvalidCostLbl.Hide();
+                EmailManager.SendInvoice(currentLog, decimal.Round(cost, 2));
                 InvoicePnl.Hide();
                 CarDetails.Hide();
                 ResetAddLogFields();
                 AddServiceLogPnl.Hide();
+                InputCost.Text = string.Empty;
             }
 
             else
             {
-                //display error message
+                InvalidCostLbl.Show();
             }
         }
 

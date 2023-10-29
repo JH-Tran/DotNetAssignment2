@@ -44,9 +44,10 @@
             // 
             // CustomerDetailButton
             // 
-            CustomerDetailButton.Location = new Point(10, 37);
+            CustomerDetailButton.Location = new Point(9, 28);
+            CustomerDetailButton.Margin = new Padding(3, 2, 3, 2);
             CustomerDetailButton.Name = "CustomerDetailButton";
-            CustomerDetailButton.Size = new Size(176, 34);
+            CustomerDetailButton.Size = new Size(154, 26);
             CustomerDetailButton.TabIndex = 0;
             CustomerDetailButton.Text = "Customer Details";
             CustomerDetailButton.UseVisualStyleBackColor = true;
@@ -54,9 +55,10 @@
             // 
             // ViewAllCarButton
             // 
-            ViewAllCarButton.Location = new Point(206, 37);
+            ViewAllCarButton.Location = new Point(180, 28);
+            ViewAllCarButton.Margin = new Padding(3, 2, 3, 2);
             ViewAllCarButton.Name = "ViewAllCarButton";
-            ViewAllCarButton.Size = new Size(176, 34);
+            ViewAllCarButton.Size = new Size(154, 26);
             ViewAllCarButton.TabIndex = 1;
             ViewAllCarButton.Text = "View All Cars";
             ViewAllCarButton.UseVisualStyleBackColor = true;
@@ -64,9 +66,10 @@
             // 
             // ViewScheduleButton
             // 
-            ViewScheduleButton.Location = new Point(399, 37);
+            ViewScheduleButton.Location = new Point(349, 28);
+            ViewScheduleButton.Margin = new Padding(3, 2, 3, 2);
             ViewScheduleButton.Name = "ViewScheduleButton";
-            ViewScheduleButton.Size = new Size(176, 34);
+            ViewScheduleButton.Size = new Size(154, 26);
             ViewScheduleButton.TabIndex = 2;
             ViewScheduleButton.Text = "View Scheduled Service";
             ViewScheduleButton.UseVisualStyleBackColor = true;
@@ -74,9 +77,10 @@
             // 
             // AddCarButton
             // 
-            AddCarButton.Location = new Point(592, 39);
+            AddCarButton.Location = new Point(518, 29);
+            AddCarButton.Margin = new Padding(3, 2, 3, 2);
             AddCarButton.Name = "AddCarButton";
-            AddCarButton.Size = new Size(176, 30);
+            AddCarButton.Size = new Size(154, 22);
             AddCarButton.TabIndex = 3;
             AddCarButton.Text = "Add Car";
             AddCarButton.UseVisualStyleBackColor = true;
@@ -85,9 +89,9 @@
             // CompanyTitle
             // 
             CompanyTitle.AutoSize = true;
-            CompanyTitle.Location = new Point(10, 5);
+            CompanyTitle.Location = new Point(9, 4);
             CompanyTitle.Name = "CompanyTitle";
-            CompanyTitle.Size = new Size(98, 20);
+            CompanyTitle.Size = new Size(80, 15);
             CompanyTitle.TabIndex = 4;
             CompanyTitle.Text = "Car Mechanic";
             // 
@@ -99,8 +103,9 @@
             HeaderPanel.Controls.Add(ViewAllCarButton);
             HeaderPanel.Controls.Add(CustomerDetailButton);
             HeaderPanel.Location = new Point(0, 0);
+            HeaderPanel.Margin = new Padding(3, 2, 3, 2);
             HeaderPanel.Name = "HeaderPanel";
-            HeaderPanel.Size = new Size(800, 450);
+            HeaderPanel.Size = new Size(700, 338);
             HeaderPanel.TabIndex = 5;
             // 
             // InformationPanel
@@ -109,30 +114,34 @@
             InformationPanel.Controls.Add(ViewCustomerSchedule1);
             InformationPanel.Controls.Add(CustomerDetails1);
             InformationPanel.Controls.Add(ViewAllCars1);
-            InformationPanel.Location = new Point(-1, 77);
+            InformationPanel.Location = new Point(-1, 58);
+            InformationPanel.Margin = new Padding(3, 2, 3, 2);
             InformationPanel.Name = "InformationPanel";
-            InformationPanel.Size = new Size(802, 373);
+            InformationPanel.Size = new Size(702, 280);
             InformationPanel.TabIndex = 6;
             // 
             // AddCar1
             // 
             AddCar1.Location = new Point(-1, -2);
+            AddCar1.Margin = new Padding(3, 2, 3, 2);
             AddCar1.Name = "AddCar1";
-            AddCar1.Size = new Size(805, 372);
+            AddCar1.Size = new Size(704, 279);
             AddCar1.TabIndex = 4;
             // 
             // ViewCustomerSchedule1
             // 
             ViewCustomerSchedule1.Location = new Point(1, -2);
+            ViewCustomerSchedule1.Margin = new Padding(3, 2, 3, 2);
             ViewCustomerSchedule1.Name = "ViewCustomerSchedule1";
-            ViewCustomerSchedule1.Size = new Size(803, 372);
+            ViewCustomerSchedule1.Size = new Size(703, 279);
             ViewCustomerSchedule1.TabIndex = 3;
             // 
             // CustomerDetails1
             // 
             CustomerDetails1.Location = new Point(-1, -2);
+            CustomerDetails1.Margin = new Padding(3, 2, 3, 2);
             CustomerDetails1.Name = "CustomerDetails1";
-            CustomerDetails1.Size = new Size(802, 375);
+            CustomerDetails1.Size = new Size(702, 281);
             CustomerDetails1.TabIndex = 2;
             // 
             // ViewAllCars1
@@ -140,19 +149,22 @@
             ViewAllCars1.AutoScroll = true;
             ViewAllCars1.BackColor = SystemColors.ActiveCaption;
             ViewAllCars1.Location = new Point(0, 0);
+            ViewAllCars1.Margin = new Padding(3, 2, 3, 2);
             ViewAllCars1.Name = "ViewAllCars1";
-            ViewAllCars1.Size = new Size(801, 373);
+            ViewAllCars1.Size = new Size(701, 280);
             ViewAllCars1.TabIndex = 1;
             // 
             // CustomerMainMenu
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(700, 338);
             Controls.Add(InformationPanel);
             Controls.Add(HeaderPanel);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "CustomerMainMenu";
             Text = "CustomerMainMenu";
+            FormClosing += CustomerMainMenu_FormClosing;
             HeaderPanel.ResumeLayout(false);
             HeaderPanel.PerformLayout();
             InformationPanel.ResumeLayout(false);

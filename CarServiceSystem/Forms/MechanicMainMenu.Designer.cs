@@ -101,10 +101,11 @@
             // 
             // WelcomeLbl
             // 
+            WelcomeLbl.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             WelcomeLbl.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            WelcomeLbl.Location = new Point(206, 34);
+            WelcomeLbl.Location = new Point(200, 34);
             WelcomeLbl.Name = "WelcomeLbl";
-            WelcomeLbl.Size = new Size(570, 37);
+            WelcomeLbl.Size = new Size(713, 51);
             WelcomeLbl.TabIndex = 6;
             WelcomeLbl.TextAlign = ContentAlignment.TopCenter;
             // 
@@ -123,37 +124,37 @@
             // 
             // addServiceLog1
             // 
-            addServiceLog1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             addServiceLog1.AutoScroll = true;
-            addServiceLog1.Location = new Point(3, 3);
+            addServiceLog1.Dock = DockStyle.Fill;
+            addServiceLog1.Location = new Point(0, 0);
             addServiceLog1.Name = "addServiceLog1";
-            addServiceLog1.Size = new Size(707, 523);
+            addServiceLog1.Size = new Size(713, 529);
             addServiceLog1.TabIndex = 0;
             addServiceLog1.Load += addServiceLog1_Load;
             // 
             // viewSchedule1
             // 
-            viewSchedule1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            viewSchedule1.Location = new Point(3, 3);
+            viewSchedule1.Dock = DockStyle.Fill;
+            viewSchedule1.Location = new Point(0, 0);
             viewSchedule1.Name = "viewSchedule1";
-            viewSchedule1.Size = new Size(710, 526);
+            viewSchedule1.Size = new Size(713, 529);
             viewSchedule1.TabIndex = 3;
             // 
             // mechanicDetails1
             // 
-            mechanicDetails1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            mechanicDetails1.Location = new Point(0, 3);
+            mechanicDetails1.Dock = DockStyle.Fill;
+            mechanicDetails1.Location = new Point(0, 0);
             mechanicDetails1.Name = "mechanicDetails1";
-            mechanicDetails1.Size = new Size(713, 526);
+            mechanicDetails1.Size = new Size(713, 529);
             mechanicDetails1.TabIndex = 2;
             mechanicDetails1.Load += mechanicDetails1_Load;
             // 
             // lookupCar1
             // 
-            lookupCar1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            lookupCar1.Location = new Point(3, 3);
+            lookupCar1.Dock = DockStyle.Fill;
+            lookupCar1.Location = new Point(0, 0);
             lookupCar1.Name = "lookupCar1";
-            lookupCar1.Size = new Size(707, 523);
+            lookupCar1.Size = new Size(713, 529);
             lookupCar1.TabIndex = 1;
             // 
             // MechanicMainMenu
@@ -168,6 +169,7 @@
             Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             Name = "MechanicMainMenu";
             Text = "Car Service System";
+            FormClosing += MechanicMainMenu_FormClosing;
             Load += MechanicMainMenu_Load;
             MenuPnl.ResumeLayout(false);
             DisplayPnl.ResumeLayout(false);
