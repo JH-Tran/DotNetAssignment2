@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -45,14 +46,18 @@ namespace CarServiceSystem.Forms
 
             if (carList.SelectedItem != null)
             {
-                Car car = context.Cars.FirstOrDefault(c => c.VehicleIdentificationNumber == carList.SelectedItem) ?? null!;
+                var car = context.Cars
+                    .Include(c => c.Owner)
+                    .Where(c => c.VehicleIdentificationNumber == carList.SelectedItem)
+                    .FirstOrDefault() ?? null!;
+
                 carProperties.Items.Add(car.Make);
                 carProperties.Items.Add(car.Model);
                 carProperties.Items.Add(car.Year);
                 carProperties.Items.Add(car.Odometer);
                 carProperties.Items.Add(car.LicenceNumber);
                 carProperties.Items.Add(car.VehicleIdentificationNumber);
-                //carProperties.Items.Add(car.Owner.FirstName);
+                carProperties.Items.Add(car.Owner.FirstName + " " + car.Owner.LastName);
 
                 Titles.Items.Add("Make");
                 Titles.Items.Add("Model");
