@@ -172,9 +172,11 @@ namespace CarServiceSystem.Forms
                     bookingErrorLabel.Visible = true;
                 }
             }
-            catch (Exception ex)
+            catch
             {
-                Console.WriteLine(ex);
+                bookingErrorLabel.ForeColor = Color.Red;
+                bookingErrorLabel.Text = "Invalid Information to Book";
+                bookingErrorLabel.Visible = true;
             }
         }
         private void AddSecondaryOwners(object sender, EventArgs e)
