@@ -36,6 +36,7 @@
             backButton = new Button();
             carList = new ListBox();
             label1 = new Label();
+            serviceHistButton = new Button();
             SuspendLayout();
             // 
             // Titles
@@ -122,11 +123,22 @@
             label1.TabIndex = 22;
             label1.Text = "All Cars";
             // 
+            // serviceHistButton
+            // 
+            serviceHistButton.Location = new Point(343, 180);
+            serviceHistButton.Name = "serviceHistButton";
+            serviceHistButton.Size = new Size(104, 50);
+            serviceHistButton.TabIndex = 31;
+            serviceHistButton.Text = "View Service History";
+            serviceHistButton.UseVisualStyleBackColor = true;
+            serviceHistButton.Click += serviceHistButton_Click;
+            // 
             // showCars
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(921, 551);
+            Controls.Add(serviceHistButton);
             Controls.Add(Titles);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -151,5 +163,6 @@
         private Button backButton;
         private ListBox carList;
         private Label label1;
+        private Button serviceHistButton;
     }
 }
