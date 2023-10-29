@@ -70,7 +70,7 @@ namespace CarServiceSystem.Forms
                 //Odometer reading is allowed to be lower than last time incase of engine replacement.
                 if (int.TryParse(OdometerInput.Text, out int newOdometer) && CustomerComboBox.SelectedItem is Customer customer)
                 {
-                        InvalidInputLbl.Hide();
+                    InvalidInputLbl.Hide();
 
                     //Updates the Odometer Label on the form with new odometer reading
                     var parts = OdometerLbl.Text.Split(":");

@@ -41,22 +41,24 @@
             // 
             // label1
             // 
-            label1.Anchor = AnchorStyles.Top;
-            label1.AutoSize = true;
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label1.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(196, 39);
+            label1.Location = new Point(0, 24);
             label1.Name = "label1";
-            label1.Size = new Size(189, 37);
+            label1.Size = new Size(635, 40);
             label1.TabIndex = 0;
             label1.Text = "View Schedule";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // panel1
             // 
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel1.AutoScroll = true;
             panel1.Controls.Add(NoAppointmentsLbl);
             panel1.Controls.Add(ScheduleGridView);
             panel1.Location = new Point(0, 79);
             panel1.Name = "panel1";
-            panel1.Size = new Size(578, 359);
+            panel1.Size = new Size(618, 483);
             panel1.TabIndex = 1;
             // 
             // NoAppointmentsLbl
@@ -65,7 +67,7 @@
             NoAppointmentsLbl.AutoSize = true;
             NoAppointmentsLbl.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             NoAppointmentsLbl.ForeColor = Color.Red;
-            NoAppointmentsLbl.Location = new Point(172, 77);
+            NoAppointmentsLbl.Location = new Point(192, 19);
             NoAppointmentsLbl.Name = "NoAppointmentsLbl";
             NoAppointmentsLbl.Size = new Size(224, 21);
             NoAppointmentsLbl.TabIndex = 2;
@@ -76,19 +78,20 @@
             // 
             ScheduleGridView.AllowUserToAddRows = false;
             ScheduleGridView.AllowUserToDeleteRows = false;
+            ScheduleGridView.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             ScheduleGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             ScheduleGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             ScheduleGridView.BackgroundColor = SystemColors.Window;
             ScheduleGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             ScheduleGridView.Columns.AddRange(new DataGridViewColumn[] { CustomerName, CarName, DateAndTime });
-            ScheduleGridView.Dock = DockStyle.Bottom;
             ScheduleGridView.GridColor = SystemColors.WindowText;
-            ScheduleGridView.Location = new Point(0, 3);
+            ScheduleGridView.Location = new Point(0, 55);
             ScheduleGridView.Name = "ScheduleGridView";
             ScheduleGridView.ReadOnly = true;
             ScheduleGridView.RowHeadersVisible = false;
             ScheduleGridView.RowTemplate.Height = 25;
-            ScheduleGridView.Size = new Size(578, 356);
+            ScheduleGridView.ScrollBars = ScrollBars.Vertical;
+            ScheduleGridView.Size = new Size(618, 418);
             ScheduleGridView.TabIndex = 3;
             ScheduleGridView.Visible = false;
             // 
@@ -117,12 +120,11 @@
             Controls.Add(panel1);
             Controls.Add(label1);
             Name = "ViewSchedule";
-            Size = new Size(578, 438);
+            Size = new Size(635, 565);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)ScheduleGridView).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion

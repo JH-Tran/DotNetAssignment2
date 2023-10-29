@@ -71,6 +71,7 @@
             // 
             panel1.AutoScroll = true;
             panel1.Controls.Add(AddServiceLogPnl);
+            panel1.Controls.Add(CarNotFoundLbl);
             panel1.Controls.Add(CarDetails);
             panel1.Controls.Add(SearchLicenceBtn);
             panel1.Controls.Add(LicenceNumberInput);
@@ -285,7 +286,6 @@
             CarDetails.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             CarDetails.AutoSize = true;
             CarDetails.Controls.Add(OdometerLbl);
-            CarDetails.Controls.Add(CarNotFoundLbl);
             CarDetails.Controls.Add(YearLbl);
             CarDetails.Controls.Add(MakeAndModelLbl);
             CarDetails.Controls.Add(label3);
@@ -310,7 +310,7 @@
             CarNotFoundLbl.AutoSize = true;
             CarNotFoundLbl.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             CarNotFoundLbl.ForeColor = Color.Red;
-            CarNotFoundLbl.Location = new Point(264, 37);
+            CarNotFoundLbl.Location = new Point(460, 75);
             CarNotFoundLbl.Name = "CarNotFoundLbl";
             CarNotFoundLbl.Size = new Size(109, 21);
             CarNotFoundLbl.TabIndex = 13;

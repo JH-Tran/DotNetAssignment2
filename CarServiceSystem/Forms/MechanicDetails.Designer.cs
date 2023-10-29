@@ -36,13 +36,14 @@
             label4 = new Label();
             SaveChangesBtn = new Button();
             MechanicEmailLbl = new Label();
+            InvalidInputLbl = new Label();
             SuspendLayout();
             // 
             // MechanicWorkshopLbl
             // 
             MechanicWorkshopLbl.Anchor = AnchorStyles.Top;
             MechanicWorkshopLbl.AutoSize = true;
-            MechanicWorkshopLbl.Location = new Point(323, 114);
+            MechanicWorkshopLbl.Location = new Point(168, 97);
             MechanicWorkshopLbl.Name = "MechanicWorkshopLbl";
             MechanicWorkshopLbl.Size = new Size(79, 15);
             MechanicWorkshopLbl.TabIndex = 0;
@@ -51,19 +52,19 @@
             // 
             // label2
             // 
-            label2.Anchor = AnchorStyles.Top;
-            label2.AutoSize = true;
+            label2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label2.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(318, 20);
+            label2.Location = new Point(0, 24);
             label2.Name = "label2";
-            label2.Size = new Size(205, 37);
+            label2.Size = new Size(635, 40);
             label2.TabIndex = 1;
             label2.Text = "Personal Details";
+            label2.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // FirstNameInput
             // 
             FirstNameInput.Anchor = AnchorStyles.Top;
-            FirstNameInput.Location = new Point(396, 181);
+            FirstNameInput.Location = new Point(241, 164);
             FirstNameInput.Name = "FirstNameInput";
             FirstNameInput.Size = new Size(218, 23);
             FirstNameInput.TabIndex = 2;
@@ -71,7 +72,7 @@
             // LastNameInput
             // 
             LastNameInput.Anchor = AnchorStyles.Top;
-            LastNameInput.Location = new Point(396, 229);
+            LastNameInput.Location = new Point(241, 212);
             LastNameInput.Name = "LastNameInput";
             LastNameInput.Size = new Size(218, 23);
             LastNameInput.TabIndex = 3;
@@ -80,7 +81,7 @@
             // 
             label3.Anchor = AnchorStyles.Top;
             label3.AutoSize = true;
-            label3.Location = new Point(325, 181);
+            label3.Location = new Point(170, 164);
             label3.Name = "label3";
             label3.Size = new Size(65, 15);
             label3.TabIndex = 5;
@@ -90,7 +91,7 @@
             // 
             label4.Anchor = AnchorStyles.Top;
             label4.AutoSize = true;
-            label4.Location = new Point(326, 229);
+            label4.Location = new Point(171, 212);
             label4.Name = "label4";
             label4.Size = new Size(64, 15);
             label4.TabIndex = 6;
@@ -99,7 +100,7 @@
             // SaveChangesBtn
             // 
             SaveChangesBtn.Anchor = AnchorStyles.Top;
-            SaveChangesBtn.Location = new Point(421, 274);
+            SaveChangesBtn.Location = new Point(266, 257);
             SaveChangesBtn.Name = "SaveChangesBtn";
             SaveChangesBtn.Size = new Size(92, 23);
             SaveChangesBtn.TabIndex = 8;
@@ -111,17 +112,31 @@
             // 
             MechanicEmailLbl.Anchor = AnchorStyles.Top;
             MechanicEmailLbl.AutoSize = true;
-            MechanicEmailLbl.Location = new Point(348, 146);
+            MechanicEmailLbl.Location = new Point(193, 129);
             MechanicEmailLbl.Name = "MechanicEmailLbl";
             MechanicEmailLbl.Size = new Size(54, 15);
             MechanicEmailLbl.TabIndex = 9;
             MechanicEmailLbl.Text = "Email:     ";
             MechanicEmailLbl.TextAlign = ContentAlignment.TopCenter;
             // 
+            // InvalidInputLbl
+            // 
+            InvalidInputLbl.Anchor = AnchorStyles.Top;
+            InvalidInputLbl.AutoSize = true;
+            InvalidInputLbl.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            InvalidInputLbl.ForeColor = Color.Red;
+            InvalidInputLbl.Location = new Point(198, 304);
+            InvalidInputLbl.Name = "InvalidInputLbl";
+            InvalidInputLbl.Size = new Size(235, 19);
+            InvalidInputLbl.TabIndex = 10;
+            InvalidInputLbl.Text = "First and Last name can not be blank";
+            InvalidInputLbl.Visible = false;
+            // 
             // MechanicDetails
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(InvalidInputLbl);
             Controls.Add(MechanicEmailLbl);
             Controls.Add(SaveChangesBtn);
             Controls.Add(label4);
@@ -131,7 +146,7 @@
             Controls.Add(label2);
             Controls.Add(MechanicWorkshopLbl);
             Name = "MechanicDetails";
-            Size = new Size(838, 564);
+            Size = new Size(635, 565);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -146,5 +161,6 @@
         private Label label4;
         private Button SaveChangesBtn;
         public Label MechanicEmailLbl;
+        private Label InvalidInputLbl;
     }
 }

@@ -20,26 +20,36 @@ namespace CarServiceSystem.Forms
 
         private void SaveChangesBtn_Click(object sender, EventArgs e)
         {
-            string firstName = FirstNameInput.Text;
-            string lastName = LastNameInput.Text;
+            string firstName = FirstNameInput.Text.Trim();
+            string lastName = LastNameInput.Text.Trim();
 
-            try
+            if (firstName == string.Empty || lastName == string.Empty)
             {
-                using (MechanicServiceContext context = new MechanicServiceContext())
+                InvalidInputLbl.Show();
+            }
+            else
+            {
+                InvalidInputLbl.Hide();
+                try
                 {
-                    var mechanic = context.Mechanics.First(m => m.MechanicId == loggedInMechanic.MechanicId);
-                    mechanic.FirstName = firstName;
-                    mechanic.LastName = lastName;
-                    context.SaveChanges();
-                    this.loggedInMechanic = mechanic;
-                    MessageBox.Show("Details Updated");
+                    using (MechanicServiceContext context = new MechanicServiceContext())
+                    {
+                        var mechanic = context.Mechanics.First(m => m.MechanicId == loggedInMechanic.MechanicId);
+                        mechanic.FirstName = firstName;
+                        mechanic.LastName = lastName;
+                        context.SaveChanges();
+                        this.loggedInMechanic = mechanic;
+                        MessageBox.Show("Details Updated");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error updating details");
+                    Console.WriteLine("Error updating mechanic" + ex);
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error updating details");
-                Console.WriteLine("Error updating mechanic" + ex);
-            }
+
+
         }
     }
 }
