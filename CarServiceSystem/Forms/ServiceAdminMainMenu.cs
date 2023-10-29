@@ -24,24 +24,23 @@ namespace CarServiceSystem.Forms
 
         private void showCustomersButton_Click(object sender, EventArgs e)
         {
-            var showCustForm = new showCustomers();
-            showCustForm.Show();
-        }
-
-        private void showMechTTButton_Click(object sender, EventArgs e)
-        {
-
+            var custForm = new showCustomers();
+            custForm.Show();
+            this.Hide();
         }
 
         private void showMechanicsButton_Click(object sender, EventArgs e)
         {
-            var showMechForm = new showMechanics();
-            showMechForm.Show();
+            var mechForm = new showMechanics();
+            mechForm.Show();
+            this.Hide();
         }
 
-        private void viewCarHistButton_Click(object sender, EventArgs e)
+        private void showCarsButton_Click(object sender, EventArgs e)
         {
-
+            var showCarsForm = new showCars();
+            showCarsForm.Show();
+            this.Hide();
         }
     }
 }

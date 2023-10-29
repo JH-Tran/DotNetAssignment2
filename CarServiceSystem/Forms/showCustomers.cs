@@ -15,27 +15,94 @@ namespace CarServiceSystem.Forms
         public showCustomers()
         {
             InitializeComponent();
-            listBox1.BeginUpdate();
-            for (int i = 0; i < 20; i++)
+
+            var context = new MechanicServiceContext();
+            context.Database.EnsureCreated();
+
+            customerList.BeginUpdate();
+            foreach (var cust in context.Customers)
             {
-                listBox1.Items.Add("Item " + i.ToString());
+                customerList.Items.Add(cust.Email);
             }
-            listBox1.EndUpdate();
+            customerList.EndUpdate();
         }
 
-        private void vScrollBar1_Scroll(object sender, ScrollEventArgs e)
+        private void backButton_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
+            var adminMainMenuForm = new ServiceAdminMainMenu();
+            adminMainMenuForm.Show();
             this.Hide();
+        }
+
+        private void delCustButton_Click(object sender, EventArgs e)
+        {
+            var context = new MechanicServiceContext();
+            context.Database.EnsureCreated();
+
+            if (customerList.SelectedItem != null)
+            {
+                string message = "Are you sure you want to delete this customer?";
+                string caption = "Delete Customer";
+
+                var result = MessageBox.Show(message, caption,
+                                 MessageBoxButtons.YesNo,
+                                 MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    Customer customer = context.Customers.FirstOrDefault(c => c.Email == customerList.SelectedItem) ?? null!;
+                    context.Customers.Remove(customer);
+                    context.SaveChanges();
+                    customerList.Items.Remove(customerList.SelectedItem);
+                    customerProperties.Items.Clear();
+                    Titles.Items.Clear();
+                }
+
+            }
+        }
+
+        private void customerList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (customerList.SelectedItem != null)
+            {
+                viewCustButton.Visible = true;
+                delCustButton.Visible = true;
+            }
+        }
+
+        private void backButton_Click_1(object sender, EventArgs e)
+        {
+            var adminMainMenuForm = new ServiceAdminMainMenu();
+            adminMainMenuForm.Show();
+            this.Hide();
+        }
+
+        private void viewCustButton_Click_1(object sender, EventArgs e)
+        {
+            var context = new MechanicServiceContext();
+            context.Database.EnsureCreated();
+
+            customerProperties.Items.Clear();
+            Titles.Items.Clear();
+
+            if (customerList.SelectedItem != null)
+            {
+                Customer customer = context.Customers.FirstOrDefault(c => c.Email == customerList.SelectedItem) ?? null!;
+                customerProperties.Items.Add(customer.FirstName);
+                customerProperties.Items.Add(customer.LastName);
+                customerProperties.Items.Add(customer.Email);
+
+                Titles.Items.Add("First Name");
+                Titles.Items.Add("Last Name");
+                Titles.Items.Add("Email");
+
+                customerList.SelectedItems.Clear();
+            }
+        }
+
+        private void showCustomers_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
