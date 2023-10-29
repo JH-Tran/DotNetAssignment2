@@ -42,19 +42,23 @@ namespace CarServiceSystem.Forms
                 string company = Convert.ToString(carCompanyTextBox.Text);
                 string model = Convert.ToString(carModelTextBox.Text);
                 int year = Convert.ToInt32(yearModelTextBox.Text);
+                int odometer = Convert.ToInt32(odometerTextBox.Text);
                 string licenceNumber = Convert.ToString(yearModelTextBox.Text);
                 string vehicleIdentificationNumber = Convert.ToString(vehicleIdentificationNumberTextBox.Text);
-                int odometer = Convert.ToInt32(odometerTextBox.Text);
-                var car = new Car { Make = company, Model = model, Year = year, LicenceNumber = licenceNumber, VehicleIdentificationNumber = vehicleIdentificationNumber, Odometer = odometer, Owner = loggedInCustomer };
 
-                using (MechanicServiceContext context = new MechanicServiceContext())
+                using (var context = new MechanicServiceContext())
                 {
+                    context.Database.EnsureCreated();
+                    var car = new Car { Make = company, Model = model, Year = year, Odometer = odometer, LicenceNumber = licenceNumber, VehicleIdentificationNumber = vehicleIdentificationNumber, Owner = loggedInCustomer };
                     context.Cars.Add(car);
+                    context.SaveChanges();
                 }
-            }
-            catch
-            {
 
+                ResetTextBox();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
             }
         }
     }
