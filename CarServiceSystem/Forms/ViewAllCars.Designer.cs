@@ -39,6 +39,7 @@
             carNameLabel = new Label();
             bookServiceLabel = new Label();
             bookServicePanel = new Panel();
+            bookingErrorLabel = new Label();
             timeComboBox = new ComboBox();
             confirmBooking = new Button();
             bookingAndTimeLabel = new Label();
@@ -52,8 +53,7 @@
             CurrentSecondaryOwnerLabel = new Label();
             label1 = new Label();
             button2 = new Button();
-            textBox1 = new TextBox();
-            bookingErrorLabel = new Label();
+            EmailTextBoxSecondaryOwner = new TextBox();
             bookServicePanel.SuspendLayout();
             secondaryOwnersPanel.SuspendLayout();
             SuspendLayout();
@@ -180,6 +180,17 @@
             bookServicePanel.Size = new Size(738, 174);
             bookServicePanel.TabIndex = 10;
             // 
+            // bookingErrorLabel
+            // 
+            bookingErrorLabel.AutoSize = true;
+            bookingErrorLabel.ForeColor = Color.Red;
+            bookingErrorLabel.Location = new Point(367, 130);
+            bookingErrorLabel.Name = "bookingErrorLabel";
+            bookingErrorLabel.Size = new Size(191, 20);
+            bookingErrorLabel.TabIndex = 8;
+            bookingErrorLabel.Text = "Invalid Information to Book";
+            bookingErrorLabel.Visible = false;
+            // 
             // timeComboBox
             // 
             timeComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -240,7 +251,7 @@
             carListFlowLayout.Anchor = AnchorStyles.Top;
             carListFlowLayout.AutoScroll = true;
             carListFlowLayout.BorderStyle = BorderStyle.FixedSingle;
-            carListFlowLayout.Location = new Point(44, 69);
+            carListFlowLayout.Location = new Point(63, 69);
             carListFlowLayout.Name = "carListFlowLayout";
             carListFlowLayout.Size = new Size(731, 161);
             carListFlowLayout.TabIndex = 13;
@@ -262,7 +273,7 @@
             secondaryOwnersPanel.Controls.Add(CurrentSecondaryOwnerLabel);
             secondaryOwnersPanel.Controls.Add(label1);
             secondaryOwnersPanel.Controls.Add(button2);
-            secondaryOwnersPanel.Controls.Add(textBox1);
+            secondaryOwnersPanel.Controls.Add(EmailTextBoxSecondaryOwner);
             secondaryOwnersPanel.Location = new Point(14, 521);
             secondaryOwnersPanel.Name = "secondaryOwnersPanel";
             secondaryOwnersPanel.Size = new Size(738, 116);
@@ -284,9 +295,9 @@
             CurrentSecondaryOwnerLabel.AutoSize = true;
             CurrentSecondaryOwnerLabel.Location = new Point(92, 84);
             CurrentSecondaryOwnerLabel.Name = "CurrentSecondaryOwnerLabel";
-            CurrentSecondaryOwnerLabel.Size = new Size(184, 20);
+            CurrentSecondaryOwnerLabel.Size = new Size(220, 20);
             CurrentSecondaryOwnerLabel.TabIndex = 5;
-            CurrentSecondaryOwnerLabel.Text = "Current Secondary Owner: ";
+            CurrentSecondaryOwnerLabel.Text = "Current Secondary Owner: None";
             // 
             // label1
             // 
@@ -307,23 +318,12 @@
             button2.UseVisualStyleBackColor = true;
             button2.Click += AddSecondaryOwners;
             // 
-            // textBox1
+            // EmailTextBoxSecondaryOwner
             // 
-            textBox1.Location = new Point(102, 23);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(276, 27);
-            textBox1.TabIndex = 2;
-            // 
-            // bookingErrorLabel
-            // 
-            bookingErrorLabel.AutoSize = true;
-            bookingErrorLabel.ForeColor = Color.Red;
-            bookingErrorLabel.Location = new Point(367, 130);
-            bookingErrorLabel.Name = "bookingErrorLabel";
-            bookingErrorLabel.Size = new Size(191, 20);
-            bookingErrorLabel.TabIndex = 8;
-            bookingErrorLabel.Text = "Invalid Information to Book";
-            bookingErrorLabel.Visible = false;
+            EmailTextBoxSecondaryOwner.Location = new Point(102, 23);
+            EmailTextBoxSecondaryOwner.Name = "EmailTextBoxSecondaryOwner";
+            EmailTextBoxSecondaryOwner.Size = new Size(276, 27);
+            EmailTextBoxSecondaryOwner.TabIndex = 2;
             // 
             // ViewAllCars
             // 
@@ -346,7 +346,7 @@
             Controls.Add(carHistoryTableLayout);
             Controls.Add(myCarListLabel);
             Name = "ViewAllCars";
-            Size = new Size(761, 497);
+            Size = new Size(698, 434);
             Load += ViewAllCarsInterfaceLoad;
             bookServicePanel.ResumeLayout(false);
             bookServicePanel.PerformLayout();
@@ -378,7 +378,7 @@
         private Button confirmBooking;
         private ComboBox timeComboBox;
         private Button button2;
-        private TextBox textBox1;
+        private TextBox EmailTextBoxSecondaryOwner;
         private Label label1;
         private Label SecondaryOwnerError;
         private Label CurrentSecondaryOwnerLabel;

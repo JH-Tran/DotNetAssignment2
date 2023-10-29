@@ -26,7 +26,6 @@ namespace CarServiceSystem.Forms
                     mechanicComboBox.Items.Add(mechanic.Email);
                 }
             }
-
             //Loads the combo box for what time is avaliable to book for mechanic
             timeComboBox.Items.Clear();
             DateTime time = DateTime.Today.AddHours(8);
@@ -43,6 +42,15 @@ namespace CarServiceSystem.Forms
             carNameLabel.Text = car.GetName();
             carNameLabel.ForeColor = Color.Black;
             UpdateServiceLog(car);
+            EmailTextBoxSecondaryOwner.Text = "";
+            if (chosenCar.SecondaryOwner != null)
+            {
+                CurrentSecondaryOwnerLabel.Text = $"Current Secondary Owner: {chosenCar.SecondaryOwner.Email}";
+            }
+            else
+            {
+                CurrentSecondaryOwnerLabel.Text = $"Current Secondary Owner: NONE";
+            }
         }
         public void UpdateCustomerCars(Customer cusomter)
         {
@@ -181,11 +189,33 @@ namespace CarServiceSystem.Forms
         }
         private void AddSecondaryOwners(object sender, EventArgs e)
         {
-            using (MechanicServiceContext context = new MechanicServiceContext())
+            try
             {
-                context.SaveChanges();
+                using (MechanicServiceContext context = new MechanicServiceContext())
+                {
+                    var secondaryOwner = context.Customers
+                        .Where(c => c.Email == EmailTextBoxSecondaryOwner.Text)
+                        .FirstOrDefault();
+                    if (secondaryOwner != null)
+                    {
+                        var carChosen = context.Cars.SingleOrDefault(carsContext => carsContext.VehicleIdentificationNumber == chosenCar.VehicleIdentificationNumber);
+                        carChosen.SecondaryOwner = secondaryOwner;
+                        context.SaveChanges();
+                        SecondaryOwnerError.Visible = false;
+                        SCurrentSecondaryOwnerLabel.Text = $"Current Secondary Owner: {secondaryOwner.Email}";
+                    }
+                    else
+                    {
+                        SecondaryOwnerError.Visible = true;
+                    }
+                }
+            }
+            catch
+            {
+                SecondaryOwnerError.Visible = true;
             }
         }
+        //Changes the time format from 12 hours to 24 hours.
         private TimeSpan ConvertTimeTo24Hours(string time)
         {
             DateTime dateTime = DateTime.Parse(time);
@@ -197,5 +227,6 @@ namespace CarServiceSystem.Forms
             Console.WriteLine(dateTime.TimeOfDay);
             return dateTime.TimeOfDay;
         }
+
     }
 }
