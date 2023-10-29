@@ -15,35 +15,35 @@ namespace CarServiceSystem
             //context.Database.EnsureDeleted();
             context.Database.EnsureCreated();
 
-            //var TestCusomter = new Customer() { FirstName = "Tester", LastName = "Last", Email = "test@gmail.com", Password = "abc" };
-            //var TestAdmin = new ServiceAdmin() { FirstName = "Admin", LastName = "LastName", Email = "adminlast@gmail.com", Password = "abc" };
-            //var TestCar = new Car() { Make = "Ford", Model = "Ranger", Year = 2017, Odometer = 153290, LicenceNumber = "evv18v", VehicleIdentificationNumber = "1za341241d1d214124", Owner = TestCusomter };
-            //var TestMechanic = new Mechanic { FirstName = "Michael", LastName = "Fish", Email = "michael.k.fish@student.uts.edu.au", Password = "123", WorkShopName = "Auto Repairs" };
-            //var TestBooking = new Booking { Customer = TestCusomter, Mechanic = TestMechanic, Car = TestCar, dateTime = DateTime.Today };
+/*            var TestCusomter = new Customer() { FirstName = "Beta", LastName = "Tester", Email = "testBeta@gmail.com", Password = "abc" };
+            var TestAdmin = new ServiceAdmin() { FirstName = "Watcher", LastName = "LastName", Email = "adminWatch@gmail.com", Password = "abc" };
+            var TestCar = new Car() { Make = "Speed", Model = "Ranger", Year = 2017, Odometer = 153290, LicenceNumber = "wev18v", VehicleIdentificationNumber = "1za341241d1d2141153", Owner = TestCusomter };
+            var TestMechanic = new Mechanic { FirstName = "Michael", LastName = "Fish", Email = "michael.k.fish@student.uts.edu.au", Password = "123", WorkShopName = "Auto Repairs" };
+            var TestBooking = new Booking { Customer = TestCusomter, Mechanic = TestMechanic, Car = TestCar, dateTime = DateTime.Today };
 
-            //context.Customers.Add(TestCusomter);
-            //context.ServiceAdmins.Add(TestAdmin);
-            //context.Cars.Add(TestCar);
-            //context.Mechanics.Add(TestMechanic);
-            //context.Cars.Add(TestCar);
-            //context.Bookings.Add(TestBooking);
+            context.Customers.Add(TestCusomter);
+            context.ServiceAdmins.Add(TestAdmin);
+            context.Cars.Add(TestCar);
+            context.Mechanics.Add(TestMechanic);
+            context.Bookings.Add(TestBooking);
 
-            //context.SaveChanges();
+            context.SaveChanges();*/
 
-            //var returnedCar = context.Cars
-            //    .Include(c => c.Owner)
-            //    .Where(c => c.LicenceNumber == "evv18v")
-            //    .FirstOrDefault();
-            //Console.WriteLine(returnedCar.Owner.FirstName);
+            /*var returnedCar = context.Cars
+                  .Include(c => c.Owner)
+                  .Where(c => c.LicenceNumber == "evv18v")
+                  .FirstOrDefault();*/
 
+/*            var returnedCustomer = context.Customers
+                .Where(c => c.Email == "testBeta@gmail.com")
+                .FirstOrDefault();*/
 
             //Need login function that retrieves the corresponding user and passes it to the right menu
-            //Mechanic mechanic = context.Mechanics.FirstOrDefault(m => m.Email == "michael.k.fish@student.uts.edu.au") ?? null!;
-
+            Customer TestCustomer = context.Customers.FirstOrDefault(m => m.Email == "testBeta@gmail.com") ?? null!;
 
             ApplicationConfiguration.Initialize();
             //Application.Run(new Form1());
-            Application.Run(new CustomerMainMenu());
+            Application.Run(new CustomerMainMenu(TestCustomer));
             //Application.Run(new MechanicMainMenu(mechanic));
             //Application.Run(new ServiceAdminMainMenu());
         }

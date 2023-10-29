@@ -1,20 +1,50 @@
-﻿using System.Windows.Forms;
+﻿using System.Globalization;
+using System.Windows.Forms;
 
 namespace CarServiceSystem.Forms
 {
     public partial class ViewAllCars : UserControl
     {
+        Customer loggedInCustomer;
+        Car selectedCar;
+        Mechanic selectedMechanic;
         public ViewAllCars()
         {
             InitializeComponent();
         }
-        public void UpdateCarDetails(Car car)
+        private void ViewAllCarsInterfaceLoad(object sender, EventArgs e)
         {
-            carNameLabel.Text = $"{car.Make}\r\n{car.Model}\r\n{car.Year}";
+            //Loads the combo box for what mechanic is avaliable to select from
+            mechanicComboBox.Items.Clear();
+            using (var context = new MechanicServiceContext())
+            {
+                var mechanicList = context.Mechanics
+                    .ToList();
+                foreach (var mechanic in mechanicList)
+                {
+                    mechanicComboBox.Items.Add(mechanic.GetFullName());
+                }
+            }
 
+            //Loads the combo box for what time is avaliable to book for mechanic
+            timeComboBox.Items.Clear();
+            DateTime time = DateTime.Today.AddHours(8);
+            DateTime endTime = DateTime.Today.AddHours(18);
+            while (time <= endTime)
+            {
+                timeComboBox.Items.Add(time.ToString("hh:mm tt"));
+                time = time.AddMinutes(30);
+            }
+        }
+        private void UpdateSelectedCarInterface(Car car)
+        {
+            selectedCar = car;
+            carNameLabel.Text = car.GetName();
+            AutoFillServiceLog(car);
         }
         public void AutoFillCustomerCars(Customer cusomter)
         {
+            loggedInCustomer = cusomter;
             using (var context = new MechanicServiceContext())
             {
                 var ownCarsList = context.Cars
@@ -27,6 +57,7 @@ namespace CarServiceSystem.Forms
                         Button ownerButton = new Button();
                         ownerButton.Size = new Size(165, 122);
                         ownerButton.TabIndex = 14;
+                        ownerButton.BackColor = Color.White;
                         ownerButton.Text = $"{carOwned.Make}\r\n{carOwned.Model}\r\n{carOwned.Year}\r\n{carOwned.LicenceNumber}\r\n [Owner]";
                         ownerButton.Tag = carOwned;
                         ownerButton.Click += EventCarDetailsClicked;
@@ -36,13 +67,14 @@ namespace CarServiceSystem.Forms
                 var ownSecondaryCarsList = context.Cars
                      .Where(carOwn => carOwn.SecondaryOwner == cusomter)
                      .ToList();
-                if (ownCarsList != null)
+                if (ownSecondaryCarsList != null)
                 {
-                    foreach (var carOwned in ownCarsList)
+                    foreach (var carOwned in ownSecondaryCarsList)
                     {
                         Button ownerButton = new Button();
                         ownerButton.Size = new Size(165, 122);
                         ownerButton.TabIndex = 14;
+                        ownerButton.BackColor = Color.White;
                         ownerButton.Text = $"{carOwned.Make}\r\n{carOwned.Model}\r\n{carOwned.Year}\r\n{carOwned.LicenceNumber}\r\n [Secondary Owner]";
                         ownerButton.Tag = carOwned;
                         ownerButton.Click += EventCarDetailsClicked;
@@ -99,13 +131,44 @@ namespace CarServiceSystem.Forms
             Car? car = carClickedButton.Tag as Car;
             if (car != null)
             {
-
-                AutoFillServiceLog(car);
+                UpdateSelectedCarInterface(car);
             }
         }
-        private void button1_Click(object sender, EventArgs e)
+        private void TimePickerSelectedIndexChanged(object sender, EventArgs e)
         {
-
+            string selectedTime = timeComboBox.SelectedItem.ToString();
+            DateTime time = DateTime.ParseExact(selectedTime, "hh:mm tt", CultureInfo.InvariantCulture);
+            dateTimePicker1.Value = time;
+        }
+        private void mechanicComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedMechanic = mechanicComboBox.SelectedItem.ToString();
+            if (mechanicComboBox.SelectedItem != null)
+            {
+                string[] mechanicName = mechanicComboBox.SelectedItem.ToString().Split(" ");
+                using (var context = new MechanicServiceContext())
+                {
+                    var chosenMech = context.Mechanics
+                        .Where(m => m.FirstName == mechanicName[0] && m.LastName == mechanicName[1])
+                        .FirstOrDefault();
+                    mechanicComboBox.SelectedValue = chosenMech;
+                }
+            }
+        }
+        private void confirmBooking_Click(object sender, EventArgs e)
+        {
+            if (timeComboBox.SelectedItem != null || selectedMechanic != null)
+            {
+                using (MechanicServiceContext context = new MechanicServiceContext())
+                {
+                    if (TimeSpan.TryParse(timeComboBox.SelectedItem.ToString(), out TimeSpan parsedTime))
+                    {
+                        DateTime dateTimeBooking = dateTimePicker1.Value.Date + parsedTime;
+                        Booking newBooking = new Booking(loggedInCustomer, selectedMechanic, selectedCar, dateTimeBooking);
+                        context.Bookings.Add(newBooking);
+                    }
+                }
+            }
         }
     }
 }
