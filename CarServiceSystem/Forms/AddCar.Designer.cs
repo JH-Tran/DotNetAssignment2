@@ -76,7 +76,7 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 55F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 55F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 55F));
-            tableLayoutPanel1.Size = new Size(659, 339);
+            tableLayoutPanel1.Size = new Size(680, 339);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // CarCompanyLabel
@@ -126,35 +126,35 @@
             // 
             // carCompanyTextBox
             // 
-            carCompanyTextBox.Location = new Point(322, 4);
+            carCompanyTextBox.Location = new Point(343, 4);
             carCompanyTextBox.Name = "carCompanyTextBox";
             carCompanyTextBox.Size = new Size(264, 27);
             carCompanyTextBox.TabIndex = 5;
             // 
             // carModelTextBox
             // 
-            carModelTextBox.Location = new Point(322, 60);
+            carModelTextBox.Location = new Point(343, 60);
             carModelTextBox.Name = "carModelTextBox";
             carModelTextBox.Size = new Size(264, 27);
             carModelTextBox.TabIndex = 6;
             // 
             // yearModelTextBox
             // 
-            yearModelTextBox.Location = new Point(322, 116);
+            yearModelTextBox.Location = new Point(343, 116);
             yearModelTextBox.Name = "yearModelTextBox";
             yearModelTextBox.Size = new Size(264, 27);
             yearModelTextBox.TabIndex = 7;
             // 
             // licenceNumberTextBox
             // 
-            licenceNumberTextBox.Location = new Point(322, 172);
+            licenceNumberTextBox.Location = new Point(343, 172);
             licenceNumberTextBox.Name = "licenceNumberTextBox";
             licenceNumberTextBox.Size = new Size(264, 27);
             licenceNumberTextBox.TabIndex = 8;
             // 
             // vehicleIdentificationNumberTextBox
             // 
-            vehicleIdentificationNumberTextBox.Location = new Point(322, 228);
+            vehicleIdentificationNumberTextBox.Location = new Point(343, 228);
             vehicleIdentificationNumberTextBox.Name = "vehicleIdentificationNumberTextBox";
             vehicleIdentificationNumberTextBox.Size = new Size(264, 27);
             vehicleIdentificationNumberTextBox.TabIndex = 9;
@@ -170,7 +170,7 @@
             // 
             // odometerTextBox
             // 
-            odometerTextBox.Location = new Point(322, 284);
+            odometerTextBox.Location = new Point(343, 284);
             odometerTextBox.Name = "odometerTextBox";
             odometerTextBox.Size = new Size(264, 27);
             odometerTextBox.TabIndex = 11;
@@ -187,7 +187,7 @@
             // 
             // ConfirmAddCarButton
             // 
-            ConfirmAddCarButton.Location = new Point(320, 460);
+            ConfirmAddCarButton.Location = new Point(338, 471);
             ConfirmAddCarButton.Name = "ConfirmAddCarButton";
             ConfirmAddCarButton.Size = new Size(94, 29);
             ConfirmAddCarButton.TabIndex = 1;
@@ -200,7 +200,7 @@
             informationLabel.AutoSize = true;
             informationLabel.BackColor = Color.White;
             informationLabel.ForeColor = Color.Red;
-            informationLabel.Location = new Point(285, 405);
+            informationLabel.Location = new Point(304, 416);
             informationLabel.Name = "informationLabel";
             informationLabel.Size = new Size(170, 40);
             informationLabel.TabIndex = 2;

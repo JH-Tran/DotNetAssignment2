@@ -1,5 +1,6 @@
 using CarServiceSystem.Forms;
 using Microsoft.EntityFrameworkCore;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace CarServiceSystem
 {
@@ -11,9 +12,9 @@ namespace CarServiceSystem
         [STAThread]
         static public void Main()
         {
-            var context = new MechanicServiceContext();
+            //var context = new MechanicServiceContext();
             //context.Database.EnsureDeleted();
-            context.Database.EnsureCreated();
+            //context.Database.EnsureCreated();
             //var TestCusomter = new Customer() { FirstName = "Tester", LastName = "Last", Email = "mickey.fish@hotmail.com", Password = "abc" };
             //var TestAdmin = new ServiceAdmin() { FirstName = "Admin", LastName = "LastName", Email = "adminlast@gmail.com", Password = "abc" };
             //var TestCar = new Car() { Make = "Ford", Model = "Ranger", Year = 2017, Odometer = 153290, LicenceNumber = "evv18v", VehicleIdentificationNumber = "1za341241d1d214124", Owner = TestCustomer };
@@ -26,8 +27,6 @@ namespace CarServiceSystem
             //context.Mechanics.Add(TestMechanic);
             //context.Bookings.Add(TestBooking);
 
-            //context.SaveChanges();
-          
             ApplicationConfiguration.Initialize();
             Application.Run(new LoginMenu());
             //Application.Run(new CustomerMainMenu());
