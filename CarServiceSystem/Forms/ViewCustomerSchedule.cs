@@ -46,6 +46,10 @@ namespace CarServiceSystem.Forms
                         tableLayoutPanel1.Controls.Add(scheduleLabel, 1, tableLayoutPanel1.RowCount - 1);
                     }
                 }
+                else
+                {
+                    tableLayoutPanel1.RowCount = tableLayoutPanel1.RowCount + 1;
+                }
             }
         }
 
@@ -55,11 +59,11 @@ namespace CarServiceSystem.Forms
             headerLabel.AutoSize = true;
             headerLabel.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
             headerLabel.Location = new Point(6, 3);
-            headerLabel.Name = "label2";
+            headerLabel.Name = "headerLabel";
             headerLabel.Size = new Size(300, 38);
             headerLabel.TabIndex = 1;
             headerLabel.Text = "Car Service Schedules";
-            tableLayoutPanel1.Controls.Add(headerLabel, 1, 0); // Set row index to 0 for the header
+            tableLayoutPanel1.Controls.Add(headerLabel, 1, 0);
         }
     }
 }

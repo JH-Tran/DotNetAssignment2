@@ -29,7 +29,7 @@ namespace CarServiceSystem
                 newMail.IsBodyHtml = true;
                 newMail.Body = $"<p>Dear {log.Customer.GetFullName()}, <br><br>" +
                                $"We are pleased to inform you that {log.Mechanic.GetFullName()} has completed the following work on your {log.Car.GetName()}<br>" +
-                               $"Service Date/Time: {log.CompletionDateTime.ToString()}<br>" +
+                               $"Service Date/Time: {log.EndDateTime}<br>" +
                                $"Description: {log.Task}<br><br>" +
                                $"The total cost will be ${cost}.<br>" +
                                $"Thank you for choosing {log.Mechanic.WorkShopName}<p>";
