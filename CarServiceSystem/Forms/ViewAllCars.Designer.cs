@@ -30,6 +30,11 @@
         {
             myCarListLabel = new Label();
             carHistoryTableLayout = new TableLayoutPanel();
+            label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            label5 = new Label();
             carServiceHistoryLabel = new Label();
             carNameLabel = new Label();
             bookServiceLabel = new Label();
@@ -42,6 +47,7 @@
             button5 = new Button();
             secondaryOwnersLabel = new Label();
             secondaryOwnersPanel = new Panel();
+            carHistoryTableLayout.SuspendLayout();
             carListFlowLayout.SuspendLayout();
             SuspendLayout();
             // 
@@ -58,16 +64,68 @@
             // carHistoryTableLayout
             // 
             carHistoryTableLayout.AutoScroll = true;
-            carHistoryTableLayout.ColumnCount = 2;
-            carHistoryTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            carHistoryTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            carHistoryTableLayout.ColumnCount = 5;
+            carHistoryTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            carHistoryTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            carHistoryTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            carHistoryTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            carHistoryTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            carHistoryTableLayout.Controls.Add(label1, 0, 0);
+            carHistoryTableLayout.Controls.Add(label2, 1, 0);
+            carHistoryTableLayout.Controls.Add(label3, 2, 0);
+            carHistoryTableLayout.Controls.Add(label4, 3, 0);
+            carHistoryTableLayout.Controls.Add(label5, 4, 0);
             carHistoryTableLayout.Location = new Point(17, 710);
             carHistoryTableLayout.Name = "carHistoryTableLayout";
-            carHistoryTableLayout.RowCount = 2;
-            carHistoryTableLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            carHistoryTableLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            carHistoryTableLayout.RowCount = 1;
+            carHistoryTableLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             carHistoryTableLayout.Size = new Size(735, 191);
             carHistoryTableLayout.TabIndex = 3;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(3, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(113, 20);
+            label1.TabIndex = 0;
+            label1.Text = "Start Date Time";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(150, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(107, 20);
+            label2.TabIndex = 1;
+            label2.Text = "End Date Time";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(297, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(116, 20);
+            label3.TabIndex = 2;
+            label3.Text = "Mechanic Name";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(444, 0);
+            label4.Name = "label4";
+            label4.Size = new Size(103, 20);
+            label4.TabIndex = 3;
+            label4.Text = "Car Odometer";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(591, 0);
+            label5.Name = "label5";
+            label5.Size = new Size(96, 20);
+            label5.TabIndex = 4;
+            label5.Text = "Service Done";
             // 
             // carServiceHistoryLabel
             // 
@@ -115,7 +173,7 @@
             carListFlowLayout.Controls.Add(button3);
             carListFlowLayout.Controls.Add(button4);
             carListFlowLayout.Controls.Add(button5);
-            carListFlowLayout.Location = new Point(3, 69);
+            carListFlowLayout.Location = new Point(16, 69);
             carListFlowLayout.Name = "carListFlowLayout";
             carListFlowLayout.Size = new Size(738, 161);
             carListFlowLayout.TabIndex = 13;
@@ -199,7 +257,9 @@
             Controls.Add(carHistoryTableLayout);
             Controls.Add(myCarListLabel);
             Name = "ViewAllCars";
-            Size = new Size(781, 373);
+            Size = new Size(798, 352);
+            carHistoryTableLayout.ResumeLayout(false);
+            carHistoryTableLayout.PerformLayout();
             carListFlowLayout.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
@@ -220,5 +280,10 @@
         private Button button3;
         private Button button4;
         private Button button5;
+        private Label label1;
+        private Label label2;
+        private Label label3;
+        private Label label4;
+        private Label label5;
     }
 }

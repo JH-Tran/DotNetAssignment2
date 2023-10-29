@@ -67,7 +67,7 @@ namespace CarServiceSystem
 
         public string GetName()
         {
-            return $"{Make} {Model}";
+            return $"{Make} {Model} {Year}";
         }
 
     }

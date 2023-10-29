@@ -18,27 +18,23 @@ namespace CarServiceSystem.Forms
             InitializeComponent();
         }
 
-        private void ViewCustomerSchedule_Load(object sender, EventArgs e)
+        public void LoadCustomerSchedule(Customer customer)
         {
-            CreateCustomerScheduleRows();
-            tableLayoutPanel1.RowCount = tableLayoutPanel1.RowCount + 1;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
-            tableLayoutPanel1.Controls.Add(new Label() { Text = "Information" }, 1, tableLayoutPanel1.RowCount - 1);
-        }
-        private void CreateCustomerScheduleRows()
-        {
-            try
+            using (MechanicServiceContext context = new MechanicServiceContext())
             {
-                foreach (Booking Schedule in CustomerSchedule)
+                var bookingList = context.Bookings
+                    .Where(carOwn => carOwn.Customer == customer && !carOwn.BookingStatus)
+                    .ToList();
+                if (bookingList != null)
                 {
-                    tableLayoutPanel1.RowCount = tableLayoutPanel1.RowCount + 1;
-                    tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
-                    tableLayoutPanel1.Controls.Add(new Label() { Text = "Information" }, 1, tableLayoutPanel1.RowCount - 1);
+                    foreach (var booking in bookingList)
+                    {
+                        tableLayoutPanel1.RowCount = tableLayoutPanel1.RowCount + 1;
+                        tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
+                        string label = $"Date and Time: {booking.dateTime}\r\nCar Model: {booking.Car.GetName()} \r\nLicence Plate: {booking.Car.LicenceNumber}\r\n";
+                        tableLayoutPanel1.Controls.Add(new Label() { Text = "Information" }, 1, tableLayoutPanel1.RowCount - 1);
+                    }
                 }
-            }
-            catch
-            {
-                Console.WriteLine("Customer Schedule is empty");
             }
         }
     }

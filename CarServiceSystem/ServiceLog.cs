@@ -10,11 +10,8 @@ namespace CarServiceSystem
         private Car car;
         private string task = "";
         private int carOdometer;
+        private DateTime startDateTime;
         private DateTime completionDateTime;
-        public string GetDateTime()
-        {
-            return DateTime.Now.ToString("MM/dd/yyyy HH:mm");
-        }
         public int ServiceLogId {
             get {  return serviceLogId; }
             set {  serviceLogId = value; } 
@@ -43,7 +40,12 @@ namespace CarServiceSystem
             get { return  carOdometer; }
             set { carOdometer = value; }
         }
-        public DateTime CompletionDateTime
+        public DateTime StartDateTime
+        {
+            get { return startDateTime; }
+            set { startDateTime = value; }
+        }
+        public DateTime EndDateTime
         {
             get { return completionDateTime; }
             set { completionDateTime = value; }

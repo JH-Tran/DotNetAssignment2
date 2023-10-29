@@ -50,7 +50,7 @@ namespace CarServiceSystem.Forms
                         //it links log and customer but throws an error due to database not knowing what to do incase of delete.
                         //not sure how to fix
                         ServiceHistoryGridView.Rows.Add(log.Car.Owner.GetFullName(), log.Mechanic.GetFullName(),
-                                                         log.Task, log.CarOdometer, log.CompletionDateTime.ToShortDateString());
+                                                         log.Task, log.CarOdometer, log.EndDateTime.ToShortDateString());
                     }
 
                     ServiceHistoryPnl.Show();

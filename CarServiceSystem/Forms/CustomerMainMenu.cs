@@ -12,7 +12,7 @@ namespace CarServiceSystem.Forms
 {
     public partial class CustomerMainMenu : Form
     {
-        private Customer CustomerSignIn;
+        private Customer loggedInCustomer;
         public CustomerMainMenu()
         {
             InitializeComponent();
@@ -26,13 +26,13 @@ namespace CarServiceSystem.Forms
         }
         public String GetCustomerFullName()
         {
-            return CustomerSignIn.GetFullName();
+            return loggedInCustomer.GetFullName();
         }
         public void AutoFillCustomerDetailsMenu(Customer Customer)
         {
-            CustomerSignIn = Customer;
-            CustomerDetails1.AutoFillCustomerDetails(CustomerSignIn);
-            ViewAllCars1.AutoFillCustomerCars(CustomerSignIn.GetCars());
+            loggedInCustomer = Customer;
+            CustomerDetails1.AutoFillCustomerDetails(loggedInCustomer);
+            ViewAllCars1.AutoFillCustomerCars(loggedInCustomer);
             //ViewScheduleClick1.AutoFillCustomerSchedule();
         }
         private void ViewCustomerDetailClick(object sender, EventArgs e)
@@ -60,6 +60,7 @@ namespace CarServiceSystem.Forms
             AddCar1.Show();
             AddCar1.BringToFront();
             AddCar1.ResetTextBox();
+            AddCar1.AssignLoginCustomer(loggedInCustomer);
         }
         private void HideAllUserControl()
         {

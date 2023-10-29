@@ -15,6 +15,7 @@ namespace CarServiceSystem.Forms
 {
     public partial class AddCar : UserControl
     {
+        Customer loggedInCustomer;
         public AddCar()
         {
             InitializeComponent();
@@ -28,6 +29,12 @@ namespace CarServiceSystem.Forms
             vehicleIdentificationNumberTextBox.Text = "";
             odometerTextBox.Text = "";
         }
+
+        internal void AssignLoginCustomer(Customer loggedInCustomer)
+        {
+            this.loggedInCustomer = loggedInCustomer;
+        }
+
         private void ConfirmAddingCar(object sender, EventArgs e)
         {
             try
@@ -38,7 +45,7 @@ namespace CarServiceSystem.Forms
                 string licenceNumber = Convert.ToString(yearModelTextBox.Text);
                 string vehicleIdentificationNumber = Convert.ToString(vehicleIdentificationNumberTextBox.Text);
                 int odometer = Convert.ToInt32(odometerTextBox.Text);
-                var car = new Car { Make = company, Model = model, Year = year, LicenceNumber = licenceNumber, VehicleIdentificationNumber = vehicleIdentificationNumber, Odometer = odometer };
+                var car = new Car { Make = company, Model = model, Year = year, LicenceNumber = licenceNumber, VehicleIdentificationNumber = vehicleIdentificationNumber, Odometer = odometer, Owner = loggedInCustomer };
 
                 using (MechanicServiceContext context = new MechanicServiceContext())
                 {
