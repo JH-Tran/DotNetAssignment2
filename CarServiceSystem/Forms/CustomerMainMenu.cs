@@ -33,7 +33,7 @@ namespace CarServiceSystem.Forms
             HideAllUserControl();
             CustomerDetails1.Show();
             CustomerDetails1.BringToFront();
-            CustomerDetails1.AutoFillCustomerDetails(loggedInCustomer);
+            CustomerDetails1.UpdateCustomerDetailInterface(loggedInCustomer);
         }
         private void ViewAllCarsClick(object sender, EventArgs e)
         {

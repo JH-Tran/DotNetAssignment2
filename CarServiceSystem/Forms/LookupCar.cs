@@ -53,7 +53,7 @@ namespace CarServiceSystem.Forms
                         foreach (ServiceLog log in serviceHistory)
                         {
                             ServiceHistoryGridView.Rows.Add(log.Car.Owner.GetFullName(), log.Mechanic.GetFullName(),
-                                                             log.Task, log.CarOdometer, log.CompletionDateTime.ToShortDateString());
+                                                             log.Task, log.CarOdometer, log.EndDateTime.ToShortDateString());
                         }
                         NoServiceHistoryLbl.Hide();
                         ServiceHistoryGridView.Show();

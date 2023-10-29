@@ -67,11 +67,11 @@
             carHistoryTableLayout.AutoScroll = true;
             carHistoryTableLayout.CellBorderStyle = TableLayoutPanelCellBorderStyle.InsetDouble;
             carHistoryTableLayout.ColumnCount = 5;
-            carHistoryTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            carHistoryTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            carHistoryTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            carHistoryTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            carHistoryTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            carHistoryTableLayout.ColumnStyles.Add(new ColumnStyle());
+            carHistoryTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            carHistoryTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            carHistoryTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            carHistoryTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
             carHistoryTableLayout.Controls.Add(carodometer, 3, 0);
             carHistoryTableLayout.Controls.Add(servicePerformedLabel, 4, 0);
             carHistoryTableLayout.Controls.Add(startDateTimeLabel, 0, 0);
@@ -87,7 +87,7 @@
             // carodometer
             // 
             carodometer.AutoSize = true;
-            carodometer.Location = new Point(444, 3);
+            carodometer.Location = new Point(432, 3);
             carodometer.Name = "carodometer";
             carodometer.Size = new Size(103, 20);
             carodometer.TabIndex = 3;
@@ -96,7 +96,7 @@
             // servicePerformedLabel
             // 
             servicePerformedLabel.AutoSize = true;
-            servicePerformedLabel.Location = new Point(590, 3);
+            servicePerformedLabel.Location = new Point(584, 3);
             servicePerformedLabel.Name = "servicePerformedLabel";
             servicePerformedLabel.Size = new Size(129, 20);
             servicePerformedLabel.TabIndex = 4;
@@ -114,7 +114,7 @@
             // endDateTimeLogLabel
             // 
             endDateTimeLogLabel.AutoSize = true;
-            endDateTimeLogLabel.Location = new Point(152, 3);
+            endDateTimeLogLabel.Location = new Point(128, 3);
             endDateTimeLogLabel.Name = "endDateTimeLogLabel";
             endDateTimeLogLabel.Size = new Size(107, 20);
             endDateTimeLogLabel.TabIndex = 1;
@@ -123,7 +123,7 @@
             // mechanicNameLogLabel
             // 
             mechanicNameLogLabel.AutoSize = true;
-            mechanicNameLogLabel.Location = new Point(298, 3);
+            mechanicNameLogLabel.Location = new Point(280, 3);
             mechanicNameLogLabel.Name = "mechanicNameLogLabel";
             mechanicNameLogLabel.Size = new Size(116, 20);
             mechanicNameLogLabel.TabIndex = 2;
@@ -143,11 +143,12 @@
             // 
             carNameLabel.AutoSize = true;
             carNameLabel.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
+            carNameLabel.ForeColor = Color.Red;
             carNameLabel.Location = new Point(14, 233);
             carNameLabel.Name = "carNameLabel";
-            carNameLabel.Size = new Size(256, 38);
+            carNameLabel.Size = new Size(236, 38);
             carNameLabel.TabIndex = 12;
-            carNameLabel.Text = "[Car Not Selected]";
+            carNameLabel.Text = "Car Not Selected";
             // 
             // bookServiceLabel
             // 
@@ -230,7 +231,7 @@
             // 
             carListFlowLayout.Anchor = AnchorStyles.Top;
             carListFlowLayout.AutoScroll = true;
-            carListFlowLayout.Location = new Point(39, 69);
+            carListFlowLayout.Location = new Point(30, 69);
             carListFlowLayout.Name = "carListFlowLayout";
             carListFlowLayout.Size = new Size(728, 161);
             carListFlowLayout.TabIndex = 13;
@@ -269,7 +270,7 @@
             Controls.Add(carHistoryTableLayout);
             Controls.Add(myCarListLabel);
             Name = "ViewAllCars";
-            Size = new Size(771, 570);
+            Size = new Size(750, 549);
             Load += ViewAllCarsInterfaceLoad;
             carHistoryTableLayout.ResumeLayout(false);
             carHistoryTableLayout.PerformLayout();

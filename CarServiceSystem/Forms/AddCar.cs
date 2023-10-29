@@ -28,6 +28,7 @@ namespace CarServiceSystem.Forms
             licenceNumberTextBox.Text = "";
             vehicleIdentificationNumberTextBox.Text = "";
             odometerTextBox.Text = "";
+            informationLabel.Visible = false;
         }
 
         internal void AssignLoginCustomer(Customer loggedInCustomer)
@@ -45,6 +46,7 @@ namespace CarServiceSystem.Forms
                 int odometer = Convert.ToInt32(odometerTextBox.Text);
                 string licenceNumber = Convert.ToString(yearModelTextBox.Text);
                 string vehicleIdentificationNumber = Convert.ToString(vehicleIdentificationNumberTextBox.Text);
+                string completedText = "";
 
                 using (var context = new MechanicServiceContext())
                 {
@@ -52,13 +54,19 @@ namespace CarServiceSystem.Forms
                     var car = new Car { Make = company, Model = model, Year = year, Odometer = odometer, LicenceNumber = licenceNumber, VehicleIdentificationNumber = vehicleIdentificationNumber, Owner = loggedInCustomer };
                     context.Cars.Add(car);
                     context.SaveChanges();
+                    completedText = $"{company} + {model} + {year}";
                 }
-
                 ResetTextBox();
+                informationLabel.Visible = true;
+                informationLabel.ForeColor = Color.Black;
+                informationLabel.Text = $"{completedText} has been added to your account.";
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex);
+                informationLabel.Visible = true;
+                informationLabel.ForeColor = Color.Red;
+                informationLabel.Text = "Model Year or Odometer Input Input is Invalid.";
             }
         }
     }
