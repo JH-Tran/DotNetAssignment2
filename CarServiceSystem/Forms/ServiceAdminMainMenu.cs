@@ -31,5 +31,10 @@ namespace CarServiceSystem.Forms
         {
 
         }
+
+        private void ServiceAdminMainMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
