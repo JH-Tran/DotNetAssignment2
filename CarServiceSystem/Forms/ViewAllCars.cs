@@ -7,8 +7,7 @@ namespace CarServiceSystem.Forms
     public partial class ViewAllCars : UserControl
     {
         Customer loggedInCustomer;
-        Car chosenCar;
-        Mechanic? selectedMechanic;
+        Car selectedCar;
         public ViewAllCars()
         {
             InitializeComponent();
@@ -26,7 +25,7 @@ namespace CarServiceSystem.Forms
                     mechanicComboBox.Items.Add(mechanic.Email);
                 }
             }
-            //Loads the combo box for what time is avaliable to book for mechanic
+            //Loads the combo box for what time is avaliable to book for mechanic in a 30 minute interval from 8AM to 6PM
             timeComboBox.Items.Clear();
             DateTime time = DateTime.Today.AddHours(8);
             DateTime endTime = DateTime.Today.AddHours(18);
@@ -36,22 +35,26 @@ namespace CarServiceSystem.Forms
                 time = time.AddMinutes(30);
             }
         }
+        //Updates the interface details for the specific chosen car.
         private void UpdateSelectedCarInterface(Car car)
         {
-            chosenCar = car;
+            selectedCar = car;
             carNameLabel.Text = car.GetName();
             carNameLabel.ForeColor = Color.Black;
             UpdateServiceLog(car);
             EmailTextBoxSecondaryOwner.Text = "";
-            if (chosenCar.SecondaryOwner != null)
+            if (selectedCar.SecondaryOwner != null)
             {
-                CurrentSecondaryOwnerLabel.Text = $"Current Secondary Owner: {chosenCar.SecondaryOwner.Email}";
+                CurrentSecondaryOwnerLabel.Text = $"Current Secondary Owner: {selectedCar.SecondaryOwner.Email}";
             }
             else
             {
                 CurrentSecondaryOwnerLabel.Text = $"Current Secondary Owner: NONE";
             }
         }
+        //Updates the list of cars to what the current login customer own.
+        //The list comprise of buttons with the car's information (model, year, licence number and whether they are the owner or secondary owner)
+        //The button is assigned it's event that will update the interface with the selected car's information
         public void UpdateCustomerCars(Customer cusomter)
         {
             loggedInCustomer = cusomter;
@@ -94,6 +97,19 @@ namespace CarServiceSystem.Forms
                 }
             }
         }
+        //The created buttons are assigned a car class that will be loaded in the interface.
+        private void EventCarDetailsClicked(object sender, EventArgs e)
+        {
+            Button carClickedButton = (Button)sender;
+            Car? car = carClickedButton.Tag as Car;
+            if (car != null)
+            {
+                UpdateSelectedCarInterface(car);
+            }
+        }
+        //Update the service log history of the specific car.
+        //Refreshes when the user changes interface to update any new data.
+        //Display the service startDateTime and endDateTime of service, full name of the mechanic, odometer when it was service and description of the service performed
         public void UpdateServiceLog(Car car)
         {
             carHistoryTableLayout.Controls.Clear();
@@ -141,21 +157,16 @@ namespace CarServiceSystem.Forms
                 }
             }
         }
-        private void EventCarDetailsClicked(object sender, EventArgs e)
-        {
-            Button carClickedButton = (Button)sender;
-            Car? car = carClickedButton.Tag as Car;
-            if (car != null)
-            {
-                UpdateSelectedCarInterface(car);
-            }
-        }
+        //Change the combo box of the customer choosing the booking time to 12 interval.
         private void TimePickerSelectedIndexChanged(object sender, EventArgs e)
         {
             string selectedTime = timeComboBox.SelectedItem.ToString();
             DateTime time = DateTime.ParseExact(selectedTime, "hh:mm tt", CultureInfo.InvariantCulture);
             dateTimePicker1.Value = time;
         }
+        //Confirms the booking of the current login user with the specific mechanic and car.
+        //The booking includes the date and time of when it was selected.
+        //Error handles occurs if any information is null or incorrect.
         private void ConfirmBookingClick(object sender, EventArgs e)
         {
             try
@@ -170,7 +181,7 @@ namespace CarServiceSystem.Forms
                         .Where(c => c.Email == loggedInCustomer.Email)
                         .FirstOrDefault();
                     var car = context.Cars
-                        .Where(selectedCar => selectedCar.VehicleIdentificationNumber == chosenCar.VehicleIdentificationNumber)
+                        .Where(selectedCar => selectedCar.VehicleIdentificationNumber == selectedCar.VehicleIdentificationNumber)
                         .FirstOrDefault();
                     Booking newBooking = new Booking() { Customer = customer, Mechanic = chosenMech, Car = car, dateTime = dateTimeBooking };
                     context.Bookings.Add(newBooking);
@@ -187,6 +198,7 @@ namespace CarServiceSystem.Forms
                 bookingErrorLabel.Visible = true;
             }
         }
+        //Updates the car secondary owner to another person to share its service log history.
         private void AddSecondaryOwners(object sender, EventArgs e)
         {
             try
@@ -198,7 +210,7 @@ namespace CarServiceSystem.Forms
                         .FirstOrDefault();
                     if (secondaryOwner != null)
                     {
-                        var carChosen = context.Cars.SingleOrDefault(carsContext => carsContext.VehicleIdentificationNumber == chosenCar.VehicleIdentificationNumber);
+                        var carChosen = context.Cars.SingleOrDefault(carsContext => carsContext.VehicleIdentificationNumber == selectedCar.VehicleIdentificationNumber);
                         carChosen.SecondaryOwner = secondaryOwner;
                         context.SaveChanges();
                         SecondaryOwnerError.Visible = false;

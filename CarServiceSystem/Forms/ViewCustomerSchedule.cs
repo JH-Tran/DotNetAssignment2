@@ -18,6 +18,7 @@ namespace CarServiceSystem.Forms
         {
             InitializeComponent();
         }
+        //Updates the customer's schedule based on the booking found in the database.
         public void UpdateCustomerSchedule(Customer customer)
         {
             // Clear the initial table (except for the header)
@@ -35,6 +36,8 @@ namespace CarServiceSystem.Forms
 
                 if (bookingList != null)
                 {
+                    //When a booking is created in the table, its Date and Time, Car Model, Make, Year and Licence Number is shown in the table.
+                    //A Row is added to seperate its information until it reaches the end of the list.
                     foreach (var booking in bookingList)
                     {
                         tableLayoutPanel1.RowCount = tableLayoutPanel1.RowCount + 1;
@@ -52,7 +55,8 @@ namespace CarServiceSystem.Forms
                 }
             }
         }
-
+        //Create the header of the table.
+        //It assigns it's font, name, size, position and adds it to the table.
         private void CreateHeaderTable()
         {
             Label headerLabel = new Label();

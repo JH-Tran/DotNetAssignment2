@@ -20,6 +20,7 @@ namespace CarServiceSystem.Forms
         {
             InitializeComponent();
         }
+        //Reset the text box to its default state
         public void ResetTextBox()
         {
             carCompanyTextBox.Text = "";
@@ -30,12 +31,14 @@ namespace CarServiceSystem.Forms
             odometerTextBox.Text = "";
             informationLabel.Visible = false;
         }
-
+        //Assigns the current login customer using the interface
         internal void AssignLoginCustomer(Customer loggedInCustomer)
         {
             this.loggedInCustomer = loggedInCustomer;
         }
-
+        //Add car to the database by requesting user to fill in a form.
+        //Incorrect information is presented as errors and will be prompt with an error message.
+        //When the user enters the correct information a prompt will be shown and the answers will reset.
         private void ConfirmAddingCar(object sender, EventArgs e)
         {
             try

@@ -7,7 +7,7 @@
         {
             InitializeComponent();
         }
-
+        //Refreshes the interface information with the class provided.
         public void UpdateCustomerDetailInterface(Customer loginCustomer)
         {
             this.loginCustomer = loginCustomer;
@@ -15,6 +15,7 @@
             firstNameTextBox.Text = loginCustomer.FirstName;
             lastNameTextBox.Text = loginCustomer.LastName;
         }
+        //Confirms the change of the user's name change in the database.
         private void ConfirmButton_Click(object sender, EventArgs e)
         {
             using (MechanicServiceContext context = new MechanicServiceContext())
@@ -28,6 +29,7 @@
                 }
             }
         }
+        //Returns the text box string (user's firt and last name)
         public String GetAllTextBoxString()
         {
             return $"{firstNameTextBox.Text} {lastNameTextBox.Text}";
