@@ -25,6 +25,7 @@ namespace CarServiceSystem.Forms
 
         private void SearchLicenceBtn_Click(object sender, EventArgs e)
         {
+            ResetAddLogFields();
             //Try retrieve the car from database using input license number
             using (MechanicServiceContext context = new MechanicServiceContext())
             {
@@ -50,7 +51,7 @@ namespace CarServiceSystem.Forms
                 {
                     CustomerComboBox.Items.Add(currentlyDisplayedCar.SecondaryOwner);
                 }
-
+                InvoicePnl.Hide();
                 AddServiceLogPnl.Show();
             }
             else
@@ -106,7 +107,6 @@ namespace CarServiceSystem.Forms
                 EmailManager.SendInvoice(currentLog, decimal.Round(cost, 2));
                 InvoicePnl.Hide();
                 CarDetails.Hide();
-                ResetAddLogFields();
                 AddServiceLogPnl.Hide();
                 InputCost.Text = string.Empty;
             }

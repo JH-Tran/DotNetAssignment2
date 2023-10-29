@@ -24,7 +24,6 @@ namespace CarServiceSystem.Forms
             {
                 var returnedCar = context.Cars
                     .Include(c => c.Owner)
-                    .Include(c => c.ServiceHistory)
                     .Where(c => c.LicenceNumber == LicenceNumberInput.Text)
                     .FirstOrDefault() ?? null!;
                 if (returnedCar != null)

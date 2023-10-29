@@ -35,42 +35,44 @@
             label2 = new Label();
             label3 = new Label();
             InvalidUserPassLbl = new Label();
+            RegisterBtn = new Button();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(303, 109);
+            label1.Location = new Point(265, 82);
             label1.Name = "label1";
-            label1.Size = new Size(171, 20);
+            label1.Size = new Size(138, 15);
             label1.TabIndex = 0;
             label1.Text = "Car Maintenance System";
             // 
             // EmailInput
             // 
             EmailInput.ForeColor = Color.Black;
-            EmailInput.Location = new Point(258, 167);
+            EmailInput.Location = new Point(226, 125);
+            EmailInput.Margin = new Padding(3, 2, 3, 2);
             EmailInput.Name = "EmailInput";
-            EmailInput.Size = new Size(258, 27);
+            EmailInput.Size = new Size(226, 23);
             EmailInput.TabIndex = 1;
             // 
             // PasswordInput
             // 
             PasswordInput.Anchor = AnchorStyles.Top;
             PasswordInput.ForeColor = Color.Black;
-            PasswordInput.Location = new Point(258, 228);
+            PasswordInput.Location = new Point(226, 171);
+            PasswordInput.Margin = new Padding(3, 2, 3, 2);
             PasswordInput.Name = "PasswordInput";
             PasswordInput.PasswordChar = '*';
-            PasswordInput.Size = new Size(258, 27);
+            PasswordInput.Size = new Size(226, 23);
             PasswordInput.TabIndex = 3;
             // 
             // LoginBtn
             // 
             LoginBtn.Anchor = AnchorStyles.Top;
-            LoginBtn.Location = new Point(329, 280);
-            LoginBtn.Margin = new Padding(3, 4, 3, 4);
+            LoginBtn.Location = new Point(243, 211);
             LoginBtn.Name = "LoginBtn";
-            LoginBtn.Size = new Size(86, 31);
+            LoginBtn.Size = new Size(75, 23);
             LoginBtn.TabIndex = 4;
             LoginBtn.Text = "Login";
             LoginBtn.UseVisualStyleBackColor = true;
@@ -79,18 +81,18 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(210, 171);
+            label2.Location = new Point(184, 128);
             label2.Name = "label2";
-            label2.Size = new Size(46, 20);
+            label2.Size = new Size(36, 15);
             label2.TabIndex = 5;
             label2.Text = "Email";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(186, 232);
+            label3.Location = new Point(163, 174);
             label3.Name = "label3";
-            label3.Size = new Size(70, 20);
+            label3.Size = new Size(57, 15);
             label3.TabIndex = 6;
             label3.Text = "Password";
             // 
@@ -99,18 +101,30 @@
             InvalidUserPassLbl.AutoSize = true;
             InvalidUserPassLbl.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             InvalidUserPassLbl.ForeColor = Color.Red;
-            InvalidUserPassLbl.Location = new Point(232, 328);
+            InvalidUserPassLbl.Location = new Point(203, 246);
             InvalidUserPassLbl.Name = "InvalidUserPassLbl";
-            InvalidUserPassLbl.Size = new Size(332, 23);
+            InvalidUserPassLbl.Size = new Size(267, 19);
             InvalidUserPassLbl.TabIndex = 7;
             InvalidUserPassLbl.Text = "Invalid email or password please try again.";
             InvalidUserPassLbl.Visible = false;
             // 
+            // RegisterBtn
+            // 
+            RegisterBtn.Anchor = AnchorStyles.Top;
+            RegisterBtn.Location = new Point(343, 211);
+            RegisterBtn.Name = "RegisterBtn";
+            RegisterBtn.Size = new Size(75, 23);
+            RegisterBtn.TabIndex = 8;
+            RegisterBtn.Text = "Register";
+            RegisterBtn.UseVisualStyleBackColor = true;
+            RegisterBtn.Click += RegisterBtn_Click;
+            // 
             // LoginMenu
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 451);
+            ClientSize = new Size(700, 338);
+            Controls.Add(RegisterBtn);
             Controls.Add(InvalidUserPassLbl);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -118,6 +132,7 @@
             Controls.Add(PasswordInput);
             Controls.Add(EmailInput);
             Controls.Add(label1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "LoginMenu";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
@@ -134,5 +149,6 @@
         private Label label2;
         private Label label3;
         private Label InvalidUserPassLbl;
+        private Button RegisterBtn;
     }
 }
