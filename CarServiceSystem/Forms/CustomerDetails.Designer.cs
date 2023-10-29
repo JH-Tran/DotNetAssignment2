@@ -28,84 +28,75 @@
         /// </summary>
         private void InitializeComponent()
         {
-            FirstNameLabel = new Label();
-            LastNameLabel = new Label();
-            FirstNameTextBox = new TextBox();
-            LastNameTextBox = new TextBox();
-            EmailLabel = new Label();
-            EmailTextBox = new TextBox();
-            ConfirmButton = new Button();
+            firstNameLabel = new Label();
+            lastNameLabel = new Label();
+            firstNameTextBox = new TextBox();
+            lastNameTextBox = new TextBox();
+            emailLabel = new Label();
+            confirmButton = new Button();
             SuspendLayout();
             // 
-            // label1
+            // firstNameLabel
             // 
-            FirstNameLabel.AutoSize = true;
-            FirstNameLabel.Location = new Point(273, 99);
-            FirstNameLabel.Name = "FirstNameLabel";
-            FirstNameLabel.Size = new Size(83, 20);
-            FirstNameLabel.TabIndex = 0;
-            FirstNameLabel.Text = "First Name:";
+            firstNameLabel.AutoSize = true;
+            firstNameLabel.Location = new Point(276, 156);
+            firstNameLabel.Name = "firstNameLabel";
+            firstNameLabel.Size = new Size(83, 20);
+            firstNameLabel.TabIndex = 0;
+            firstNameLabel.Text = "First Name:";
             // 
-            // label2
+            // lastNameLabel
             // 
-            LastNameLabel.AutoSize = true;
-            LastNameLabel.Location = new Point(273, 160);
-            LastNameLabel.Name = "LastNameLabel";
-            LastNameLabel.Size = new Size(82, 20);
-            LastNameLabel.TabIndex = 1;
-            LastNameLabel.Text = "Last Name:";
+            lastNameLabel.AutoSize = true;
+            lastNameLabel.Location = new Point(276, 217);
+            lastNameLabel.Name = "lastNameLabel";
+            lastNameLabel.Size = new Size(82, 20);
+            lastNameLabel.TabIndex = 1;
+            lastNameLabel.Text = "Last Name:";
             // 
-            // textBox1
+            // firstNameTextBox
             // 
-            FirstNameTextBox.Location = new Point(371, 96);
-            FirstNameTextBox.Name = "FirstNameTextBox";
-            FirstNameTextBox.Size = new Size(125, 27);
-            FirstNameTextBox.TabIndex = 2;
+            firstNameTextBox.Location = new Point(374, 153);
+            firstNameTextBox.Name = "firstNameTextBox";
+            firstNameTextBox.Size = new Size(125, 27);
+            firstNameTextBox.TabIndex = 2;
             // 
-            // textBox2
+            // lastNameTextBox
             // 
-            LastNameTextBox.Location = new Point(371, 157);
-            LastNameTextBox.Name = "LastNameTextbox";
-            LastNameTextBox.Size = new Size(125, 27);
-            LastNameTextBox.TabIndex = 3;
+            lastNameTextBox.Location = new Point(374, 214);
+            lastNameTextBox.Name = "lastNameTextBox";
+            lastNameTextBox.Size = new Size(125, 27);
+            lastNameTextBox.TabIndex = 3;
             // 
-            // label3
+            // emailLabel
             // 
-            EmailLabel.AutoSize = true;
-            EmailLabel.Location = new Point(273, 227);
-            EmailLabel.Name = "EmailLabel";
-            EmailLabel.Size = new Size(49, 20);
-            EmailLabel.TabIndex = 4;
-            EmailLabel.Text = "Email:";
+            emailLabel.AutoSize = true;
+            emailLabel.Location = new Point(276, 104);
+            emailLabel.Name = "emailLabel";
+            emailLabel.Size = new Size(49, 20);
+            emailLabel.TabIndex = 4;
+            emailLabel.Text = "Email:";
             // 
-            // textBox3
+            // confirmButton
             // 
-            EmailTextBox.Location = new Point(371, 220);
-            EmailTextBox.Name = "EmailTextBox";
-            EmailTextBox.Size = new Size(125, 27);
-            EmailTextBox.TabIndex = 5;
-            // 
-            // ConfirmButton
-            // 
-            ConfirmButton.Location = new Point(344, 313);
-            ConfirmButton.Name = "ConfirmButton";
-            ConfirmButton.Size = new Size(82, 33);
-            ConfirmButton.TabIndex = 6;
-            ConfirmButton.Text = "Confirm";
-            ConfirmButton.UseVisualStyleBackColor = true;
-            ConfirmButton.Click += ConfirmButton_Click;
+            confirmButton.Location = new Point(344, 313);
+            confirmButton.Name = "confirmButton";
+            confirmButton.Size = new Size(82, 33);
+            confirmButton.TabIndex = 6;
+            confirmButton.Text = "Confirm";
+            confirmButton.UseVisualStyleBackColor = true;
+            confirmButton.Click += ConfirmButton_Click;
             // 
             // CustomerDetails
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(ConfirmButton);
-            Controls.Add(EmailTextBox);
-            Controls.Add(EmailLabel);
-            Controls.Add(LastNameTextBox);
-            Controls.Add(FirstNameTextBox);
-            Controls.Add(LastNameLabel);
-            Controls.Add(FirstNameLabel);
+            Controls.Add(confirmButton);
+            Controls.Add(emailLabel);
+            Controls.Add(lastNameTextBox);
+            Controls.Add(firstNameTextBox);
+            Controls.Add(lastNameLabel);
+            Controls.Add(firstNameLabel);
             Name = "CustomerDetails";
             Size = new Size(802, 373);
             ResumeLayout(false);
@@ -114,12 +105,11 @@
 
         #endregion
 
-        private Label FirstNameLabel;
-        private Label LastNameLabel;
-        private Label EmailLabel;
-        private TextBox FirstNameTextBox;
-        private TextBox LastNameTextBox;
-        private TextBox EmailTextBox;
-        private Button ConfirmButton;
+        private Label firstNameLabel;
+        private Label lastNameLabel;
+        private Label emailLabel;
+        private TextBox firstNameTextBox;
+        private TextBox lastNameTextBox;
+        private Button confirmButton;
     }
 }

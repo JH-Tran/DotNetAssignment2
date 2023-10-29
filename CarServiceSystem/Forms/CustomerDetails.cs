@@ -1,35 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace CarServiceSystem.Forms
+﻿namespace CarServiceSystem.Forms
 {
     public partial class CustomerDetails : UserControl
     {
+        Customer loginCustomer;
         public CustomerDetails()
         {
             InitializeComponent();
         }
 
-        public void AutoFillCustomerDetails(Customer CustomerSignIn)
+        public void AutoFillCustomerDetails(Customer loginCustomer)
         {
-            FirstNameTextBox.Text = CustomerSignIn.FirstName;
-            LastNameTextBox.Text = CustomerSignIn.LastName;
-            EmailTextBox.Text = CustomerSignIn.Email;
+            this.loginCustomer = loginCustomer;
+            emailLabel.Text = $"Email: {loginCustomer.Email}";
+            firstNameTextBox.Text = loginCustomer.FirstName;
+            lastNameTextBox.Text = loginCustomer.LastName;
         }
         private void ConfirmButton_Click(object sender, EventArgs e)
         {
-
+            using (MechanicServiceContext context = new MechanicServiceContext())
+            {
+                var result = context.Customers.SingleOrDefault(customerContext => customerContext.Email == loginCustomer.Email);
+                if (result != null)
+                {
+                    result.FirstName = firstNameTextBox.Text;
+                    result.LastName = lastNameTextBox.Text;
+                    context.SaveChanges();
+                }
+            }
         }
         public String GetAllTextBoxString()
         {
-            return $"{FirstNameTextBox.Text} {LastNameTextBox.Text} {EmailTextBox.Text}";
+            return $"{firstNameTextBox.Text} {lastNameTextBox.Text}";
         }
     }
 }

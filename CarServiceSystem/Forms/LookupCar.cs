@@ -58,7 +58,6 @@ namespace CarServiceSystem.Forms
                         NoServiceHistoryLbl.Hide();
                         ServiceHistoryGridView.Show();
                     }
-
                     ServiceHistoryPnl.Show();
                 }
                 else
@@ -69,10 +68,6 @@ namespace CarServiceSystem.Forms
                 }
 
             }
-
-
-
-
         }
     }
 }
