@@ -95,6 +95,7 @@
             Controls.Add(showCustomersButton);
             Name = "ServiceAdminMainMenu";
             Text = "ServiceAdminMainMenu";
+            FormClosing += ServiceAdminMainMenu_FormClosing;
             Load += ServiceAdminMainMenu_Load;
             ResumeLayout(false);
             PerformLayout();
