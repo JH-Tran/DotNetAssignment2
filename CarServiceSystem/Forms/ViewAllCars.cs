@@ -7,8 +7,8 @@ namespace CarServiceSystem.Forms
     public partial class ViewAllCars : UserControl
     {
         Customer loggedInCustomer;
-        Car selectedCar;
-        Mechanic selectedMechanic;
+        Car chosenCar;
+        Mechanic? selectedMechanic;
         public ViewAllCars()
         {
             InitializeComponent();
@@ -23,7 +23,7 @@ namespace CarServiceSystem.Forms
                     .ToList();
                 foreach (var mechanic in mechanicList)
                 {
-                    mechanicComboBox.Items.Add(mechanic.GetFullName());
+                    mechanicComboBox.Items.Add(mechanic.Email);
                 }
             }
 
@@ -39,14 +39,13 @@ namespace CarServiceSystem.Forms
         }
         private void UpdateSelectedCarInterface(Car car)
         {
-            selectedCar = car;
+            chosenCar = car;
             carNameLabel.Text = car.GetName();
             carNameLabel.ForeColor = Color.Black;
-            AutoFillServiceLog(car);
+            UpdateServiceLog(car);
         }
         public void UpdateCustomerCars(Customer cusomter)
         {
-
             loggedInCustomer = cusomter;
             using (var context = new MechanicServiceContext())
             {
@@ -87,8 +86,11 @@ namespace CarServiceSystem.Forms
                 }
             }
         }
-        public void AutoFillServiceLog(Car car)
+        public void UpdateServiceLog(Car car)
         {
+            carHistoryTableLayout.Controls.Clear();
+            carHistoryTableLayout.RowCount = 1;
+
             using (var context = new MechanicServiceContext())
             {
                 var carServiceLogList = context.ServiceLogs
@@ -117,9 +119,6 @@ namespace CarServiceSystem.Forms
                         Label taskPerformed = new Label();
                         taskPerformed.Name = $"servicePerformed{count}";
                         taskPerformed.Text = element.Task;
-                        //Create a new row in table
-                        carHistoryTableLayout.RowCount++;
-                        carHistoryTableLayout.RowStyles.Add(new RowStyle());
                         //Insert values of labels into the cell of the table row
                         carHistoryTableLayout.Controls.Add(startDateTime, 0, carHistoryTableLayout.RowCount - 1);
                         carHistoryTableLayout.Controls.Add(endDateTime, 1, carHistoryTableLayout.RowCount - 1);
@@ -127,6 +126,9 @@ namespace CarServiceSystem.Forms
                         carHistoryTableLayout.Controls.Add(carOdometer, 3, carHistoryTableLayout.RowCount - 1);
                         carHistoryTableLayout.Controls.Add(taskPerformed, 4, carHistoryTableLayout.RowCount - 1);
                         count++;
+                        //Create a new row in table
+                        carHistoryTableLayout.RowCount++;
+                        carHistoryTableLayout.RowStyles.Add(new RowStyle());
                     }
                 }
             }
@@ -146,35 +148,54 @@ namespace CarServiceSystem.Forms
             DateTime time = DateTime.ParseExact(selectedTime, "hh:mm tt", CultureInfo.InvariantCulture);
             dateTimePicker1.Value = time;
         }
-        private void mechanicComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void ConfirmBookingClick(object sender, EventArgs e)
         {
-            string selectedMechanic = mechanicComboBox.SelectedItem.ToString();
-            if (mechanicComboBox.SelectedItem != null)
-            {
-                string[] mechanicName = mechanicComboBox.SelectedItem.ToString().Split(" ");
-                using (var context = new MechanicServiceContext())
-                {
-                    var chosenMech = context.Mechanics
-                        .Where(m => m.FirstName == mechanicName[0] && m.LastName == mechanicName[1])
-                        .FirstOrDefault();
-                    mechanicComboBox.SelectedValue = chosenMech;
-                }
-            }
-        }
-        private void confirmBooking_Click(object sender, EventArgs e)
-        {
-            if (timeComboBox.SelectedItem != null || selectedMechanic != null)
+            try
             {
                 using (MechanicServiceContext context = new MechanicServiceContext())
                 {
-                    if (TimeSpan.TryParse(timeComboBox.SelectedItem.ToString(), out TimeSpan parsedTime))
-                    {
-                        DateTime dateTimeBooking = dateTimePicker1.Value.Date + parsedTime;
-                        Booking newBooking = new Booking(loggedInCustomer, selectedMechanic, selectedCar, dateTimeBooking);
-                        context.Bookings.Add(newBooking);
-                    }
+                    DateTime dateTimeBooking = dateTimePicker1.Value.Date + ConvertTimeTo24Hours(timeComboBox.SelectedItem.ToString());
+                    var chosenMech = context.Mechanics
+                        .Where(m => m.Email == mechanicComboBox.SelectedItem)
+                        .FirstOrDefault();
+                    var customer = context.Customers
+                        .Where(c => c.Email == loggedInCustomer.Email)
+                        .FirstOrDefault();
+                    var car = context.Cars
+                        .Where(selectedCar => selectedCar.VehicleIdentificationNumber == chosenCar.VehicleIdentificationNumber)
+                        .FirstOrDefault();
+                    Booking newBooking = new Booking() { Customer = customer, Mechanic = chosenMech, Car = car, dateTime = dateTimeBooking };
+                    context.Bookings.Add(newBooking);
+                    context.SaveChanges();
+                    bookingErrorLabel.ForeColor = Color.Black;
+                    bookingErrorLabel.Text = "Booking has been created";
+                    bookingErrorLabel.Visible = true;
                 }
             }
+            catch
+            {
+                bookingErrorLabel.ForeColor = Color.Red;
+                bookingErrorLabel.Text = "Invalid Information to Book";
+                bookingErrorLabel.Visible = true;
+            }
+        }
+        private void AddSecondaryOwners(object sender, EventArgs e)
+        {
+            using (MechanicServiceContext context = new MechanicServiceContext())
+            {
+                context.SaveChanges();
+            }
+        }
+        private TimeSpan ConvertTimeTo24Hours(string time)
+        {
+            DateTime dateTime = DateTime.Parse(time);
+
+            if (dateTime.ToString("tt", CultureInfo.InvariantCulture).ToLower() == "pm")
+            {
+                dateTime = dateTime.AddHours(12);
+            }
+            Console.WriteLine(dateTime.TimeOfDay);
+            return dateTime.TimeOfDay;
         }
     }
 }
