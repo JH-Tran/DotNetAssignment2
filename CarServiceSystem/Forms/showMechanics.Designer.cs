@@ -38,6 +38,7 @@
             label3 = new Label();
             Titles = new ListBox();
             addMechButton = new Button();
+            viewMechScheduleButton = new Button();
             SuspendLayout();
             // 
             // backButton
@@ -74,7 +75,7 @@
             // 
             // delMechButton
             // 
-            delMechButton.Location = new Point(343, 179);
+            delMechButton.Location = new Point(343, 235);
             delMechButton.Name = "delMechButton";
             delMechButton.Size = new Size(104, 50);
             delMechButton.TabIndex = 7;
@@ -139,18 +140,29 @@
             // addMechButton
             // 
             addMechButton.Location = new Point(343, 427);
-            addMechButton.Name = "button1";
+            addMechButton.Name = "addMechButton";
             addMechButton.Size = new Size(104, 50);
             addMechButton.TabIndex = 13;
             addMechButton.Text = "Add Mechanic";
             addMechButton.UseVisualStyleBackColor = true;
             addMechButton.Click += addMechButton_Click;
             // 
+            // viewMechScheduleButton
+            // 
+            viewMechScheduleButton.Location = new Point(343, 179);
+            viewMechScheduleButton.Name = "viewMechScheduleButton";
+            viewMechScheduleButton.Size = new Size(104, 50);
+            viewMechScheduleButton.TabIndex = 14;
+            viewMechScheduleButton.Text = "View Schedule";
+            viewMechScheduleButton.UseVisualStyleBackColor = true;
+            viewMechScheduleButton.Click += viewMechScheduleButton_Click;
+            // 
             // showMechanics
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(915, 550);
+            Controls.Add(viewMechScheduleButton);
             Controls.Add(addMechButton);
             Controls.Add(Titles);
             Controls.Add(label3);
@@ -179,5 +191,6 @@
         private Label label3;
         private ListBox Titles;
         private Button addMechButton;
+        private Button viewMechScheduleButton;
     }
 }

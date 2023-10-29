@@ -21,6 +21,7 @@ namespace CarServiceSystem.Forms
             var context = new MechanicServiceContext();
             context.Database.EnsureCreated();
 
+            // Fills the car list with the licence plates of all the cars in the system
             carList.BeginUpdate();
             foreach (var car in context.Cars)
             {
@@ -31,6 +32,7 @@ namespace CarServiceSystem.Forms
 
         private void carList_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Only shows the view car button once a car is selected
             if (carList.SelectedItem != null)
             {
                 viewCarButton.Visible = true;
@@ -45,6 +47,7 @@ namespace CarServiceSystem.Forms
             carProperties.Items.Clear();
             Titles.Items.Clear();
 
+            // Checks if a car is selected, then displays its info in a separate listbox
             if (carList.SelectedItem != null)
             {
                 var car = context.Cars
@@ -91,6 +94,7 @@ namespace CarServiceSystem.Forms
                     .Where(c => c.LicenceNumber == carList.SelectedItem)
                     .FirstOrDefault() ?? null!;
 
+                // Creates messagebox with service log information
                 string message = "";
                 foreach (var service in car.ServiceHistory)
                 {

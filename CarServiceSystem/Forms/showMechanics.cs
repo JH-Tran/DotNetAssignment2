@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using CarServiceSystem;
 using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
+using System.Diagnostics;
 
 namespace CarServiceSystem.Forms
 {
@@ -23,6 +24,7 @@ namespace CarServiceSystem.Forms
             var context = new MechanicServiceContext();
             context.Database.EnsureCreated();
 
+            // Fills first listbox with mechanics from the system
             mechanicsList.BeginUpdate();
             foreach (var mech in context.Mechanics)
             {
@@ -114,6 +116,29 @@ namespace CarServiceSystem.Forms
             var addMechForm = new addMechanic();
             addMechForm.Show();
             this.Hide();
+        }
+
+        private void viewMechScheduleButton_Click(object sender, EventArgs e)
+        {
+            var context = new MechanicServiceContext();
+            context.Database.EnsureCreated();
+
+            if (mechanicsList.SelectedItem != null)
+            {
+                Mechanic mechanic = context.Mechanics.FirstOrDefault(m => m.Email == mechanicsList.SelectedItem) ?? null!;
+
+                string message = "";
+                foreach (var booking in context.Bookings)
+                {
+                    if (booking.Mechanic.Email == mechanic.Email)
+                    {
+                        message.Concat($"Booking for {booking.Customer.FirstName}'s {booking.Car.Make} {booking.Car.Model} at {booking.dateTime}\n");
+                    }
+                }
+                string caption = "Mechanic Schedule";
+
+                var serviceMessage = MessageBox.Show(message, caption);
+            }
         }
     }
 }
