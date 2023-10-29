@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using Microsoft.EntityFrameworkCore;
+using System.Globalization;
 using System.Windows.Forms;
 
 namespace CarServiceSystem.Forms
@@ -42,11 +43,13 @@ namespace CarServiceSystem.Forms
             carNameLabel.Text = car.GetName();
             AutoFillServiceLog(car);
         }
-        public void AutoFillCustomerCars(Customer cusomter)
+        public void UpdateCustomerCars(Customer cusomter)
         {
+            
             loggedInCustomer = cusomter;
             using (var context = new MechanicServiceContext())
             {
+                carListFlowLayout.Controls.Clear();
                 var ownCarsList = context.Cars
                     .Where(carOwn => carOwn.Owner == cusomter)
                     .ToList();
@@ -88,6 +91,8 @@ namespace CarServiceSystem.Forms
             using (var context = new MechanicServiceContext())
             {
                 var carServiceLogList = context.ServiceLogs
+                    .Include(carOwn => carOwn.Mechanic)
+                    .Include(carOwn => carOwn.Car)
                     .Where(carOwn => carOwn.Car == car)
                     .ToList();
                 if (carServiceLogList != null)

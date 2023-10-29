@@ -22,36 +22,32 @@ namespace CarServiceSystem.Forms
         {
             InitializeComponent();
             HideAllUserControl();
-            AutoFillCustomerDetailsMenu(Customer);
+            loggedInCustomer = Customer;
         }
         public String GetCustomerFullName()
         {
             return loggedInCustomer.GetFullName();
-        }
-        public void AutoFillCustomerDetailsMenu(Customer Customer)
-        {
-            loggedInCustomer = Customer;
-            CustomerDetails1.AutoFillCustomerDetails(loggedInCustomer);
-            ViewAllCars1.AutoFillCustomerCars(loggedInCustomer);
-            ViewCustomerSchedule1.LoadCustomerSchedule(Customer);
         }
         private void ViewCustomerDetailClick(object sender, EventArgs e)
         {
             HideAllUserControl();
             CustomerDetails1.Show();
             CustomerDetails1.BringToFront();
+            CustomerDetails1.AutoFillCustomerDetails(loggedInCustomer);
         }
         private void ViewAllCarsClick(object sender, EventArgs e)
         {
             HideAllUserControl();
             ViewAllCars1.Show();
             ViewAllCars1.BringToFront();
+            ViewAllCars1.UpdateCustomerCars(loggedInCustomer);
         }
         private void ViewScheduleClick(object sender, EventArgs e)
         {
             HideAllUserControl();
             ViewCustomerSchedule1.Show();
             ViewCustomerSchedule1.BringToFront();
+            ViewCustomerSchedule1.UpdateCustomerSchedule(loggedInCustomer);
         }
 
         private void AddCarClick(object sender, EventArgs e)
