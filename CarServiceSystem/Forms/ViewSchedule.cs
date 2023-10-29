@@ -16,5 +16,10 @@ namespace CarServiceSystem.Forms
         {
             InitializeComponent();
         }
+
+        private void ScheduleGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

@@ -44,9 +44,9 @@
             label1.Anchor = AnchorStyles.Top;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(196, 39);
+            label1.Location = new Point(224, 52);
             label1.Name = "label1";
-            label1.Size = new Size(189, 37);
+            label1.Size = new Size(237, 46);
             label1.TabIndex = 0;
             label1.Text = "View Schedule";
             // 
@@ -54,9 +54,10 @@
             // 
             panel1.Controls.Add(NoAppointmentsLbl);
             panel1.Controls.Add(ScheduleGridView);
-            panel1.Location = new Point(0, 79);
+            panel1.Location = new Point(0, 105);
+            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(578, 359);
+            panel1.Size = new Size(661, 479);
             panel1.TabIndex = 1;
             // 
             // NoAppointmentsLbl
@@ -65,9 +66,9 @@
             NoAppointmentsLbl.AutoSize = true;
             NoAppointmentsLbl.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             NoAppointmentsLbl.ForeColor = Color.Red;
-            NoAppointmentsLbl.Location = new Point(172, 77);
+            NoAppointmentsLbl.Location = new Point(197, 103);
             NoAppointmentsLbl.Name = "NoAppointmentsLbl";
-            NoAppointmentsLbl.Size = new Size(224, 21);
+            NoAppointmentsLbl.Size = new Size(283, 28);
             NoAppointmentsLbl.TabIndex = 2;
             NoAppointmentsLbl.Text = "No Upcoming Services Booked";
             NoAppointmentsLbl.Visible = false;
@@ -83,41 +84,48 @@
             ScheduleGridView.Columns.AddRange(new DataGridViewColumn[] { CustomerName, CarName, DateAndTime });
             ScheduleGridView.Dock = DockStyle.Bottom;
             ScheduleGridView.GridColor = SystemColors.WindowText;
-            ScheduleGridView.Location = new Point(0, 3);
+            ScheduleGridView.Location = new Point(0, 4);
+            ScheduleGridView.Margin = new Padding(3, 4, 3, 4);
             ScheduleGridView.Name = "ScheduleGridView";
             ScheduleGridView.ReadOnly = true;
             ScheduleGridView.RowHeadersVisible = false;
+            ScheduleGridView.RowHeadersWidth = 51;
             ScheduleGridView.RowTemplate.Height = 25;
-            ScheduleGridView.Size = new Size(578, 356);
+            ScheduleGridView.Size = new Size(661, 475);
             ScheduleGridView.TabIndex = 3;
             ScheduleGridView.Visible = false;
+            ScheduleGridView.CellContentClick += ScheduleGridView_CellContentClick;
             // 
             // CustomerName
             // 
             CustomerName.HeaderText = "Customer";
+            CustomerName.MinimumWidth = 6;
             CustomerName.Name = "CustomerName";
             CustomerName.ReadOnly = true;
             // 
             // CarName
             // 
             CarName.HeaderText = "Car";
+            CarName.MinimumWidth = 6;
             CarName.Name = "CarName";
             CarName.ReadOnly = true;
             // 
             // DateAndTime
             // 
             DateAndTime.HeaderText = "Date/Time";
+            DateAndTime.MinimumWidth = 6;
             DateAndTime.Name = "DateAndTime";
             DateAndTime.ReadOnly = true;
             // 
             // ViewSchedule
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panel1);
             Controls.Add(label1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "ViewSchedule";
-            Size = new Size(578, 438);
+            Size = new Size(661, 584);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)ScheduleGridView).EndInit();
