@@ -22,7 +22,6 @@ namespace CarServiceSystem.Forms
         {
             string firstName = FirstNameInput.Text;
             string lastName = LastNameInput.Text;
-            string email = EmailInput.Text;
 
             try
             {
@@ -31,13 +30,12 @@ namespace CarServiceSystem.Forms
                     var mechanic = context.Mechanics.First(m => m.MechanicId == loggedInMechanic.MechanicId);
                     mechanic.FirstName = firstName;
                     mechanic.LastName = lastName;
-                    mechanic.Email = email;
                     context.SaveChanges();
                     this.loggedInMechanic = mechanic;
                     MessageBox.Show("Details Updated");
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine("Error updating mechanic" + ex);
             }

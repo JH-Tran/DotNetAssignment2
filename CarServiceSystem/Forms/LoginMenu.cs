@@ -62,5 +62,11 @@ namespace CarServiceSystem
                 }
             }
         }
+
+        private void RegisterBtn_Click(object sender, EventArgs e)
+        {
+            CustomerRegistration customerRegistration = new CustomerRegistration();
+            customerRegistration.ShowDialog();
+        }
     }
 }
