@@ -89,6 +89,9 @@ namespace CarServiceSystem.Forms
         }
         public void AutoFillServiceLog(Car car)
         {
+            carHistoryTableLayout.Controls.Clear();
+            carHistoryTableLayout.RowCount = 1;
+
             using (var context = new MechanicServiceContext())
             {
                 var carServiceLogList = context.ServiceLogs
@@ -117,9 +120,6 @@ namespace CarServiceSystem.Forms
                         Label taskPerformed = new Label();
                         taskPerformed.Name = $"servicePerformed{count}";
                         taskPerformed.Text = element.Task;
-                        //Create a new row in table
-                        carHistoryTableLayout.RowCount++;
-                        carHistoryTableLayout.RowStyles.Add(new RowStyle());
                         //Insert values of labels into the cell of the table row
                         carHistoryTableLayout.Controls.Add(startDateTime, 0, carHistoryTableLayout.RowCount - 1);
                         carHistoryTableLayout.Controls.Add(endDateTime, 1, carHistoryTableLayout.RowCount - 1);
@@ -127,6 +127,9 @@ namespace CarServiceSystem.Forms
                         carHistoryTableLayout.Controls.Add(carOdometer, 3, carHistoryTableLayout.RowCount - 1);
                         carHistoryTableLayout.Controls.Add(taskPerformed, 4, carHistoryTableLayout.RowCount - 1);
                         count++;
+                        //Create a new row in table
+                        carHistoryTableLayout.RowCount++;
+                        carHistoryTableLayout.RowStyles.Add(new RowStyle());
                     }
                 }
             }
@@ -161,9 +164,9 @@ namespace CarServiceSystem.Forms
                 }
             }
         }
-        private void confirmBooking_Click(object sender, EventArgs e)
+        private void ConfirmBookingClick(object sender, EventArgs e)
         {
-            if (timeComboBox.SelectedItem != null || selectedMechanic != null)
+            try
             {
                 using (MechanicServiceContext context = new MechanicServiceContext())
                 {
@@ -175,6 +178,20 @@ namespace CarServiceSystem.Forms
                     }
                 }
             }
+            catch
+            {
+
+            }
+        }
+
+        private void DeleteSelectedSecondaryOwners(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AddSecondaryOwners(object sender, EventArgs e)
+        {
+
         }
     }
 }

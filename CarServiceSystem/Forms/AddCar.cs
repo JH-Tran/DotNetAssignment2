@@ -38,53 +38,39 @@ namespace CarServiceSystem.Forms
 
         private void ConfirmAddingCar(object sender, EventArgs e)
         {
-            string errorMessage = IsValidCarInputs();
-            if (IsValidCarInputs() == "")
+            try
             {
-                try
-                {
-                    string company = Convert.ToString(carCompanyTextBox.Text);
-                    string model = Convert.ToString(carModelTextBox.Text);
-                    int year = Convert.ToInt32(yearModelTextBox.Text);
-                    int odometer = Convert.ToInt32(odometerTextBox.Text);
-                    string licenceNumber = Convert.ToString(yearModelTextBox.Text);
-                    string vehicleIdentificationNumber = Convert.ToString(vehicleIdentificationNumberTextBox.Text);
-                    string completedText = "";
+                string company = Convert.ToString(carCompanyTextBox.Text);
+                string model = Convert.ToString(carModelTextBox.Text);
+                int year = Convert.ToInt32(yearModelTextBox.Text);
+                int odometer = Convert.ToInt32(odometerTextBox.Text);
+                string licenceNumber = Convert.ToString(yearModelTextBox.Text);
+                string vehicleIdentificationNumber = Convert.ToString(vehicleIdentificationNumberTextBox.Text);
+                string completedText = "";
 
-                    using (var context = new MechanicServiceContext())
-                    {
-                        context.Database.EnsureCreated();
-                        var carOwner = context.Customers
-                            .Where(c => c.Email == loggedInCustomer.Email)
-                            .FirstOrDefault();
-                        var car = new Car() { Make = company, Model = model, Year = year, Odometer = odometer, LicenceNumber = licenceNumber, VehicleIdentificationNumber = vehicleIdentificationNumber, Owner = carOwner };
-                        context.Cars.Add(car);
-                        context.SaveChanges();
-                        completedText = $"{company} {model} {year}";
-                    }
-                    ResetTextBox();
-                    informationLabel.Visible = true;
-                    informationLabel.ForeColor = Color.Black;
-                    informationLabel.Text = $"{completedText} has been added to your account.";
-                }
-                catch (Exception ex)
+                using (var context = new MechanicServiceContext())
                 {
-                    Console.WriteLine(ex);
-                    informationLabel.Visible = true;
-                    informationLabel.ForeColor = Color.Red;
-                    informationLabel.Text = "Model Year or Odometer Input Input is Invalid.";
+                    context.Database.EnsureCreated();
+                    var carOwner = context.Customers
+                        .Where(c => c.Email == loggedInCustomer.Email)
+                        .FirstOrDefault();
+                    var car = new Car() { Make = company, Model = model, Year = year, Odometer = odometer, LicenceNumber = licenceNumber, VehicleIdentificationNumber = vehicleIdentificationNumber, Owner = carOwner };
+                    context.Cars.Add(car);
+                    context.SaveChanges();
+                    completedText = $"{company} {model} {year}";
                 }
+                ResetTextBox();
+                informationLabel.Visible = true;
+                informationLabel.ForeColor = Color.Black;
+                informationLabel.Text = $"{completedText} has been added to your account.";
             }
-            else
+            catch (Exception ex)
             {
+                Console.WriteLine(ex);
                 informationLabel.Visible = true;
                 informationLabel.ForeColor = Color.Red;
-                informationLabel.Text = IsValidCarInputs();
+                informationLabel.Text = "Model Year or Odometer Input Input is Invalid.";
             }
-        }
-        private string IsValidCarInputs()
-        {
-
         }
     }
 }

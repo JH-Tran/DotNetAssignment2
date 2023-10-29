@@ -22,7 +22,7 @@ namespace CarServiceSystem.Forms
         {
             // Clear the initial table (except for the header)
             tableLayoutPanel1.Controls.Clear();
-            tableLayoutPanel1.RowCount = 1; // Reset the row count to 1
+            tableLayoutPanel1.RowCount = 1;
 
             CreateHeaderTable();
 
