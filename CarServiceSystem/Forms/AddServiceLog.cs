@@ -1,14 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.VisualBasic.Logging;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+
 
 namespace CarServiceSystem.Forms
 {
@@ -33,7 +25,7 @@ namespace CarServiceSystem.Forms
                     .Where(c => c.LicenceNumber == LicenceNumberInput.Text)
                     .FirstOrDefault() ?? null!;
             }
-            //If a car was successfuly retrieved display its information aswell as the add service log panel
+            //If a car was successfuly retrieved display its information aswell as the "add service log" panel
             if (currentlyDisplayedCar != null)
             {
                 CarNotFoundLbl.Hide();
@@ -66,6 +58,7 @@ namespace CarServiceSystem.Forms
         {
             if (currentlyDisplayedCar != null)
             {
+                //check for valid inputs before creating the service log
                 if (int.TryParse(OdometerInput.Text, out int newOdometer) && CustomerComboBox.SelectedItem is Customer customer)
                 {
                     InvalidInputLbl.Hide();
@@ -99,6 +92,7 @@ namespace CarServiceSystem.Forms
 
         private void SendInvoiceBtn_Click(object sender, EventArgs e)
         {
+            //ensures the inputed cost is a valid number (cost is rounded to 2 decimal places)
             if (decimal.TryParse(InputCost.Text, out decimal cost))
             {
 
