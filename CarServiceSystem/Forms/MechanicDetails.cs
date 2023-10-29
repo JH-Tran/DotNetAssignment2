@@ -37,6 +37,7 @@ namespace CarServiceSystem.Forms
             }
             catch (Exception ex)
             {
+                MessageBox.Show("Error updating details");
                 Console.WriteLine("Error updating mechanic" + ex);
             }
         }

@@ -29,9 +29,8 @@ namespace CarServiceSystem
 
                     if (customer != null)
                     {
-                        this.Hide();
                         CustomerMainMenu customerMainMenu = new CustomerMainMenu(customer);
-                        customerMainMenu.Show();
+                        customerMainMenu.ShowDialog();
                     }
                     else
                     {
@@ -40,9 +39,8 @@ namespace CarServiceSystem
                             .FirstOrDefault(m => m.Email == inputEmail && m.Password == inputPassword);
                         if (mechanic != null)
                         {
-                            this.Hide();
                             MechanicMainMenu mechanicMainMenu = new MechanicMainMenu(mechanic);
-                            mechanicMainMenu.Show();
+                            mechanicMainMenu.ShowDialog();
                         }
                         else
                         {
@@ -52,9 +50,8 @@ namespace CarServiceSystem
 
                             if (serviceAdmin != null)
                             {
-                                this.Hide();
                                 ServiceAdminMainMenu serviceAdminMainMenu = new ServiceAdminMainMenu();
-                                serviceAdminMainMenu.Show();
+                                serviceAdminMainMenu.ShowDialog();
                             }
                             else
                             {

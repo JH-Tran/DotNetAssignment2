@@ -122,6 +122,7 @@
             // 
             // AddCar1
             // 
+            AddCar1.AutoScroll = true;
             AddCar1.Location = new Point(-1, -2);
             AddCar1.Margin = new Padding(3, 2, 3, 2);
             AddCar1.Name = "AddCar1";
@@ -164,7 +165,6 @@
             Margin = new Padding(3, 2, 3, 2);
             Name = "CustomerMainMenu";
             Text = "CustomerMainMenu";
-            FormClosing += CustomerMainMenu_FormClosing;
             HeaderPanel.ResumeLayout(false);
             HeaderPanel.PerformLayout();
             InformationPanel.ResumeLayout(false);

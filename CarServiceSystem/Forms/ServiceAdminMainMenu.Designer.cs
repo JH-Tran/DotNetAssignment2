@@ -57,7 +57,7 @@
             // showCarsButton
             // 
             showCarsButton.Location = new Point(12, 215);
-            showCarsButton.Name = "viewCarHistButton";
+            showCarsButton.Name = "showCarsButton";
             showCarsButton.Size = new Size(142, 56);
             showCarsButton.TabIndex = 3;
             showCarsButton.Text = "Show All Cars";
@@ -70,7 +70,7 @@
             label1.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
             label1.Location = new Point(12, 9);
             label1.Name = "label1";
-            label1.Size = new Size(214, 46);
+            label1.Size = new Size(170, 37);
             label1.TabIndex = 4;
             label1.Text = "Admin Menu";
             // 
@@ -83,7 +83,6 @@
             Controls.Add(showCustomersButton);
             Name = "ServiceAdminMainMenu";
             Text = "ServiceAdminMainMenu";
-            FormClosing += ServiceAdminMainMenu_FormClosing;
             Load += ServiceAdminMainMenu_Load;
             ResumeLayout(false);
             PerformLayout();

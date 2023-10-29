@@ -70,9 +70,5 @@ namespace CarServiceSystem.Forms
             return CustomerDetails1.GetAllTextBoxString();
         }
 
-        private void CustomerMainMenu_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Application.Exit();
-        }
     }
 }

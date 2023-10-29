@@ -98,9 +98,5 @@ namespace CarServiceSystem.Forms
             addServiceLog1.loggedInMechanic = this.loggedInMechanic;
         }
 
-        private void MechanicMainMenu_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Application.Exit();
-        }
     }
 }

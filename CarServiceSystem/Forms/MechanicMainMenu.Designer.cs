@@ -169,7 +169,6 @@
             Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             Name = "MechanicMainMenu";
             Text = "Car Service System";
-            FormClosing += MechanicMainMenu_FormClosing;
             Load += MechanicMainMenu_Load;
             MenuPnl.ResumeLayout(false);
             DisplayPnl.ResumeLayout(false);
