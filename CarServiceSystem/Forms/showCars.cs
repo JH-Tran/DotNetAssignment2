@@ -89,19 +89,21 @@ namespace CarServiceSystem.Forms
 
             if (carList.SelectedItem != null)
             {
-                var car = context.Cars
-                    .Include(c => c.Owner)
-                    .Where(c => c.LicenceNumber == carList.SelectedItem)
-                    .FirstOrDefault() ?? null!;
+                Car car = context.Cars.FirstOrDefault(c => c.LicenceNumber == (string) carList.SelectedItem) ?? null!;
+
+                var carServiceLogList = context.ServiceLogs
+                    .Include(carOwn => carOwn.Mechanic)
+                    .Include(carOwn => carOwn.Car)
+                    .Where(carOwn => carOwn.Car == car)
+                    .ToList();
 
                 // Creates messagebox with service log information
-                string message = "";
-                foreach (var service in car.ServiceHistory)
+                string message = $"";
+                foreach (var item in carServiceLogList)
                 {
-                    message.Concat(service.ServiceLogId + "\n" + service.Mechanic + "\n" + service.Task + "\n\n");
+                    message += $"ID: {item.ServiceLogId}\nMechanic: {item.Mechanic.FirstName}\nReason: {item.Task}\n\n";
                 }
                 string caption = "Service Log";
-
                 var serviceMessage = MessageBox.Show(message, caption);
             }
         }

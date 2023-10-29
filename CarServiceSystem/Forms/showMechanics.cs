@@ -125,15 +125,18 @@ namespace CarServiceSystem.Forms
 
             if (mechanicsList.SelectedItem != null)
             {
-                Mechanic mechanic = context.Mechanics.FirstOrDefault(m => m.Email == mechanicsList.SelectedItem) ?? null!;
+                Mechanic mechanic = context.Mechanics.FirstOrDefault(m => m.Email == (string) mechanicsList.SelectedItem) ?? null!;
+
+                var mechanicBookingList = context.Bookings
+                    .Include(book => book.Customer)
+                    .Include(book => book.Car)
+                    .Where(book => book.Mechanic == mechanic)
+                    .ToList();
 
                 string message = "";
-                foreach (var booking in context.Bookings)
+                foreach (var item in mechanicBookingList)
                 {
-                    if (booking.Mechanic.Email == mechanic.Email)
-                    {
-                        message.Concat($"Booking for {booking.Customer.FirstName}'s {booking.Car.Make} {booking.Car.Model} at {booking.dateTime}\n");
-                    }
+                    message += $"Booking for {item.Customer.FirstName}'s {item.Car.Make} {item.Car.Model} at {item.dateTime}\n";
                 }
                 string caption = "Mechanic Schedule";
 
