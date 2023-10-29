@@ -8,7 +8,7 @@
             InitializeComponent();
         }
 
-        public void AutoFillCustomerDetails(Customer loginCustomer)
+        public void UpdateCustomerDetailInterface(Customer loginCustomer)
         {
             this.loginCustomer = loginCustomer;
             emailLabel.Text = $"Email: {loginCustomer.Email}";

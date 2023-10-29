@@ -29,7 +29,7 @@ namespace CarServiceSystem
                     if (customer != null)
                     {
                         this.Hide();
-                        CustomerMainMenu customerMainMenu = new CustomerMainMenu();
+                        CustomerMainMenu customerMainMenu = new CustomerMainMenu(customer);
                         customerMainMenu.Show();
                     }
                     else

@@ -41,11 +41,12 @@ namespace CarServiceSystem.Forms
         {
             selectedCar = car;
             carNameLabel.Text = car.GetName();
+            carNameLabel.ForeColor = Color.Black;
             AutoFillServiceLog(car);
         }
         public void UpdateCustomerCars(Customer cusomter)
         {
-            
+
             loggedInCustomer = cusomter;
             using (var context = new MechanicServiceContext())
             {

@@ -30,8 +30,7 @@
         {
             showCustomersButton = new Button();
             showMechanicsButton = new Button();
-            showMechTTButton = new Button();
-            viewCarHistButton = new Button();
+            showCarsButton = new Button();
             label1 = new Label();
             SuspendLayout();
             // 
@@ -55,25 +54,15 @@
             showMechanicsButton.UseVisualStyleBackColor = true;
             showMechanicsButton.Click += showMechanicsButton_Click;
             // 
-            // showMechTTButton
+            // showCarsButton
             // 
-            showMechTTButton.Location = new Point(12, 215);
-            showMechTTButton.Name = "showMechTT";
-            showMechTTButton.Size = new Size(142, 56);
-            showMechTTButton.TabIndex = 2;
-            showMechTTButton.Text = "Show Mechanic Timetable";
-            showMechTTButton.UseVisualStyleBackColor = true;
-            showMechTTButton.Click += showMechTTButton_Click;
-            // 
-            // viewCarHistButton
-            // 
-            viewCarHistButton.Location = new Point(12, 277);
-            viewCarHistButton.Name = "button4";
-            viewCarHistButton.Size = new Size(142, 56);
-            viewCarHistButton.TabIndex = 3;
-            viewCarHistButton.Text = "View Car History";
-            viewCarHistButton.UseVisualStyleBackColor = true;
-            viewCarHistButton.Click += viewCarHistButton_Click;
+            showCarsButton.Location = new Point(12, 215);
+            showCarsButton.Name = "viewCarHistButton";
+            showCarsButton.Size = new Size(142, 56);
+            showCarsButton.TabIndex = 3;
+            showCarsButton.Text = "Show All Cars";
+            showCarsButton.UseVisualStyleBackColor = true;
+            showCarsButton.Click += showCarsButton_Click;
             // 
             // label1
             // 
@@ -89,8 +78,7 @@
             // 
             ClientSize = new Size(531, 459);
             Controls.Add(label1);
-            Controls.Add(viewCarHistButton);
-            Controls.Add(showMechTTButton);
+            Controls.Add(showCarsButton);
             Controls.Add(showMechanicsButton);
             Controls.Add(showCustomersButton);
             Name = "ServiceAdminMainMenu";
@@ -104,8 +92,7 @@
         #endregion
         private Button showCustomersButton;
         private Button showMechanicsButton;
-        private Button showMechTTButton;
-        private Button viewCarHistButton;
+        private Button showCarsButton;
         private Label label1;
     }
 }
