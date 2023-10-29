@@ -44,7 +44,7 @@ namespace CarServiceSystem.Forms
                 string model = Convert.ToString(carModelTextBox.Text);
                 int year = Convert.ToInt32(yearModelTextBox.Text);
                 int odometer = Convert.ToInt32(odometerTextBox.Text);
-                string licenceNumber = Convert.ToString(yearModelTextBox.Text);
+                string licenceNumber = Convert.ToString(licenceNumberTextBox.Text);
                 string vehicleIdentificationNumber = Convert.ToString(vehicleIdentificationNumberTextBox.Text);
                 string completedText = "";
 

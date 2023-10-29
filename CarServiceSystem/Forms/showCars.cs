@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Identity.Client;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,7 +24,7 @@ namespace CarServiceSystem.Forms
             carList.BeginUpdate();
             foreach (var car in context.Cars)
             {
-                carList.Items.Add(car.VehicleIdentificationNumber);
+                carList.Items.Add(car.LicenceNumber);
             }
             carList.EndUpdate();
         }
@@ -48,7 +49,7 @@ namespace CarServiceSystem.Forms
             {
                 var car = context.Cars
                     .Include(c => c.Owner)
-                    .Where(c => c.VehicleIdentificationNumber == carList.SelectedItem)
+                    .Where(c => c.LicenceNumber == carList.SelectedItem)
                     .FirstOrDefault() ?? null!;
 
                 carProperties.Items.Add(car.Make);
@@ -76,6 +77,29 @@ namespace CarServiceSystem.Forms
             var adminMainMenuForm = new ServiceAdminMainMenu();
             adminMainMenuForm.Show();
             this.Hide();
+        }
+
+        private void serviceHistButton_Click(object sender, EventArgs e)
+        {
+            var context = new MechanicServiceContext();
+            context.Database.EnsureCreated();
+
+            if (carList.SelectedItem != null)
+            {
+                var car = context.Cars
+                    .Include(c => c.Owner)
+                    .Where(c => c.LicenceNumber == carList.SelectedItem)
+                    .FirstOrDefault() ?? null!;
+
+                string message = "";
+                foreach (var service in car.ServiceHistory)
+                {
+                    message.Concat(service.ServiceLogId + "\n" + service.Mechanic + "\n" + service.Task + "\n\n");
+                }
+                string caption = "Service Log";
+
+                var serviceMessage = MessageBox.Show(message, caption);
+            }
         }
     }
 }
