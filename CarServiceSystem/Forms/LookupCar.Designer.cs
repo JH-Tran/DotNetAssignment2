@@ -39,13 +39,14 @@
             label3 = new Label();
             CarNotFoundLbl = new Label();
             ServiceHistoryPnl = new Panel();
-            label4 = new Label();
-            CompletionDate = new DataGridViewTextBoxColumn();
-            Odometer = new DataGridViewTextBoxColumn();
-            Task = new DataGridViewTextBoxColumn();
-            MechanicName = new DataGridViewTextBoxColumn();
-            CustomerName = new DataGridViewTextBoxColumn();
+            NoServiceHistoryLbl = new Label();
             ServiceHistoryGridView = new DataGridView();
+            CustomerName = new DataGridViewTextBoxColumn();
+            MechanicName = new DataGridViewTextBoxColumn();
+            Task = new DataGridViewTextBoxColumn();
+            Odometer = new DataGridViewTextBoxColumn();
+            CompletionDate = new DataGridViewTextBoxColumn();
+            label4 = new Label();
             CarDetailsPnl.SuspendLayout();
             ServiceHistoryPnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ServiceHistoryGridView).BeginInit();
@@ -159,6 +160,7 @@
             // ServiceHistoryPnl
             // 
             ServiceHistoryPnl.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            ServiceHistoryPnl.Controls.Add(NoServiceHistoryLbl);
             ServiceHistoryPnl.Controls.Add(ServiceHistoryGridView);
             ServiceHistoryPnl.Controls.Add(label4);
             ServiceHistoryPnl.Location = new Point(3, 278);
@@ -167,45 +169,17 @@
             ServiceHistoryPnl.TabIndex = 6;
             ServiceHistoryPnl.Visible = false;
             // 
-            // label4
+            // NoServiceHistoryLbl
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(3, 0);
-            label4.Name = "label4";
-            label4.Size = new Size(142, 28);
-            label4.TabIndex = 1;
-            label4.Text = "Service History";
-            // 
-            // CompletionDate
-            // 
-            CompletionDate.HeaderText = "Date";
-            CompletionDate.Name = "CompletionDate";
-            CompletionDate.ReadOnly = true;
-            // 
-            // Odometer
-            // 
-            Odometer.HeaderText = "Odometer";
-            Odometer.Name = "Odometer";
-            Odometer.ReadOnly = true;
-            // 
-            // Task
-            // 
-            Task.HeaderText = "Description";
-            Task.Name = "Task";
-            Task.ReadOnly = true;
-            // 
-            // MechanicName
-            // 
-            MechanicName.HeaderText = "Mechanic";
-            MechanicName.Name = "MechanicName";
-            MechanicName.ReadOnly = true;
-            // 
-            // CustomerName
-            // 
-            CustomerName.HeaderText = "Customer";
-            CustomerName.Name = "CustomerName";
-            CustomerName.ReadOnly = true;
+            NoServiceHistoryLbl.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            NoServiceHistoryLbl.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            NoServiceHistoryLbl.ForeColor = Color.Red;
+            NoServiceHistoryLbl.Location = new Point(0, 82);
+            NoServiceHistoryLbl.Name = "NoServiceHistoryLbl";
+            NoServiceHistoryLbl.Size = new Size(566, 23);
+            NoServiceHistoryLbl.TabIndex = 3;
+            NoServiceHistoryLbl.TextAlign = ContentAlignment.MiddleCenter;
+            NoServiceHistoryLbl.Visible = false;
             // 
             // ServiceHistoryGridView
             // 
@@ -223,6 +197,47 @@
             ServiceHistoryGridView.RowTemplate.Height = 25;
             ServiceHistoryGridView.Size = new Size(566, 188);
             ServiceHistoryGridView.TabIndex = 2;
+            ServiceHistoryGridView.Visible = false;
+            // 
+            // CustomerName
+            // 
+            CustomerName.HeaderText = "Customer";
+            CustomerName.Name = "CustomerName";
+            CustomerName.ReadOnly = true;
+            // 
+            // MechanicName
+            // 
+            MechanicName.HeaderText = "Mechanic";
+            MechanicName.Name = "MechanicName";
+            MechanicName.ReadOnly = true;
+            // 
+            // Task
+            // 
+            Task.HeaderText = "Description";
+            Task.Name = "Task";
+            Task.ReadOnly = true;
+            // 
+            // Odometer
+            // 
+            Odometer.HeaderText = "Odometer";
+            Odometer.Name = "Odometer";
+            Odometer.ReadOnly = true;
+            // 
+            // CompletionDate
+            // 
+            CompletionDate.HeaderText = "Date";
+            CompletionDate.Name = "CompletionDate";
+            CompletionDate.ReadOnly = true;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.Location = new Point(3, 0);
+            label4.Name = "label4";
+            label4.Size = new Size(142, 28);
+            label4.TabIndex = 1;
+            label4.Text = "Service History";
             // 
             // LookupCar
             // 
@@ -266,5 +281,6 @@
         private DataGridViewTextBoxColumn Task;
         private DataGridViewTextBoxColumn Odometer;
         private DataGridViewTextBoxColumn CompletionDate;
+        private Label NoServiceHistoryLbl;
     }
 }

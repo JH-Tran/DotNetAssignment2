@@ -55,7 +55,7 @@ namespace CarServiceSystem
                             }
                             else
                             {
-                                Console.WriteLine("No user found in all 3 tables");
+                                InvalidUserPassLbl.Show();
                             }
                         }
                     }
