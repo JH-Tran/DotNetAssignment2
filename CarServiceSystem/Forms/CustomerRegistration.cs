@@ -67,6 +67,8 @@ namespace CarServiceSystem.Forms
             return true;
         }
 
+
+        //Method to check if the email already exists in any of the 3 user tables
         private bool EmailExists()
         {
             using (MechanicServiceContext context = new MechanicServiceContext())

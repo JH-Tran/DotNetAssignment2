@@ -51,10 +51,13 @@ namespace CarServiceSystem.Forms
                 using (var context = new MechanicServiceContext())
                 {
                     context.Database.EnsureCreated();
-                    var car = new Car { Make = company, Model = model, Year = year, Odometer = odometer, LicenceNumber = licenceNumber, VehicleIdentificationNumber = vehicleIdentificationNumber, Owner = loggedInCustomer };
+                    var carOwner = context.Customers
+                        .Where(c => c.Email == loggedInCustomer.Email)
+                        .FirstOrDefault();
+                    var car = new Car() { Make = company, Model = model, Year = year, Odometer = odometer, LicenceNumber = licenceNumber, VehicleIdentificationNumber = vehicleIdentificationNumber, Owner = carOwner };
                     context.Cars.Add(car);
                     context.SaveChanges();
-                    completedText = $"{company} + {model} + {year}";
+                    completedText = $"{company} {model} {year}";
                 }
                 ResetTextBox();
                 informationLabel.Visible = true;

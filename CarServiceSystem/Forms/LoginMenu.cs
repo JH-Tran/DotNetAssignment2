@@ -11,7 +11,7 @@ namespace CarServiceSystem
 
         private void LoginBtn_Click(object sender, EventArgs e)
         {
-            if (!EmailManager.IsValidEmail(EmailInput.Text))
+            if (!EmailManager.IsValidEmail(EmailInput.Text) || PasswordInput.Text == string.Empty)
             {
                 InvalidUserPassLbl.Show();
             }
@@ -23,6 +23,7 @@ namespace CarServiceSystem
 
                 using (MechanicServiceContext context = new MechanicServiceContext())
                 {
+                    //First check if the user exists in customer table
                     var customer = context.Customers
                         .FirstOrDefault(c => c.Email == inputEmail && c.Password == inputPassword);
 
@@ -34,6 +35,7 @@ namespace CarServiceSystem
                     }
                     else
                     {
+                        //If not in the customer table check mechanic table
                         var mechanic = context.Mechanics
                             .FirstOrDefault(m => m.Email == inputEmail && m.Password == inputPassword);
                         if (mechanic != null)
@@ -44,6 +46,7 @@ namespace CarServiceSystem
                         }
                         else
                         {
+                            //otherwise check the admin table
                             var serviceAdmin = context.ServiceAdmins
                                 .FirstOrDefault(s => s.Email == inputEmail && s.Password == inputPassword);
 

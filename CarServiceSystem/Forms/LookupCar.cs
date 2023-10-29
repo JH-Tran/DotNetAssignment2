@@ -22,10 +22,12 @@ namespace CarServiceSystem.Forms
         {
             using (MechanicServiceContext context = new MechanicServiceContext())
             {
+                //Try retrieve the car from database using input license number
                 var returnedCar = context.Cars
                     .Include(c => c.Owner)
                     .Where(c => c.LicenceNumber == LicenceNumberInput.Text)
                     .FirstOrDefault() ?? null!;
+                //If a car was successfuly retrieved display its basic information as well as its service history
                 if (returnedCar != null)
                 {
                     CarNotFoundLbl.Hide();
@@ -40,7 +42,7 @@ namespace CarServiceSystem.Forms
                         .Include(s => s.Mechanic)
                         .Where(s => s.Car.LicenceNumber == returnedCar.LicenceNumber)
                         .ToList();
-
+                    //First checks if the car has any service history recorded in the database
                     if (serviceHistory.Count == 0)
                     {
                         NoServiceHistoryLbl.Text = "No Service History Found for Car with License Number: " + returnedCar.LicenceNumber;

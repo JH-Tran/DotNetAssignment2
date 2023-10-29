@@ -37,7 +37,7 @@
             // 
             tableLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tableLayoutPanel1.AutoScroll = true;
-            tableLayoutPanel1.BackColor = SystemColors.ActiveCaption;
+            tableLayoutPanel1.BackColor = SystemColors.Menu;
             tableLayoutPanel1.BackgroundImageLayout = ImageLayout.None;
             tableLayoutPanel1.CellBorderStyle = TableLayoutPanelCellBorderStyle.InsetDouble;
             tableLayoutPanel1.ColumnCount = 1;
