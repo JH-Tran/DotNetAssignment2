@@ -48,11 +48,12 @@
             carListFlowLayout = new FlowLayoutPanel();
             secondaryOwnersLabel = new Label();
             secondaryOwnersPanel = new Panel();
+            SecondaryOwnerError = new Label();
+            CurrentSecondaryOwnerLabel = new Label();
             label1 = new Label();
             button2 = new Button();
             textBox1 = new TextBox();
-            button1 = new Button();
-            checkedListBox1 = new CheckedListBox();
+            bookingErrorLabel = new Label();
             bookServicePanel.SuspendLayout();
             secondaryOwnersPanel.SuspendLayout();
             SuspendLayout();
@@ -167,6 +168,7 @@
             // 
             // bookServicePanel
             // 
+            bookServicePanel.Controls.Add(bookingErrorLabel);
             bookServicePanel.Controls.Add(timeComboBox);
             bookServicePanel.Controls.Add(confirmBooking);
             bookServicePanel.Controls.Add(bookingAndTimeLabel);
@@ -180,6 +182,7 @@
             // 
             // timeComboBox
             // 
+            timeComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             timeComboBox.FormattingEnabled = true;
             timeComboBox.Location = new Point(212, 83);
             timeComboBox.Name = "timeComboBox";
@@ -217,12 +220,12 @@
             // 
             // mechanicComboBox
             // 
+            mechanicComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             mechanicComboBox.FormattingEnabled = true;
             mechanicComboBox.Location = new Point(212, 16);
             mechanicComboBox.Name = "mechanicComboBox";
             mechanicComboBox.Size = new Size(250, 28);
             mechanicComboBox.TabIndex = 2;
-            mechanicComboBox.SelectedIndexChanged += mechanicComboBox_SelectedIndexChanged;
             // 
             // dateTimePicker1
             // 
@@ -237,7 +240,7 @@
             carListFlowLayout.Anchor = AnchorStyles.Top;
             carListFlowLayout.AutoScroll = true;
             carListFlowLayout.BorderStyle = BorderStyle.FixedSingle;
-            carListFlowLayout.Location = new Point(21, 69);
+            carListFlowLayout.Location = new Point(44, 69);
             carListFlowLayout.Name = "carListFlowLayout";
             carListFlowLayout.Size = new Size(731, 161);
             carListFlowLayout.TabIndex = 13;
@@ -249,26 +252,46 @@
             secondaryOwnersLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             secondaryOwnersLabel.Location = new Point(14, 490);
             secondaryOwnersLabel.Name = "secondaryOwnersLabel";
-            secondaryOwnersLabel.Size = new Size(188, 28);
+            secondaryOwnersLabel.Size = new Size(179, 28);
             secondaryOwnersLabel.TabIndex = 14;
-            secondaryOwnersLabel.Text = "Secondary Owners";
+            secondaryOwnersLabel.Text = "Secondary Owner";
             // 
             // secondaryOwnersPanel
             // 
+            secondaryOwnersPanel.Controls.Add(SecondaryOwnerError);
+            secondaryOwnersPanel.Controls.Add(CurrentSecondaryOwnerLabel);
             secondaryOwnersPanel.Controls.Add(label1);
             secondaryOwnersPanel.Controls.Add(button2);
             secondaryOwnersPanel.Controls.Add(textBox1);
-            secondaryOwnersPanel.Controls.Add(button1);
-            secondaryOwnersPanel.Controls.Add(checkedListBox1);
             secondaryOwnersPanel.Location = new Point(14, 521);
             secondaryOwnersPanel.Name = "secondaryOwnersPanel";
             secondaryOwnersPanel.Size = new Size(738, 116);
             secondaryOwnersPanel.TabIndex = 15;
             // 
+            // SecondaryOwnerError
+            // 
+            SecondaryOwnerError.AutoSize = true;
+            SecondaryOwnerError.ForeColor = Color.Red;
+            SecondaryOwnerError.Location = new Point(185, 53);
+            SecondaryOwnerError.Name = "SecondaryOwnerError";
+            SecondaryOwnerError.Size = new Size(91, 20);
+            SecondaryOwnerError.TabIndex = 6;
+            SecondaryOwnerError.Text = "Invalid Input";
+            SecondaryOwnerError.Visible = false;
+            // 
+            // CurrentSecondaryOwnerLabel
+            // 
+            CurrentSecondaryOwnerLabel.AutoSize = true;
+            CurrentSecondaryOwnerLabel.Location = new Point(92, 84);
+            CurrentSecondaryOwnerLabel.Name = "CurrentSecondaryOwnerLabel";
+            CurrentSecondaryOwnerLabel.Size = new Size(184, 20);
+            CurrentSecondaryOwnerLabel.TabIndex = 5;
+            CurrentSecondaryOwnerLabel.Text = "Current Secondary Owner: ";
+            // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(413, 30);
+            label1.Location = new Point(47, 26);
             label1.Name = "label1";
             label1.Size = new Size(49, 20);
             label1.TabIndex = 4;
@@ -276,38 +299,31 @@
             // 
             // button2
             // 
-            button2.Location = new Point(497, 84);
+            button2.Location = new Point(393, 21);
             button2.Name = "button2";
-            button2.Size = new Size(94, 29);
+            button2.Size = new Size(190, 29);
             button2.TabIndex = 3;
-            button2.Text = "Add";
+            button2.Text = "Update Secondary Owner";
             button2.UseVisualStyleBackColor = true;
             button2.Click += AddSecondaryOwners;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(461, 27);
+            textBox1.Location = new Point(102, 23);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(165, 27);
+            textBox1.Size = new Size(276, 27);
             textBox1.TabIndex = 2;
             // 
-            // button1
+            // bookingErrorLabel
             // 
-            button1.Location = new Point(240, 45);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 1;
-            button1.Text = "Delete";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += DeleteSelectedSecondaryOwners;
-            // 
-            // checkedListBox1
-            // 
-            checkedListBox1.FormattingEnabled = true;
-            checkedListBox1.Location = new Point(0, 0);
-            checkedListBox1.Name = "checkedListBox1";
-            checkedListBox1.Size = new Size(234, 114);
-            checkedListBox1.TabIndex = 0;
+            bookingErrorLabel.AutoSize = true;
+            bookingErrorLabel.ForeColor = Color.Red;
+            bookingErrorLabel.Location = new Point(367, 130);
+            bookingErrorLabel.Name = "bookingErrorLabel";
+            bookingErrorLabel.Size = new Size(191, 20);
+            bookingErrorLabel.TabIndex = 8;
+            bookingErrorLabel.Text = "Invalid Information to Book";
+            bookingErrorLabel.Visible = false;
             // 
             // ViewAllCars
             // 
@@ -330,7 +346,7 @@
             Controls.Add(carHistoryTableLayout);
             Controls.Add(myCarListLabel);
             Name = "ViewAllCars";
-            Size = new Size(761, 539);
+            Size = new Size(761, 497);
             Load += ViewAllCarsInterfaceLoad;
             bookServicePanel.ResumeLayout(false);
             bookServicePanel.PerformLayout();
@@ -363,8 +379,9 @@
         private ComboBox timeComboBox;
         private Button button2;
         private TextBox textBox1;
-        private Button button1;
-        private CheckedListBox checkedListBox1;
         private Label label1;
+        private Label SecondaryOwnerError;
+        private Label CurrentSecondaryOwnerLabel;
+        private Label bookingErrorLabel;
     }
 }
