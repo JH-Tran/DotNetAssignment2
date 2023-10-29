@@ -29,11 +29,11 @@ namespace CarServiceSystem
             //context.SaveChanges();
           
             ApplicationConfiguration.Initialize();
-            Application.Run(new LoginMenu());
+            //Application.Run(new LoginMenu());
             //Application.Run(new CustomerMainMenu());
 
             //Application.Run(new MechanicMainMenu(mechanic));
-            //Application.Run(new ServiceAdminMainMenu());
+            Application.Run(new ServiceAdminMainMenu());
         }
     }
 }
