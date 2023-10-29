@@ -24,6 +24,7 @@ namespace CarServiceSystem.Forms
             var context = new MechanicServiceContext();
             context.Database.EnsureCreated();
 
+            // Fills first listbox with mechanics from the system
             mechanicsList.BeginUpdate();
             foreach (var mech in context.Mechanics)
             {

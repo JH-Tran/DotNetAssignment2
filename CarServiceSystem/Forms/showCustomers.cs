@@ -19,6 +19,7 @@ namespace CarServiceSystem.Forms
             var context = new MechanicServiceContext();
             context.Database.EnsureCreated();
 
+            // Fills first listbox with customer emails within the system
             customerList.BeginUpdate();
             foreach (var cust in context.Customers)
             {
@@ -48,6 +49,7 @@ namespace CarServiceSystem.Forms
                                  MessageBoxButtons.YesNo,
                                  MessageBoxIcon.Question);
 
+                // If user is sure they want to delete customer, removes it from the database
                 if (result == DialogResult.Yes)
                 {
                     Customer customer = context.Customers.FirstOrDefault(c => c.Email == customerList.SelectedItem) ?? null!;

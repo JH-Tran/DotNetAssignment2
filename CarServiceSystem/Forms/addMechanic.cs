@@ -71,6 +71,7 @@ namespace CarServiceSystem.Forms
 
             if (confirmation == DialogResult.Yes)
             {
+                // Checks if any of the fields are empty, and if they are, an error window pops up
                 if (fNameTxt.Text == "" || lNameTxt.Text == "" || workshopTxt.Text == "" || emailTxt.Text == "" || passwordTxt.Text == "")
                 {
                     MessageBox.Show("One or more fields are invalid", "Invalid");
